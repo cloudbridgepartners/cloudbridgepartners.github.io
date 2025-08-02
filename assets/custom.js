@@ -81,3 +81,19 @@ form.addEventListener("submit", async function (e) {
     errorModal.show();
   }
 });
+
+  // Make the animation truly seamless
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.querySelector('.logo-track');
+    const container = document.querySelector('.logo-carousel-container');
+    track.addEventListener('animationiteration', function() {
+        if (window.getComputedStyle(track).animationPlayState !== 'paused') {
+            track.style.animation = 'none';
+            track.offsetHeight;
+            track.style.animation = 'scroll-horizontal 20s linear infinite';
+        }
+    });
+    if (window.innerWidth < 768) {
+        track.style.animationDuration = '15s';
+    }
+});
