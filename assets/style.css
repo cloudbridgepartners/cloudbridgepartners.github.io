@@ -69,9 +69,11 @@ a.quote:hover {
   background-color: var(--light-gray);
   color: var(--white);
 }
-.Navshadow{
-    box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+
+.Navshadow {
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
 }
+
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link:hover {
   color: var(--primary-color) !important;
@@ -148,7 +150,7 @@ a.quote:hover {
   border-color: #4f46e5 !important;
 }
 
-.form-floating > label {
+.form-floating>label {
   color: #6c757d;
 }
 
@@ -159,6 +161,7 @@ button {
 .navbar-brand img {
   width: 150px;
 }
+
 p.lead {
   font-weight: 500;
 }
@@ -180,6 +183,7 @@ h1.intro_title {
   background: #f0f9e68a;
   border-radius: 10px;
 }
+
 .icon-background {
   background-color: #e6f8f5;
   width: 50px;
@@ -190,77 +194,93 @@ h1.intro_title {
   align-items: center;
   justify-content: center;
 }
+
 .icon-background i {
   font-size: 1.6rem;
   color: #1abc9c;
 }
-#services, .testimonials-section {
+
+#services,
+.testimonials-section {
   background: var(--light-bg-color);
 }
 
 
 .logo-carousel-container {
-    overflow: hidden;
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .logo-track {
-    display: flex;
-    gap: 2rem;
-    padding: 1rem 0;
-    animation: scroll-horizontal 20s linear infinite;
-    will-change: transform;
-    width: max-content;
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 0;
+  animation: scroll-horizontal 20s linear infinite;
+  will-change: transform;
+  width: max-content;
 }
 
 .logo-item {
-    flex: 0 0 180px;
-    text-align: center;
-    padding: 1.5rem;
-    background: rgba(0,0,0,0.02);
-    border-radius: 8px;
-    transition: transform 0.3s ease;
+  flex: 0 0 180px;
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
+
 .logo-item img {
   border-radius: 10px;
 }
 
 .logo-item:hover {
-    transform: translateY(-5px);
-    background: rgba(0,0,0,0.05);
+  transform: translateY(-5px);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .logo-caption {
-    font-size: 0.9rem;
-    color: #666;
-    font-weight: 500;
-    margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+  margin-top: 0.75rem;
 }
 
 @keyframes scroll-horizontal {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .logo-carousel-container:hover .logo-track {
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
 
 @media (max-width: 768px) {
-    .logo-item {
-        flex: 0 0 140px;
-        padding: 1rem;
-    }
-    .logo-track {
-        animation-duration: 15s;
-    }
+  .logo-item {
+    flex: 0 0 140px;
+    padding: 1rem;
+  }
+
+  .logo-track {
+    animation-duration: 15s;
+  }
 }
 
 
+.Rates_table {
+  width: 1170px;
+  max-width: 98%;
+}
 
-
+.Rates_table {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
 
 
 
@@ -268,10 +288,16 @@ h1.intro_title {
   h1.intro_title {
     width: 100%;
   }
+
   .navbar-brand img {
     width: 120px;
   }
+
   .hero-section {
     height: 70vh;
+  }
+
+  .Rates_table {
+    max-width: 100%;
   }
 }
