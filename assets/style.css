@@ -205,6 +205,15 @@ h1.intro_title {
   background: var(--light-bg-color);
 }
 
+.Rates_table {
+  width: 1170px;
+  max-width: 98%;
+}
+
+.Rates_table {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
 
 .logo-carousel-container {
   overflow: hidden;
@@ -233,6 +242,9 @@ h1.intro_title {
 
 .logo-item img {
   border-radius: 10px;
+  height: 100px;
+  width: 100%;
+  object-fit: contain;
 }
 
 .logo-item:hover {
@@ -261,26 +273,15 @@ h1.intro_title {
   animation-play-state: paused;
 }
 
-@media (max-width: 768px) {
-  .logo-item {
-    flex: 0 0 140px;
-    padding: 1rem;
-  }
-
-  .logo-track {
-    animation-duration: 15s;
-  }
-}
 
 
-.Rates_table {
-  width: 1170px;
-  max-width: 98%;
-}
 
-.Rates_table {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-}
+
+
+
+
+
+
 
 
 

@@ -82,18 +82,21 @@ form.addEventListener("submit", async function (e) {
   }
 });
 
-  // Make the animation truly seamless
-document.addEventListener('DOMContentLoaded', function() {
-    const track = document.querySelector('.logo-track');
-    const container = document.querySelector('.logo-carousel-container');
-    track.addEventListener('animationiteration', function() {
-        if (window.getComputedStyle(track).animationPlayState !== 'paused') {
-            track.style.animation = 'none';
-            track.offsetHeight;
-            track.style.animation = 'scroll-horizontal 20s linear infinite';
-        }
-    });
-    if (window.innerWidth < 768) {
+ //logo sliding
+    document.addEventListener('DOMContentLoaded', function () {
+      const track = document.querySelector('.logo-track');
+      const logos = [...track.children];
+
+      // Clone all logos twice for smoother, seamless animation
+      for (let i = 0; i < 2; i++) {
+        logos.forEach((logo) => {
+          const clone = logo.cloneNode(true);
+          track.appendChild(clone);
+        });
+      }
+
+      // Adjust animation speed for mobile
+      if (window.innerWidth < 768) {
         track.style.animationDuration = '15s';
-    }
-});
+      }
+    });
