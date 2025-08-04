@@ -215,66 +215,88 @@ h1.intro_title {
 }
 
 
-.logo-carousel-container {
-  overflow: hidden;
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+ .logo-carousel-container {
+      overflow: hidden;
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-.logo-track {
-  display: flex;
-  gap: 2rem;
-  padding: 1rem 0;
-  animation: scroll-horizontal 20s linear infinite;
-  will-change: transform;
-  width: max-content;
-}
+    .logo-track {
+      display: flex;
+      gap: 2rem;
+      padding: 1rem 0;
+      animation: scroll-horizontal 20s linear infinite;
+      will-change: transform;
+      width: max-content;
+    }
 
-.logo-item {
-  flex: 0 0 180px;
-  text-align: center;
-  padding: 1.5rem;
-  background: rgba(0, 0, 0, 0.02);
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
+    .logo-item {
+      flex: 0 0 180px;
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.02);
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
 
-.logo-item img {
-  border-radius: 10px;
-  height: 100px;
-  width: 100%;
-  object-fit: contain;
-}
+    .logo-item img {
+      border-radius: 10px;
+      height: 60px;
+      max-width: 120px;
+      width: 100%;
+      object-fit: contain;
+    }
 
-.logo-item:hover {
-  transform: translateY(-5px);
-  background: rgba(0, 0, 0, 0.05);
-}
+    .logo-item:hover {
+      transform: translateY(-5px);
+      background: rgba(0, 0, 0, 0.05);
+    }
 
-.logo-caption {
-  font-size: 0.9rem;
-  color: #666;
-  font-weight: 500;
-  margin-top: 0.75rem;
-}
+    .logo-caption {
+      font-size: 0.9rem;
+      color: #666;
+      font-weight: 500;
+      margin-top: 0.75rem;
+    }
 
-@keyframes scroll-horizontal {
-  0% {
-    transform: translateX(0);
-  }
+    @keyframes scroll-horizontal {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
 
-  100% {
-    transform: translateX(-50%);
-  }
-}
+    .logo-carousel-container:hover .logo-track {
+      animation-play-state: paused;
+    }
 
-.logo-carousel-container:hover .logo-track {
-  animation-play-state: paused;
-}
+    @media (max-width: 768px) {
+      .logo-carousel-container {
+        display: none !important;
+      }
 
+      .static-industry-list {
+        display: block !important;
+        padding: 1.5rem;
+        background: #f9f9f9;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1rem;
+        color: #333;
+      }
 
-
+      .static-industry-list span {
+        display: inline-block;
+        margin: 0.5rem 1rem;
+      }
+    }
+    .static-industry-list {
+      display: none;
+    }
 
 
 

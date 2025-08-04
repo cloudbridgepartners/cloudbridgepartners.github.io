@@ -87,16 +87,11 @@ form.addEventListener("submit", async function (e) {
       const track = document.querySelector('.logo-track');
       const logos = [...track.children];
 
-      // Clone all logos twice for smoother, seamless animation
+      // Clone logos twice for smoother loop
       for (let i = 0; i < 2; i++) {
         logos.forEach((logo) => {
           const clone = logo.cloneNode(true);
           track.appendChild(clone);
         });
-      }
-
-      // Adjust animation speed for mobile
-      if (window.innerWidth < 768) {
-        track.style.animationDuration = '15s';
       }
     });
