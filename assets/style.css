@@ -106,7 +106,9 @@ a.quote:hover {
 #mainNavbar .navbar-toggler i {
   color: var(--black);
 }
-
+.navbar{
+ padding:0px !important
+}
 .text-primary {
   color: var(--primary-color) !important;
 }
@@ -159,7 +161,7 @@ button {
 }
 
 .navbar-brand img {
-  width: 150px;
+  width: 90px;
 }
 
 p.lead {
@@ -313,7 +315,7 @@ h1.intro_title {
   }
 
   .navbar-brand img {
-    width: 120px;
+    width: 70px;
   }
 
   .hero-section {
