@@ -17,7 +17,7 @@
 .hero-section,
 section#home.hero-section {
     background: linear-gradient(135deg, rgba(0, 102, 204, 0.9), rgba(0, 168, 232, 0.85)), 
-                url('images/hero-team.jpg') center/cover no-repeat !important;
+                url('/assets/images/hero-team.jpg') center/cover no-repeat !important;
     position: relative !important;
     overflow: hidden !important;
     padding: 6rem 2rem !important;
