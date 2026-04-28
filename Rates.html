@@ -1,261 +1,557 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rate Card — Cloud Bridge Partners</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CloudBridge Partners — Workday Technical Consulting | Integrations, Reporting & Post–Go-Live Optimization</title>
 
+<!-- Favicon -->
+<link rel="icon" href="assets/files/favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/files/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/files/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/files/android-chrome-192x192.png">
+<link rel="manifest" href="assets/files/site.webmanifest">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- SEO -->
+<meta name="description" content="CloudBridge Partners provides senior-led Workday consulting for integrations, reporting, and post–go-live optimization. We fix what AMS gets wrong—with hands-on ownership and technical depth.">
+<meta name="keywords" content="CloudBridge Partners, Workday consulting, Workday integrations, Workday reporting, Workday optimization, Workday AMS, Workday HCM, Workday post go-live, Workday tenant cleanup">
+<link rel="canonical" href="https://cloudbridgepartners.com/">
 
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cloudbridgepartners.com/">
+<meta property="og:title" content="CloudBridge Partners — Workday Technical Consulting">
+<meta property="og:description" content="Senior-led Workday consulting for integrations, reporting, and post–go-live optimization. Hands-on ownership. Technical depth first.">
 
-      <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/style.css">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://cloudbridgepartners.com/">
+<meta name="twitter:title" content="CloudBridge Partners — Workday Technical Consulting">
+<meta name="twitter:description" content="Fixing what Workday AMS gets wrong. Senior-led delivery for integrations, reporting, and post–go-live optimization.">
 
+<meta name="google-site-verification" content="Ob3X_ecdLcsvfbMY1Leszc1TuavRL2kqW-xtk0REnq4">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "CloudBridge Partners",
+  "url": "https://cloudbridgepartners.com/",
+  "logo": "https://cloudbridgepartners.com/assets/logo.png",
+  "description": "Senior-led Workday consulting for integrations, reporting, and post–go-live optimization.",
+  "sameAs": ["https://www.linkedin.com/company/cloud-bridge-partners/"]
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Figtree:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #0f2137;
+  --navy-light: #18304d;
+  --navy-faint: #f0f3f7;
+  --white: #ffffff;
+  --bg: #fafbfc;
+  --bg-warm: #f6f7f9;
+  --gray-50: #f8f9fb;
+  --gray-100: #eef0f4;
+  --gray-200: #dce0e8;
+  --gray-300: #bfc5d0;
+  --gray-400: #8f96a3;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --text: #1a1f2b;
+  --text-secondary: #4a5468;
+  --accent: #2563eb;
+  --accent-light: #eff4ff;
+  --accent-border: rgba(37,99,235,0.15);
+  --border: #e5e7eb;
+  --border-light: #f0f1f3;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  --ease: cubic-bezier(0.16,1,0.3,1);
+  --shadow-sm: 0 1px 3px rgba(15,33,55,0.04);
+  --shadow-md: 0 4px 20px rgba(15,33,55,0.06);
+  --shadow-lg: 0 12px 40px rgba(15,33,55,0.08);
+  --radius: 10px;
+  --radius-lg: 14px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--white);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+input,textarea{font-family:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 2rem}
+
+/* Typography */
+.eyebrow{font-family:var(--font-mono);font-size:0.68rem;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--accent)}
+.h-xl{font-family:var(--font-display);font-size:clamp(2rem,4.2vw,3.1rem);font-weight:400;line-height:1.15;color:var(--text);letter-spacing:-0.015em}
+.h-lg{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;line-height:1.2;color:var(--text)}
+.h-md{font-family:var(--font-body);font-size:1rem;font-weight:600;line-height:1.35;color:var(--text)}
+.t-lg{font-size:1.05rem;color:var(--text-secondary);font-weight:300;line-height:1.75}
+.t-md{font-size:0.9rem;color:var(--gray-500);font-weight:300;line-height:1.7}
+
+/* Buttons */
+.btn-navy{display:inline-flex;align-items:center;gap:0.4rem;background:var(--navy);color:var(--white);padding:0.78rem 1.6rem;border-radius:8px;font-weight:500;font-size:0.88rem;transition:transform 0.2s var(--ease),box-shadow 0.2s}
+.btn-navy:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(15,33,55,0.18)}
+.btn-outline{display:inline-flex;align-items:center;gap:0.4rem;background:transparent;color:var(--text);padding:0.78rem 1.6rem;border-radius:8px;font-weight:400;font-size:0.88rem;border:1px solid var(--border);transition:border-color 0.2s,background 0.2s}
+.btn-outline:hover{border-color:var(--gray-300);background:var(--gray-50)}
+
+/* Nav */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0.9rem 0;background:rgba(255,255,255,0.88);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid var(--border-light);transition:padding 0.3s,box-shadow 0.3s}
+.site-nav.scrolled{padding:0.55rem 0;box-shadow:var(--shadow-sm)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center}
+.nav-brand{display:flex;align-items:center;gap:0.5rem}
+.nav-brand img{height:36px;width:auto}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:0.82rem;color:var(--gray-500);font-weight:400;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+.nav-links .nav-cta{background:var(--navy);color:var(--white);padding:0.48rem 1.1rem;border-radius:6px;font-weight:500;transition:box-shadow 0.2s}
+.nav-links .nav-cta:hover{box-shadow:0 4px 16px rgba(15,33,55,0.15);color:var(--white)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;padding:4px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:190;background:var(--white);flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.2rem;color:var(--text);font-weight:400}
+.mobile-close{position:absolute;top:1rem;right:1.5rem;font-size:2rem;color:var(--gray-500)}
+
+/* Hero */
+.hero{padding:9rem 0 6rem;background:var(--white);position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;top:0;right:0;width:45%;height:100%;background:linear-gradient(135deg,var(--navy-faint) 0%,transparent 70%);pointer-events:none}
+.hero-inner{position:relative;z-index:2;max-width:680px}
+.hero .eyebrow{margin-bottom:1.25rem}
+.hero h1{margin-bottom:1.5rem}
+.hero h1 .light{color:var(--gray-400);font-weight:300}
+.hero-sub{max-width:560px;margin-bottom:2.5rem}
+.hero-ctas{display:flex;gap:0.75rem;flex-wrap:wrap}
+.hero-deco{position:absolute;top:50%;right:6%;transform:translateY(-50%);z-index:1;opacity:0.5}
+.hero-deco-line{width:1px;height:200px;background:linear-gradient(to bottom,transparent,var(--gray-200),transparent);margin:0 auto 1.5rem}
+.hero-deco-dot{width:8px;height:8px;border:1.5px solid var(--accent);border-radius:50%;margin:0 auto}
+
+/* Sections */
+.section{padding:5.5rem 0}
+.section--gray{background:var(--bg-warm)}
+.section--navy{background:var(--navy);color:var(--white)}
+.section--navy .eyebrow{color:rgba(255,255,255,0.5)}
+.section--navy .h-lg{color:var(--white)}
+.section--navy .t-lg,.section--navy .t-md{color:rgba(255,255,255,0.55)}
+.section--navy .h-md{color:var(--white)}
+.section-header{margin-bottom:3rem}
+.section-header .eyebrow{margin-bottom:0.9rem}
+.section-divider{border:none;height:1px;background:var(--border-light);margin:0}
+
+/* Problem */
+.problem-inner{max-width:760px}
+.problem-items{display:flex;flex-direction:column;gap:0.9rem;margin-bottom:2.5rem}
+.problem-item{display:flex;align-items:flex-start;gap:0.9rem;font-size:1rem;color:var(--text-secondary);font-weight:300;line-height:1.65}
+.problem-marker{flex-shrink:0;width:18px;height:18px;border-radius:4px;border:1.5px solid var(--gray-200);margin-top:0.2rem}
+.problem-anchor{border-left:3px solid var(--navy);padding-left:1.3rem;margin-top:0.5rem}
+.problem-anchor p{font-size:1.08rem;color:var(--text-secondary);font-weight:300}
+.problem-anchor strong{color:var(--text);font-weight:600}
+
+/* Services */
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem}
+.svc-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.8rem 2rem;transition:border-color 0.3s,box-shadow 0.3s,transform 0.3s var(--ease)}
+.svc-card:hover{border-color:var(--gray-200);box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.svc-icon{width:40px;height:40px;border-radius:8px;background:var(--accent-light);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.svc-icon svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.svc-card h3{margin-bottom:0.4rem}
+.svc-card-wide{grid-column:1/-1}
+.svc-wide-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:2.5rem}
+.svc-footnote{margin-top:1rem;font-size:0.82rem;color:var(--gray-500);font-weight:300;line-height:1.6;font-style:italic;border-left:2px solid var(--accent-border);padding-left:0.85rem}
+.svc-detail-list{display:flex;flex-direction:column;gap:0.55rem}
+.svc-detail-item{display:flex;align-items:flex-start;gap:0.65rem;font-size:0.86rem;color:var(--text-secondary);font-weight:300;line-height:1.55}
+.svc-detail-item strong{color:var(--text);font-weight:500}
+.svc-detail-dot{flex-shrink:0;width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:0.4;margin-top:0.42rem}
+.svc-outcome{margin-top:1rem;padding-top:0.85rem;border-top:1px solid var(--border-light);font-size:0.82rem;color:var(--accent);font-weight:500}
+
+/* Differentiators */
+.diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.diff-bar{width:24px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:1rem;opacity:0.6}
+.diff-item h3{margin-bottom:0.4rem}
+
+/* Scenarios */
+.scenario-stack{display:flex;flex-direction:column;gap:0.7rem;margin-bottom:2rem}
+.scenario-item{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.4rem 1.1rem 2.6rem;font-size:0.95rem;color:var(--text-secondary);font-weight:300;font-style:italic;position:relative}
+.scenario-item::before{content:'\201C';position:absolute;left:0.9rem;top:0.65rem;font-family:var(--font-display);font-size:1.6rem;color:var(--accent);font-style:normal;opacity:0.5;line-height:1}
+.scenarios-close{font-size:1.02rem;color:var(--text);font-weight:400}
+
+/* Testimonials */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.test-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:1.8rem}
+.test-card p{font-size:0.95rem;color:rgba(255,255,255,0.75);line-height:1.7;font-style:italic;font-weight:300;margin-bottom:1.2rem}
+.test-attr{display:flex;align-items:center;gap:0.55rem}
+.test-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.25)}
+.test-attr span{font-size:0.76rem;color:rgba(255,255,255,0.4);font-weight:400}
+
+/* Process */
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.step-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.6rem 1.5rem}
+.step-num{font-family:var(--font-mono);font-size:0.68rem;color:var(--accent);letter-spacing:0.08em;font-weight:500;margin-bottom:0.85rem}
+.step-card h3{margin-bottom:0.35rem}
+
+/* Contact */
+.cta-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.cta-text .h-lg{margin-bottom:1rem}
+.cta-text .t-lg{margin-bottom:1rem}
+.cta-trust{font-size:0.8rem;color:var(--gray-400);font-style:italic;margin-top:1rem}
+.form-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;box-shadow:var(--shadow-md)}
+.form-group{margin-bottom:1.1rem}
+.form-group label{display:block;font-size:0.76rem;font-weight:500;color:var(--gray-600);margin-bottom:0.35rem}
+.form-group input,.form-group textarea{width:100%;padding:0.7rem 0.9rem;background:var(--gray-50);border:1px solid var(--border);border-radius:7px;color:var(--text);font-size:0.88rem;font-weight:300;transition:border-color 0.2s,box-shadow 0.2s;outline:none}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--gray-400)}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-light)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-submit{width:100%;padding:0.8rem;background:var(--navy);color:var(--white);border:none;border-radius:8px;font-weight:500;font-size:0.9rem;cursor:pointer;transition:transform 0.2s var(--ease),box-shadow 0.2s}
+.form-submit:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(15,33,55,0.15)}
+.form-toast{display:none;margin-top:0.85rem;padding:0.65rem 0.85rem;border-radius:7px;font-size:0.82rem;text-align:center}
+.form-toast.success{display:block;background:#ecfdf5;color:#059669;border:1px solid #a7f3d0}
+.form-toast.error{display:block;background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
+
+/* Footer */
+.site-footer{padding:2.5rem 0 2rem;border-top:1px solid var(--border);background:var(--white)}
+.footer-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem}
+.footer-tagline{font-family:var(--font-display);font-size:0.95rem;color:var(--gray-400);font-weight:400}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:7px;border:1px solid var(--border);color:var(--gray-400);transition:border-color 0.2s,color 0.2s}
+.footer-social a:hover{border-color:var(--gray-300);color:var(--text)}
+.footer-social svg{width:15px;height:15px;fill:currentColor}
+.footer-bottom{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;padding-top:1.2rem;border-top:1px solid var(--border-light);flex-wrap:wrap}
+.footer-copy{font-size:0.74rem;color:var(--gray-400)}
+.footer-legal{font-size:0.7rem;color:var(--gray-400);max-width:480px;text-align:right;line-height:1.5;opacity:0.7}
+
+/* Back to top */
+.back-to-top{position:fixed;bottom:2rem;right:2rem;width:40px;height:40px;border-radius:8px;background:var(--white);border:1px solid var(--border);box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;color:var(--gray-500);opacity:0;pointer-events:none;transition:opacity 0.3s,transform 0.3s;z-index:100;cursor:pointer}
+.back-to-top.show{opacity:1;pointer-events:auto}
+.back-to-top:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.back-to-top svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.65s var(--ease),transform 0.65s var(--ease)}
+.reveal.vis{opacity:1;transform:translateY(0)}
+.rstagger>*{opacity:0;transform:translateY(18px);transition:opacity 0.5s var(--ease),transform 0.5s var(--ease)}
+.rstagger.vis>*:nth-child(1){transition-delay:0s}
+.rstagger.vis>*:nth-child(2){transition-delay:0.07s}
+.rstagger.vis>*:nth-child(3){transition-delay:0.14s}
+.rstagger.vis>*:nth-child(4){transition-delay:0.21s}
+.rstagger.vis>*:nth-child(5){transition-delay:0.28s}
+.rstagger.vis>*{opacity:1;transform:translateY(0)}
+.hero-fade{opacity:0;transform:translateY(20px);animation:fadeIn 0.6s var(--ease) forwards}
+.hero-fade:nth-child(1){animation-delay:0.1s}
+.hero-fade:nth-child(2){animation-delay:0.25s}
+.hero-fade:nth-child(3){animation-delay:0.4s}
+.hero-fade:nth-child(4){animation-delay:0.55s}
+@keyframes fadeIn{to{opacity:1;transform:translateY(0)}}
+
+/* Responsive */
+@media(max-width:1024px){
+  .diff-grid,.steps-grid{grid-template-columns:repeat(2,1fr)}
+  .test-grid{grid-template-columns:1fr}
+  .cta-layout{grid-template-columns:1fr;gap:2.5rem}
+  .svc-wide-layout{grid-template-columns:1fr;gap:1.5rem}
+}
+@media(max-width:768px){
+  .wrap{padding:0 1.25rem}
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+  .hero{padding:7rem 0 4rem}
+  .hero-deco{display:none}
+  .svc-grid{grid-template-columns:1fr}
+  .svc-wide-layout{grid-template-columns:1fr;gap:1.5rem}
+  .diff-grid,.steps-grid{grid-template-columns:1fr}
+  .section{padding:4rem 0}
+  .footer-top{flex-direction:column;align-items:flex-start}
+  .footer-bottom{flex-direction:column}
+  .footer-legal{text-align:left}
+}
+</style>
 </head>
 
 <body>
 
-  <main>
- <div class="Rates_table p-3 pb-5 mx-auto">
-                  <a href="index.html" class="navbar-brand fw-bold fs-4">
-                   <img src="assets/logo.png" alt="Company Logo">
-                </a>
-    <div class="text-center mb-5 mt-4">
-      <h2 class="fw-bold fs-1">Rate Card — Cloud Bridge Partners</h2>
-      <p class="text-muted">Affordable, expert-led Workday solutions with global delivery for scale and speed.</p>
+<!-- NAV -->
+<nav class="site-nav" id="siteNav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <img src="assets/logo.png" alt="CloudBridge Partners">
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#process">How We Work</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact" class="nav-cta">Book a Discussion</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-
-    <h3 class="card-title fs-4 fw-bold mb-3">Hourly Rates (USD/hour)</h3>
-    <div class="table-responsive">
-      <table class="table table-bordered table-striped">
-        <thead class="table-light">
-          <tr>
-            <th>Service Area</th>
-            <th>Rate</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Workday Integrations</td>
-            <td>$75/hr</td>
-            <td>EIB, Studio, Core Connectors</td>
-          </tr>
-          <tr>
-            <td>Workday Reporting & Analytics</td>
-            <td>$65/hr</td>
-            <td>Custom reports, dashboards, calculated fields</td>
-          </tr>
-          <tr>
-            <td>Workday Security Configuration</td>
-            <td>$65/hr</td>
-            <td>Domain, Business Process, Role setup</td>
-          </tr>
-          <tr>
-            <td>Workday HCM Functional Support</td>
-            <td>$60/hr</td>
-            <td>Core HCM, Business Processes, Staffing</td>
-          </tr>
-          <tr>
-            <td>Workday Financials Support</td>
-            <td>$75/hr</td>
-            <td>Suppliers, Expenses, Accounting, Banking</td>
-          </tr>
-          <tr>
-            <td>Workday Testing Services</td>
-            <td>$60/hr</td>
-            <td>Release and integration testing</td>
-          </tr>
-          <tr>
-            <td>Managed Support (Ongoing)</td>
-            <td>$65/hr</td>
-            <td>Long-term maintenance & admin support</td>
-          </tr>
-          <tr>
-            <td>Strategic Consulting / Design/On Going Support (US Only)</td>
-            <td>$125/hr</td>
-            <td>Solution architecture, optimization planning</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3 class="card-title fs-4 fw-bold mb-3 mt-3">Monthly Engagement Packages</h3>
-    <div class="table-responsive">
-      <table class="table table-bordered table-striped">
-        <thead class="table-light">
-          <tr>
-            <th>Package</th>
-            <th>Hours Included</th>
-            <th>Monthly Price</th>
-            <th>Best For</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Starter</td>
-            <td>20 hours</td>
-            <td>$1500/month</td>
-            <td>Small teams or ad hoc support</td>
-          </tr>
-          <tr>
-            <td>Growth</td>
-            <td>40 hours</td>
-            <td>$2500/month</td>
-            <td>Consistent support + enhancements</td>
-          </tr>
-          <tr>
-            <td>Scale</td>
-            <td>80 hours</td>
-            <td>$4500/month</td>
-            <td>Active projects + maintenance</td>
-          </tr>
-          <tr>
-            <td>Enterprise</td>
-            <td>160 hours</td>
-            <td>$8500/month</td>
-            <td>Full-time support or large project delivery</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="fst-italic small">*Unused hours do not roll over. Additional hours billed at package rate tier.</p>
-
-    <h3 class="card-title fs-4 fw-bold mb-3">Delivery Model</h3>
-    <ul>
-      <li>Global team: U.S. based leadership + offshore delivery</li>
-      <li>Designed for flexibility across time zones</li>
-      <li>We will beat any prices offered by traditional staffing firms</li>
-      <li>Note: Rates shown reflect offshore delivery. U.S. rates may vary and will be shared during engagement discussions</li>
-    </ul>
   </div>
+</nav>
 
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">&times;</button>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#approach" onclick="closeMobile()">Approach</a>
+  <a href="#process" onclick="closeMobile()">How We Work</a>
+  <a href="#testimonials" onclick="closeMobile()">Testimonials</a>
+  <a href="#contact" onclick="closeMobile()" class="btn-navy">Book a Discussion</a>
+</div>
 
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="eyebrow hero-fade">Workday Technical Consulting</div>
+      <h1 class="h-xl hero-fade">Fixing what Workday AMS gets wrong. <span class="light">Technical depth for integrations, reporting, and post–go-live optimization.</span></h1>
+      <p class="t-lg hero-sub hero-fade">When Workday environments become hard to trust—broken integrations, unreliable reporting, slow AMS response—we step in with hands-on ownership and senior-level expertise.</p>
+      <div class="hero-ctas hero-fade">
+        <a href="#contact" class="btn-navy">Schedule a Quick Assessment &rarr;</a>
+        <a href="#approach" class="btn-outline">See How We Work</a>
+      </div>
+    </div>
+    <div class="hero-deco" aria-hidden="true">
+      <div class="hero-deco-line"></div>
+      <div class="hero-deco-dot"></div>
+    </div>
+  </div>
+</section>
 
+<hr class="section-divider">
 
-<!-- CTA Section -->
-        <section id="contact" class="text-dark text-center py-5">
-            <div class="container">
-                <h2 class="fw-bold  fs-1 mb-3">Let’s talk Workday.</h2>
-                <p class="lead mx-auto mb-2 text-dark" style="max-width: 70rem;">Let’s talk Workday. Streamlined execution without sacrificing quality, timelines, or your budget.</p>
-                <div class="contact_sec mt-5">
-                    <div class="contact-form">
-                        <form id="contactForm" action="https://formspree.io/f/xvgqwoge" method="POST">
+<!-- PROBLEM -->
+<section class="section section--gray">
+  <div class="wrap">
+    <div class="problem-inner reveal">
+      <div class="eyebrow">The real issue</div>
+      <h2 class="h-lg" style="margin:0.9rem 0 2.2rem">Most Workday issues aren't new—they're inherited.</h2>
+      <div class="problem-items">
+        <div class="problem-item"><span class="problem-marker"></span><span>Integrations that "work" but break under pressure</span></div>
+        <div class="problem-item"><span class="problem-marker"></span><span>Reports leadership doesn't fully trust</span></div>
+        <div class="problem-item"><span class="problem-marker"></span><span>AMS support that responds, but doesn't resolve</span></div>
+        <div class="problem-item"><span class="problem-marker"></span><span>Teams expected to own a system they didn't build</span></div>
+      </div>
+      <div class="problem-anchor">
+        <p>Nothing is completely broken. But nothing is reliable either.<br><strong>That's where we operate.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
 
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Your Name"
-                                    required>
-                                <label for="name">Name</label>
-                            </div>
-
-                            <div class="form-floating mb-3">
-                                <input type="email" class="form-control" name="email" id="email"
-                                    placeholder="name@example.com" required>
-                                <label for="email">Email address</label>
-                            </div>
-
-                            <div class="form-floating mb-4">
-                                <textarea class="form-control" name="message" placeholder="Your message" id="message"
-                                    style="height: 120px" required></textarea>
-                                <label for="message">Message</label>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary p-2 w-100">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-        </section>
-
-
-        <section>
-        <!-- Success Modal -->
-        <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content border-0 shadow">
-                    <div class="modal-header bg-success text-white">
-                        <h5 class="modal-title">Message Sent</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        Your message has been sent successfully.
-                    </div>
-                </div>
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="eyebrow">What we do</div>
+      <h2 class="h-lg" style="margin-top:0.9rem">We don't provide resources. We solve specific problems.</h2>
+    </div>
+    <div class="svc-grid rstagger">
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4z"/><path d="M14 4h6v6h-6z"/><path d="M4 14h6v6H4z"/><path d="M17 14v6M14 17h6"/></svg></div>
+        <h3 class="h-md">Integration Stability &amp; Optimization</h3>
+        <p class="t-md">Fix unreliable integrations, reduce failures, and improve long-term maintainability.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-6 4 4 5-8"/></svg></div>
+        <h3 class="h-md">Reporting &amp; Data Confidence</h3>
+        <p class="t-md">Build reporting your business can actually trust—clean logic, consistent outputs, and performance optimized.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
+        <h3 class="h-md">Tenant Cleanup &amp; Post–Go-Live Stabilization</h3>
+        <p class="t-md">Untangle years of layered configurations and bring clarity back to your environment.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3 class="h-md">Targeted Technical Projects</h3>
+        <p class="t-md">Short, high-impact engagements where depth matters more than headcount.</p>
+      </div>
+      <div class="svc-card svc-card-wide">
+        <div class="svc-wide-layout">
+          <div>
+            <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h9"/></svg></div>
+            <h3 class="h-md">Testing &amp; Release Confidence</h3>
+            <p class="t-md">Prevent regressions across releases, integrations, and business processes—before they impact users.</p>
+            <p class="svc-footnote">Most testing misses the real risk—how integrations, reports, and business processes behave together. That's where we focus.</p>
+          </div>
+          <div>
+            <div class="svc-detail-list">
+              <div class="svc-detail-item"><span class="svc-detail-dot"></span><span><strong>Release readiness (R1/R2)</strong> — targeted impact analysis and focused regression where it matters</span></div>
+              <div class="svc-detail-item"><span class="svc-detail-dot"></span><span><strong>Integration testing</strong> — validate end-to-end flows, edge cases, and failure handling</span></div>
+              <div class="svc-detail-item"><span class="svc-detail-dot"></span><span><strong>Business process validation</strong> — ensure condition rules, approvals, and downstream effects behave as intended</span></div>
+              <div class="svc-detail-item"><span class="svc-detail-dot"></span><span><strong>Data &amp; report validation</strong> — reconcile outputs so leadership can trust what they're seeing</span></div>
+              <div class="svc-detail-item"><span class="svc-detail-dot"></span><span><strong>Defect triage &amp; resolution</strong> — fast root-cause, not ticket ping-pong</span></div>
+              <div class="svc-detail-item"><span class="svc-detail-dot"></span><span><strong>Selective automation</strong> — repeatable checks for high-risk areas, where it adds real value</span></div>
             </div>
+            <p class="svc-outcome">Fewer production issues, predictable releases, and confidence that changes won't break critical workflows.</p>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Error Modal -->
-        <div class="modal fade" id="errorModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content border-0 shadow">
-                    <div class="modal-header bg-danger text-white">
-                        <h5 class="modal-title">Error</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        Something went wrong. Please try again.
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        </section>
+<hr class="section-divider">
 
+<!-- DIFFERENTIATORS -->
+<section class="section section--gray" id="approach">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="eyebrow">How we're different</div>
+      <h2 class="h-lg" style="margin-top:0.9rem">Built for depth, not volume.</h2>
+    </div>
+    <div class="diff-grid rstagger">
+      <div class="diff-item">
+        <div class="diff-bar"></div>
+        <h3 class="h-md">Senior-led delivery</h3>
+        <p class="t-md">You work directly with experienced practitioners—not layers of handoffs.</p>
+      </div>
+      <div class="diff-item">
+        <div class="diff-bar"></div>
+        <h3 class="h-md">Real ownership</h3>
+        <p class="t-md">We don't operate on ticket queues. We take responsibility for outcomes.</p>
+      </div>
+      <div class="diff-item">
+        <div class="diff-bar"></div>
+        <h3 class="h-md">Technical depth first</h3>
+        <p class="t-md">Our focus is where most teams struggle—integrations, reporting, and data architecture.</p>
+      </div>
+      <div class="diff-item">
+        <div class="diff-bar"></div>
+        <h3 class="h-md">Efficient delivery model</h3>
+        <p class="t-md">Behind the scenes, we leverage a global team to execute efficiently—without compromising quality or accountability.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- SCENARIOS -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="eyebrow">When clients bring us in</div>
+      <h2 class="h-lg" style="margin-top:0.9rem">Sound familiar?</h2>
+    </div>
+    <div class="scenario-stack rstagger">
+      <div class="scenario-item">Our integrations keep breaking and no one owns them end-to-end.</div>
+      <div class="scenario-item">We don't trust our reports enough to make decisions.</div>
+      <div class="scenario-item">AMS is responsive, but not solving the real issues.</div>
+      <div class="scenario-item">We inherited this tenant and don't fully understand it.</div>
+    </div>
+    <p class="scenarios-close reveal">If this sounds familiar, you're in the right place.</p>
+  </div>
+</section>
 
-  </main>
+<!-- TESTIMONIALS -->
+<section class="section section--navy" id="testimonials">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="eyebrow">What clients say</div>
+      <h2 class="h-lg" style="margin-top:0.9rem">Trust earned, not claimed.</h2>
+    </div>
+    <div class="test-grid rstagger">
+      <div class="test-card">
+        <p>"They took ownership immediately and fixed issues our previous partner couldn't resolve."</p>
+        <div class="test-attr"><span class="test-dot"></span><span>Director of HRIS — US Asset Management Firm</span></div>
+      </div>
+      <div class="test-card">
+        <p>"For the first time, we have confidence in our integrations and reporting."</p>
+        <div class="test-attr"><span class="test-dot"></span><span>Enterprise Program Manager — Manufacturing</span></div>
+      </div>
+      <div class="test-card">
+        <p>"Clear, direct, and technically strong—no handholding required."</p>
+        <div class="test-attr"><span class="test-dot"></span><span>Director of Finance Systems — Healthcare</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- PROCESS -->
+<section class="section section--gray" id="process">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="eyebrow">How we work</div>
+      <h2 class="h-lg" style="margin-top:0.9rem">From diagnosis to stability.</h2>
+    </div>
+    <div class="steps-grid rstagger">
+      <div class="step-card"><div class="step-num">01</div><h3 class="h-md">Assess quickly</h3><p class="t-md">Identify root causes, not just symptoms.</p></div>
+      <div class="step-card"><div class="step-num">02</div><h3 class="h-md">Prioritize impact</h3><p class="t-md">Focus on what actually affects your business.</p></div>
+      <div class="step-card"><div class="step-num">03</div><h3 class="h-md">Execute with ownership</h3><p class="t-md">Small, accountable team. No handoffs.</p></div>
+      <div class="step-card"><div class="step-num">04</div><h3 class="h-md">Stabilize long-term</h3><p class="t-md">Not just fixes, but maintainable solutions.</p></div>
+    </div>
+  </div>
+</section>
 
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="cta-layout">
+      <div class="cta-text reveal">
+        <div class="eyebrow">Let's talk</div>
+        <h2 class="h-lg" style="margin-top:0.9rem">If something in your Workday environment isn't working the way it should—let's look at it.</h2>
+        <p class="t-lg">No long sales cycle. No generic proposals. Just a direct conversation about what's actually going on.</p>
+        <p class="cta-trust">Typically responds within one business day.</p>
+      </div>
+      <div class="form-card reveal">
+        <form id="contactForm" action="https://formspree.io/f/xvgqwoge" method="POST">
+          <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your name" required></div>
+          <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="you@company.com" required></div>
+          <div class="form-group"><label for="message">What's going on?</label><textarea id="message" name="message" placeholder="Tell us briefly about the challenge you're facing..." required></textarea></div>
+          <button type="submit" class="form-submit">Send Message</button>
+          <div class="form-toast" id="formToast"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-tagline">Maximize Impact. Eliminate Unnecessary Spend.</div>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/cloud-bridge-partners/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 CloudBridge Partners. All Rights Reserved.</div>
+      <div class="footer-legal">CloudBridge Partners is an independent consulting firm and is not affiliated with, endorsed by, or sponsored by Workday, Inc. Workday&reg; is a registered trademark of Workday, Inc.</div>
+    </div>
+  </div>
+</footer>
+
+<div class="back-to-top" id="backToTop">
+  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</div>
 
 <script>
-  // --- contact---
-const form = document.getElementById("contactForm");
-const successModal = new bootstrap.Modal(
-  document.getElementById("successModal")
-);
-const errorModal = new bootstrap.Modal(document.getElementById("errorModal"));
-
-form.addEventListener("submit", async function (e) {
-  e.preventDefault();
-  const formData = new FormData(form);
-  try {
-    const response = await fetch(form.action, {
-      method: "POST",
-      body: formData,
-      headers: { Accept: "application/json" },
-    });
-
-    if (response.ok) {
-      form.reset();
-      successModal.show();
-    } else {
-      errorModal.show();
-    }
-  } catch (error) {
-    errorModal.show();
-  }
+const nav=document.getElementById('siteNav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>50),{passive:true});
+document.getElementById('navToggle').addEventListener('click',()=>document.getElementById('mobileMenu').classList.add('open'));
+document.getElementById('mobileClose').addEventListener('click',()=>document.getElementById('mobileMenu').classList.remove('open'));
+function closeMobile(){document.getElementById('mobileMenu').classList.remove('open')}
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')})},{threshold:0.1});
+document.querySelectorAll('.reveal,.rstagger').forEach(el=>obs.observe(el));
+const btt=document.getElementById('backToTop');
+window.addEventListener('scroll',()=>btt.classList.toggle('show',scrollY>400),{passive:true});
+btt.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+const form=document.getElementById('contactForm'),toast=document.getElementById('formToast');
+form.addEventListener('submit',async e=>{
+  e.preventDefault();toast.className='form-toast';toast.style.display='none';
+  try{const r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+  if(r.ok){toast.textContent="Message sent. We'll be in touch soon.";toast.className='form-toast success';form.reset()}else throw 0}
+  catch{toast.textContent='Something went wrong. Please try again.';toast.className='form-toast error'}
 });
-
-</script>
-
-
-
-
-
-
-
-
-
-<!------ animation active js------->
-<script>
-  new WOW().init();
 </script>
 
 </body>
