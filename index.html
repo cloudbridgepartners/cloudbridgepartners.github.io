@@ -13,7 +13,7 @@
 <link rel="manifest" href="assets/files/site.webmanifest">
 
 <!-- SEO -->
-<meta name="description" content="CloudBridge Partners provides senior-led Workday® consulting for integrations, reporting, and post–go-live optimization. We fix what AMS gets wrong—with hands-on ownership and technical depth.">
+<meta name="description" content="CloudBridge Partners provides senior-led Workday® expertise for reporting, integrations, security, and post-go-live optimization. We help Workday teams move forward—not just keep running.">
 <meta name="keywords" content="CloudBridge Partners, Workday® consulting, Workday® integrations, Workday® reporting, Workday® optimization, Workday® AMS, Workday® HCM, Workday® post go-live, Workday® tenant cleanup">
 <link rel="canonical" href="https://cloudbridgepartners.com/">
 <meta property="og:type" content="website">
@@ -23,7 +23,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://cloudbridgepartners.com/">
 <meta name="twitter:title" content="CloudBridge Partners — Workday® Technical Consulting">
-<meta name="twitter:description" content="Fixing what Workday® AMS gets wrong. Senior-led delivery for integrations, reporting, and post–go-live optimization.">
+<meta name="twitter:description" content="Your AMS keeps Workday running. We help move it forward. Senior-led expertise for reporting, integrations, security, and optimization.">
 <meta name="google-site-verification" content="Ob3X_ecdLcsvfbMY1Leszc1TuavRL2kqW-xtk0REnq4">
 
 <script type="application/ld+json">
@@ -227,6 +227,22 @@ input,textarea{font-family:inherit}
 .ams-list-marker-green{background:#059669;opacity:0.4}
 
 /* ═══════════════════════════════════════════
+   FOUNDER
+   ═══════════════════════════════════════════ */
+.founder-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:48px;align-items:start}
+.founder-photo{width:100%;max-width:280px;aspect-ratio:1;border-radius:50%;object-fit:cover;border:1px solid var(--border)}
+.founder-name{font-size:22px;font-weight:700;color:var(--text-dark);margin-top:20px}
+.founder-title{font-size:15px;color:var(--text-sec);font-weight:400;margin-top:2px}
+.founder-bio{font-size:15px;color:var(--text-sec);font-weight:400;line-height:1.7;margin-top:14px}
+.founder-linkedin{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:14px;font-weight:600;color:var(--accent);transition:gap 0.2s}
+.founder-linkedin:hover{gap:12px}
+.founder-linkedin svg{width:16px;height:16px;fill:var(--accent)}
+.founder-posts-label{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-400);margin-bottom:14px}
+.founder-posts{display:flex;flex-direction:column;gap:16px}
+.founder-post-embed{width:100%;border-radius:var(--r);overflow:hidden;border:1px solid var(--border)}
+.founder-post-embed iframe{width:100%;border:none;display:block}
+
+/* ═══════════════════════════════════════════
    SCENARIOS
    ═══════════════════════════════════════════ */
 .scenario-stack{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
@@ -316,6 +332,7 @@ input,textarea{font-family:inherit}
 .hero-fade:nth-child(2){animation-delay:0.25s}
 .hero-fade:nth-child(3){animation-delay:0.4s}
 .hero-fade:nth-child(4){animation-delay:0.55s}
+.hero-fade:nth-child(5){animation-delay:0.7s}
 @keyframes fadeIn{to{opacity:1;transform:translateY(0)}}
 
 /* Responsive */
@@ -324,6 +341,8 @@ input,textarea{font-family:inherit}
   .hero-diagram{max-width:380px;margin:0 auto}
   .diff-grid,.steps-grid{grid-template-columns:repeat(2,1fr)}
   .test-grid,.ams-grid,.fit-grid{grid-template-columns:1fr}
+  .founder-grid{grid-template-columns:1fr;gap:32px}
+  .founder-photo{max-width:200px}
   .cta-layout{grid-template-columns:1fr;gap:40px}
   .svc-wide-layout{grid-template-columns:1fr;gap:24px}
 }
@@ -357,6 +376,7 @@ input,textarea{font-family:inherit}
         <a href="#approach">Approach</a>
         <a href="#process">How We Work</a>
         <a href="#testimonials">Testimonials</a>
+        <a href="#founder">About</a>
         <a href="#contact" class="nav-cta">Book a Discussion</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -369,6 +389,7 @@ input,textarea{font-family:inherit}
   <a href="#approach" onclick="closeMobile()">Approach</a>
   <a href="#process" onclick="closeMobile()">How We Work</a>
   <a href="#testimonials" onclick="closeMobile()">Testimonials</a>
+  <a href="#founder" onclick="closeMobile()">About</a>
   <a href="#contact" onclick="closeMobile()" class="btn-primary">Book a Discussion</a>
 </div>
 
@@ -378,8 +399,9 @@ input,textarea{font-family:inherit}
     <div class="hero-grid">
       <div class="hero-content">
         <div class="eyebrow hero-fade">Workday&reg; Technical Consulting</div>
-        <h1 class="h-xl hero-fade">Fixing what Workday® AMS gets wrong. <span class="light">Technical depth for integrations, reporting, and post–go-live optimization.</span></h1>
-        <p class="t-lg hero-sub hero-fade">When Workday® environments become hard to trust—broken integrations, unreliable reporting, slow AMS response—we step in with hands-on ownership and senior-level expertise.</p>
+        <h1 class="h-xl hero-fade">Your AMS keeps Workday running. <span class="light">We help move Workday forward.</span></h1>
+        <p class="t-lg hero-sub hero-fade" style="color:var(--text-dark);font-weight:500;font-size:19px;margin-bottom:14px">Senior-led expertise for reporting, integrations, security, and post-go-live optimization.</p>
+        <p class="t-lg hero-fade" style="max-width:580px;margin-bottom:32px">Whether you're working with an AMS provider or operating with a lean HRIS team, CloudBridge helps complete the reporting, integration, security, and optimization initiatives that keep getting pushed down the priority list.</p>
         <div class="hero-ctas hero-fade">
           <a href="#contact" class="btn-primary btn-primary-lg">Get a Quick Assessment &rarr;</a>
           <a href="#approach" class="btn-outline">See How We Work</a>
@@ -622,6 +644,42 @@ input,textarea{font-family:inherit}
       <div class="scenario-item">We inherited this tenant and don't fully understand it.</div>
     </div>
     <p class="scenarios-close reveal">If this sounds familiar, you're in the right place.</p>
+  </div>
+</section>
+
+<!-- ════════ FOUNDER ════════ -->
+<section class="section" id="founder">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div class="reveal">
+        <img src="assets/images/anand.jpg" alt="Anand Tripathi — Founder, CloudBridge Partners" class="founder-photo"><!-- EDIT: photo path -->
+        <div class="founder-name">Anand Tripathi</div>
+        <div class="founder-title">Founder, CloudBridge Partners</div>
+        <p class="founder-bio">I've spent more than 12 years in the Workday ecosystem, leading projects for organizations ranging from a few hundred employees to over 120,000 across North America, EMEA, Asia, and Latin America. Unlike many firm owners, I still do the work myself—designing integrations, building reports, solving complex problems, and working directly with clients.</p>
+        <p class="founder-bio" style="margin-top:12px">I founded CloudBridge because I kept seeing the same challenge: organizations invest in Workday but struggle to realize its full value. Internal teams are stretched thin, AMS providers are focused on support, and important initiatives keep getting pushed aside.</p>
+        <p class="founder-bio" style="margin-top:12px">CloudBridge exists to close that gap—providing senior-level expertise in Workday Integrations, Reporting, Security, Testing, and Optimization to help organizations get more from their investment.</p>
+        <a href="https://www.linkedin.com/in/atripathi9/" target="_blank" rel="noopener noreferrer" class="founder-linkedin"><!-- EDIT: your LinkedIn profile URL -->
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Connect on LinkedIn
+        </a>
+      </div>
+      <div class="reveal">
+        <div class="founder-posts-label">Recent Posts</div>
+        <div class="founder-posts">
+
+          <!-- POST 1 — Replace src with your embed URL -->
+          <div class="founder-post-embed">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7462637685652758528?collapsed=1" height="400" frameborder="0" allowfullscreen="" title="Workday Insights"></iframe>
+          </div>
+
+          <!-- POST 2 — Replace src with your embed URL -->
+          <div class="founder-post-embed">
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7463421935067025408?collapsed=1" height="400" frameborder="0" allowfullscreen="" title="Enterprise Technology Insights"></iframe>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
