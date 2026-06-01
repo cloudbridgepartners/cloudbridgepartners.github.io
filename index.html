@@ -375,6 +375,131 @@ input,textarea{font-family:inherit}
   .footer-legal{text-align:left}
 }
 </style>
+
+<style>
+/* === CloudBridge UI Patch === */
+
+/* 1. TESTIMONIALS — left accent bar, better attribution contrast */
+.test-card {
+  padding: 28px 28px 24px !important;
+  background: rgba(255,255,255,0.11) !important;
+  border-color: rgba(255,255,255,0.15) !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.test-card p {
+  font-size: 16px !important;
+  line-height: 1.75 !important;
+  flex: 1;
+  margin-bottom: 20px !important;
+}
+.test-dot { display: none !important; }
+.test-attr {
+  margin-top: 20px !important;
+  padding: 0 0 0 14px !important;
+  border-top: none !important;
+  border-left: 2px solid rgba(37,99,235,0.6) !important;
+}
+.test-attr span {
+  font-size: 13px !important;
+  color: rgba(255,255,255,0.7) !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+}
+
+/* 2. RECENT THINKING — remove boxy card, clean list with left rule */
+.founder-quote {
+  background: transparent !important;
+  border: none !important;
+  border-left: 3px solid var(--accent) !important;
+  border-radius: 0 !important;
+  padding: 14px 40px 14px 18px !important;
+  font-size: 15px !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  color: var(--text-dark) !important;
+  line-height: 1.5 !important;
+  position: relative !important;
+  transition: border-color 0.2s, padding-left 0.2s !important;
+}
+.founder-quote:hover {
+  border-left-color: var(--navy) !important;
+  padding-left: 24px !important;
+}
+.founder-quote::before { display: none !important; }
+.founder-quote::after {
+  content: '→';
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: var(--accent);
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-style: normal;
+}
+.founder-quote:hover::after { opacity: 1 !important; }
+.founder-cta {
+  font-weight: 600 !important;
+  border-bottom: 1px solid var(--accent-light) !important;
+  padding-bottom: 2px !important;
+  margin-top: 24px !important;
+}
+
+/* 3. SOUND FAMILIAR — open list, no cards */
+.scenario-stack { gap: 0 !important; border-top: 1px solid var(--border); margin-bottom: 32px !important; }
+.scenario-item {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  padding: 18px 0 !important;
+  font-size: 17px !important;
+  color: var(--text-dark) !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+  transition: padding-left 0.2s var(--ease), color 0.2s !important;
+}
+.scenario-item::before { display: none !important; }
+.scenario-item:hover {
+  padding-left: 12px !important;
+  color: var(--navy) !important;
+}
+
+/* 4. HERO DIAGRAM — reduce visual competition with headline */
+.hero-diagram {
+  opacity: 0.65 !important;
+  background: var(--light-gray) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+}
+
+/* 5. FORM SUBMIT — navy instead of generic blue */
+.form-submit {
+  background: var(--navy) !important;
+  letter-spacing: 0.01em !important;
+}
+.form-submit:hover {
+  background: #0d2d52 !important;
+  box-shadow: 0 6px 24px rgba(11,31,58,0.2) !important;
+}
+
+/* 6. INDUSTRY TAGS — slightly more presence */
+.cred-tag {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: var(--navy) !important;
+  padding: 5px 16px !important;
+  transition: border-color 0.2s, color 0.2s;
+}
+.cred-tag:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+}
+
+</style>
 </head>
 
 <body>
@@ -390,7 +515,7 @@ input,textarea{font-family:inherit}
         <a href="#process">How We Work</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#founder">About Us</a>
-        <a href="#contact" class="nav-cta">Book a Discussion</a>
+        <a href="#contact" class="nav-cta">Book a Call</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -403,7 +528,7 @@ input,textarea{font-family:inherit}
   <a href="#process" onclick="closeMobile()">How We Work</a>
   <a href="#testimonials" onclick="closeMobile()">Testimonials</a>
   <a href="#founder" onclick="closeMobile()">About Us</a>
-  <a href="#contact" onclick="closeMobile()" class="btn-primary">Book a Discussion</a>
+  <a href="#contact" onclick="closeMobile()" class="btn-primary">Book a Call</a>
 </div>
 
 <!-- ════════ HERO — #1: Integration flow diagram ════════ -->
@@ -416,7 +541,7 @@ input,textarea{font-family:inherit}
         <p class="t-lg hero-sub hero-fade" style="color:var(--text-dark);font-weight:500;font-size:19px;margin-bottom:14px">Senior-led expertise for reporting, integrations, security, and post-go-live optimization.</p>
         <p class="t-lg hero-fade" style="max-width:580px;margin-bottom:32px">Whether you're working with an AMS provider or operating with a lean HRIS team, CloudBridge helps complete the reporting, integration, security, and optimization initiatives that keep getting pushed down the priority list.</p>
         <div class="hero-ctas hero-fade">
-          <a href="#contact" class="btn-primary btn-primary-lg">Get a Quick Assessment &rarr;</a>
+          <a href="#contact" class="btn-primary btn-primary-lg">Book a Call &rarr;</a>
           <a href="#approach" class="btn-outline">See How We Work</a>
         </div>
       </div>
@@ -786,7 +911,7 @@ input,textarea{font-family:inherit}
           <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your name" required></div>
           <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="you@company.com" required></div>
           <div class="form-group"><label for="message">What's going on?</label><textarea id="message" name="message" placeholder="Tell us briefly about the challenge you're facing..." required></textarea></div>
-          <button type="submit" class="form-submit">Get a Quick Assessment</button>
+          <button type="submit" class="form-submit">Book a Call</button>
           <p class="form-submit-sub">No commitment. No pitch deck.</p>
           <div class="form-toast" id="formToast"></div>
         </form>
