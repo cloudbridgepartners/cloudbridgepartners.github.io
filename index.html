@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CloudBridge Partners — Workday® Technical Consulting | Integrations, Reporting & Post–Go-Live Optimization</title>
+<title>CloudBridge Partners — Workday® Expert Services | Implementation, Optimization & Support</title>
 
 <!-- Favicon -->
 <link rel="icon" href="assets/files/favicon.ico" type="image/x-icon">
@@ -13,17 +13,17 @@
 <link rel="manifest" href="assets/files/site.webmanifest">
 
 <!-- SEO -->
-<meta name="description" content="CloudBridge Partners provides senior-led Workday® expertise for reporting, integrations, security, and post-go-live optimization. We help Workday teams move forward—not just keep running.">
+<meta name="description" content="Senior-led Workday® expertise for implementation, optimization, testing, security, integrations, reporting, automation, and ongoing support.">
 <meta name="keywords" content="CloudBridge Partners, Workday® consulting, Workday® integrations, Workday® reporting, Workday® optimization, Workday® AMS, Workday® HCM, Workday® post go-live, Workday® tenant cleanup">
 <link rel="canonical" href="https://cloudbridgepartners.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cloudbridgepartners.com/">
-<meta property="og:title" content="CloudBridge Partners — Workday® Technical Consulting">
-<meta property="og:description" content="Senior-led Workday® consulting for integrations, reporting, and post–go-live optimization. Hands-on ownership. Technical depth first.">
+<meta property="og:title" content="CloudBridge Partners — Workday® Expert Services">
+<meta property="og:description" content="Senior-led Workday® expertise for implementation, optimization, testing, security, integrations, reporting, automation, and ongoing support.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://cloudbridgepartners.com/">
-<meta name="twitter:title" content="CloudBridge Partners — Workday® Technical Consulting">
-<meta name="twitter:description" content="Your AMS keeps Workday running. We help move it forward. Senior-led expertise for reporting, integrations, security, and optimization.">
+<meta name="twitter:title" content="CloudBridge Partners — Workday® Expert Services">
+<meta name="twitter:description" content="Senior-led Workday® expertise for implementation, optimization, testing, security, integrations, reporting, automation, and ongoing support.">
 <meta name="google-site-verification" content="Ob3X_ecdLcsvfbMY1Leszc1TuavRL2kqW-xtk0REnq4">
 
 <script type="application/ld+json">
@@ -33,7 +33,7 @@
   "name": "CloudBridge Partners",
   "url": "https://cloudbridgepartners.com/",
   "logo": "https://cloudbridgepartners.com/assets/logo.png",
-  "description": "Senior-led Workday® consulting for integrations, reporting, and post–go-live optimization.",
+  "description": "Senior-led Workday expertise for implementation, optimization, testing, security, integrations, reporting, automation, and ongoing support.",
   "sameAs": ["https://www.linkedin.com/company/cloud-bridge-partners/"]
 }
 </script>
@@ -329,6 +329,44 @@ input,textarea{font-family:inherit}
 .back-to-top:hover{transform:translateY(-2px);box-shadow:var(--sh-md);color:var(--accent)}
 .back-to-top svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
 
+.process-sub-divider{height:1px;background:var(--border);margin:64px 0}
+
+/* ═══════════════════════════════════════════
+   WHO WE SERVE
+   ═══════════════════════════════════════════ */
+.who-we-serve{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:32px 36px;margin-top:32px;display:flex;align-items:flex-start;gap:48px;flex-wrap:wrap}
+.who-list{list-style:none;display:flex;flex-wrap:wrap;gap:10px 24px;margin:0;padding:0}
+.who-list li{font-size:14px;color:var(--text-sec);padding-left:18px;position:relative;line-height:1.5}
+.who-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:12px;top:1px}
+
+/* ═══════════════════════════════════════════
+   METHODOLOGY
+   ═══════════════════════════════════════════ */
+.methodology-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.method-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:var(--card-pad);transition:border-color 0.3s,box-shadow 0.3s,transform 0.3s var(--ease)}
+.method-card:hover{border-color:var(--accent);box-shadow:var(--sh-md);transform:translateY(-3px)}
+.method-num{font-family:var(--mono);font-size:0.72rem;font-weight:500;letter-spacing:0.12em;color:var(--accent);margin-bottom:10px}
+.method-card .h-md{margin-bottom:6px}
+
+/* ═══════════════════════════════════════════
+   WHAT WE DO DIFFERENTLY
+   ═══════════════════════════════════════════ */
+.differently-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.differently-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:var(--card-pad);border-top:3px solid var(--accent);transition:box-shadow 0.3s}
+.differently-card:hover{box-shadow:var(--sh-md)}
+.differently-tag{font-family:var(--mono);font-size:0.72rem;font-weight:500;letter-spacing:0.12em;color:var(--accent);margin-bottom:12px}
+.differently-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.differently-list li{font-size:14px;color:var(--text-sec);line-height:1.55;padding-left:16px;position:relative}
+.differently-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:12px}
+
+@media(max-width:1024px){
+  .methodology-grid{grid-template-columns:repeat(2,1fr)}
+  .differently-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .methodology-grid{grid-template-columns:1fr}
+}
+
 /* Reveal */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.65s var(--ease),transform 0.65s var(--ease)}
 .reveal.vis{opacity:1;transform:translateY(0)}
@@ -512,9 +550,9 @@ input,textarea{font-family:inherit}
       <div class="nav-links">
         <a href="#services">Services</a>
         <a href="#approach">Approach</a>
-        <a href="#process">How We Work</a>
-        <a href="#testimonials">Testimonials</a>
         <a href="#founder">About Us</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#process">How We Work</a>
         <a href="#contact" class="nav-cta">Send a Message</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -536,78 +574,105 @@ input,textarea{font-family:inherit}
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-content">
-        <div class="eyebrow hero-fade">Workday&reg; Technical Consulting</div>
+        <div class="eyebrow hero-fade">Workday Expert Services</div>
         <h1 class="h-xl hero-fade">Your AMS keeps Workday running. <span class="light">We help move Workday forward.</span></h1>
-        <p class="t-lg hero-sub hero-fade" style="color:var(--text-dark);font-weight:500;font-size:19px;margin-bottom:14px">Senior-led expertise for reporting, integrations, security, and post-go-live optimization.</p>
-        <p class="t-lg hero-fade" style="max-width:580px;margin-bottom:32px">Whether you're working with an AMS provider or operating with a lean HRIS team, CloudBridge helps complete the reporting, integration, security, and optimization initiatives that keep getting pushed down the priority list.</p>
+        <p class="t-lg hero-sub hero-fade" style="color:var(--text-dark);font-weight:500;font-size:19px;margin-bottom:14px">Senior-led Workday expertise for implementation, optimization, support, testing, security, automation, and platform enhancements.</p>
+        <p class="t-lg hero-fade" style="max-width:580px;margin-bottom:32px">Whether you're working with an AMS provider or operating with a lean HRIS team, CloudBridge helps deliver the Workday initiatives that keep getting pushed down the priority list. From platform transformation and testing to security, automation, optimization, and technical delivery, we help teams move Workday forward.</p>
         <div class="hero-ctas hero-fade">
           <a href="#contact" class="btn-primary btn-primary-lg">Send a Message &rarr;</a>
           <a href="#approach" class="btn-outline">See How We Work</a>
         </div>
       </div>
       <div class="hero-diagram hero-fade" aria-hidden="true">
-        <!-- Abstract integration flow diagram -->
-        <svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- HCM Source node -->
-          <rect x="20" y="30" width="110" height="52" rx="8" class="diagram-node"/>
-          <text x="75" y="52" text-anchor="middle" class="diagram-text">HCM Core</text>
-          <text x="75" y="66" text-anchor="middle" class="diagram-text-sm">Worker Data</text>
+        <!-- Workday ecosystem diagram styled after Workday's own module map -->
+        <svg viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+          <defs>
+            <marker id="arrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L6,3 z" fill="#94a3b8" opacity="0.6"/>
+            </marker>
+          </defs>
 
-          <!-- Payroll node -->
-          <rect x="20" y="130" width="110" height="52" rx="8" class="diagram-node"/>
-          <text x="75" y="152" text-anchor="middle" class="diagram-text">Payroll</text>
-          <text x="75" y="166" text-anchor="middle" class="diagram-text-sm">Pay Groups</text>
+          <!-- ── CURVED CONNECTOR LINES ── -->
+          <!-- HCM to center -->
+          <path d="M95,105 Q150,120 178,158" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity="0.5" marker-end="url(#arrow)"/>
+          <path d="M105,120 Q155,135 178,165" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.4" marker-end="url(#arrow)"/>
+          <!-- Performance to center -->
+          <path d="M148,175 L178,183" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.5" marker-end="url(#arrow)"/>
+          <!-- Benefits to center -->
+          <path d="M95,270 Q145,255 178,205" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity="0.5" marker-end="url(#arrow)"/>
+          <path d="M105,260 Q148,250 178,212" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.4" marker-end="url(#arrow)"/>
+          <!-- Recruiting to center -->
+          <path d="M240,90 Q228,120 218,155" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity="0.5" marker-end="url(#arrow)"/>
+          <!-- Payroll to center -->
+          <path d="M240,295 Q228,260 218,215" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.5" marker-end="url(#arrow)"/>
+          <!-- Center to right systems -->
+          <path d="M242,168 Q290,148 330,118" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.4" marker-end="url(#arrow)"/>
+          <path d="M245,178 Q300,168 335,168" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.5" marker-end="url(#arrow)"/>
+          <path d="M242,195 Q290,210 330,230" stroke="#94a3b8" stroke-width="1" fill="none" opacity="0.4" marker-end="url(#arrow)"/>
+          <path d="M240,205 Q280,270 315,295" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity="0.4" marker-end="url(#arrow)"/>
 
-          <!-- Benefits node -->
-          <rect x="20" y="230" width="110" height="52" rx="8" class="diagram-node"/>
-          <text x="75" y="252" text-anchor="middle" class="diagram-text">Benefits</text>
-          <text x="75" y="266" text-anchor="middle" class="diagram-text-sm">Enrollments</text>
+          <!-- ── DIAGRAM TITLE ── -->
+          <text x="210" y="22" text-anchor="middle" font-size="9" font-weight="600" fill="#64748b" font-family="Inter,sans-serif" letter-spacing="0.08em">ACROSS THE WORKDAY ECOSYSTEM</text>
 
-          <!-- Integration Hub (center) -->
-          <rect x="170" y="110" width="120" height="72" rx="10" class="diagram-node-active"/>
-          <text x="230" y="140" text-anchor="middle" class="diagram-text" style="fill:var(--accent)">Integration</text>
-          <text x="230" y="156" text-anchor="middle" class="diagram-text" style="fill:var(--accent)">Layer</text>
-          <text x="230" y="170" text-anchor="middle" class="diagram-text-sm" style="fill:var(--accent)">EIB / Studio / API</text>
+          <!-- ── CENTER: WORKDAY PLATFORM ── -->
+          <circle cx="210" cy="185" r="46" fill="#1d4ed8" opacity="0.92"/>
+          <text x="210" y="180" text-anchor="middle" font-size="11" font-weight="700" fill="white" font-family="Inter,sans-serif">WORKDAY</text>
+          <text x="210" y="195" text-anchor="middle" font-size="9.5" fill="white" opacity="0.85" font-family="Inter,sans-serif">PLATFORM</text>
 
-          <!-- Connectors left to center -->
-          <path d="M130 56 L170 140" class="diagram-line diagram-pulse"/>
-          <path d="M130 156 L170 150" class="diagram-line-active"/>
-          <path d="M130 256 L170 165" class="diagram-line diagram-pulse"/>
+          <!-- ── BLUE FILLED — CORE MODULES ── -->
+          <!-- HCM Core — top left -->
+          <circle cx="72" cy="95" r="30" fill="#2563eb"/>
+          <text x="72" y="91" text-anchor="middle" font-size="8.5" font-weight="700" fill="white" font-family="Inter,sans-serif">HCM</text>
+          <text x="72" y="103" text-anchor="middle" font-size="8.5" font-weight="700" fill="white" font-family="Inter,sans-serif">CORE</text>
 
-          <!-- Target: External System -->
-          <rect x="330" y="40" width="60" height="44" rx="6" class="diagram-node"/>
-          <text x="360" y="58" text-anchor="middle" class="diagram-text-sm">Vendor</text>
-          <text x="360" y="70" text-anchor="middle" class="diagram-text-sm">System</text>
+          <!-- Performance — mid left -->
+          <circle cx="118" cy="178" r="26" fill="#2563eb"/>
+          <text x="118" y="174" text-anchor="middle" font-size="8" font-weight="700" fill="white" font-family="Inter,sans-serif">PERF-</text>
+          <text x="118" y="185" text-anchor="middle" font-size="8" font-weight="700" fill="white" font-family="Inter,sans-serif">ORMANCE</text>
 
-          <!-- Target: Reporting -->
-          <rect x="330" y="120" width="60" height="44" rx="6" class="diagram-node-active"/>
-          <text x="360" y="139" text-anchor="middle" class="diagram-text-sm" style="fill:var(--accent)">Reports</text>
-          <text x="360" y="151" text-anchor="middle" class="diagram-text-sm" style="fill:var(--accent)">&amp; Prism</text>
+          <!-- Benefits — bottom left -->
+          <circle cx="72" cy="268" r="30" fill="#2563eb"/>
+          <text x="72" y="264" text-anchor="middle" font-size="8.5" font-weight="700" fill="white" font-family="Inter,sans-serif">BENE-</text>
+          <text x="72" y="276" text-anchor="middle" font-size="8.5" font-weight="700" fill="white" font-family="Inter,sans-serif">FITS</text>
 
-          <!-- Target: GL / Finance -->
-          <rect x="330" y="200" width="60" height="44" rx="6" class="diagram-node"/>
-          <text x="360" y="218" text-anchor="middle" class="diagram-text-sm">GL /</text>
-          <text x="360" y="230" text-anchor="middle" class="diagram-text-sm">Finance</text>
+          <!-- Recruiting — top center -->
+          <circle cx="228" cy="62" r="28" fill="#2563eb"/>
+          <text x="228" y="58" text-anchor="middle" font-size="8.5" font-weight="700" fill="white" font-family="Inter,sans-serif">RECRU-</text>
+          <text x="228" y="70" text-anchor="middle" font-size="8.5" font-weight="700" fill="white" font-family="Inter,sans-serif">ITING</text>
 
-          <!-- Target: 3rd Party -->
-          <rect x="330" y="270" width="60" height="44" rx="6" class="diagram-node"/>
-          <text x="360" y="289" text-anchor="middle" class="diagram-text-sm">3rd Party</text>
-          <text x="360" y="301" text-anchor="middle" class="diagram-text-sm">API</text>
+          <!-- ── YELLOW — PAYROLL ── -->
+          <circle cx="228" cy="312" r="28" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+          <text x="228" y="308" text-anchor="middle" font-size="8.5" font-weight="700" fill="#92400e" font-family="Inter,sans-serif">PAY-</text>
+          <text x="228" y="320" text-anchor="middle" font-size="8.5" font-weight="700" fill="#92400e" font-family="Inter,sans-serif">ROLL</text>
 
-          <!-- Connectors center to right -->
-          <path d="M290 130 L330 62" class="diagram-line"/>
-          <path d="M290 145 L330 142" class="diagram-line-active"/>
-          <path d="M290 160 L330 222" class="diagram-line"/>
-          <path d="M290 170 L330 290" class="diagram-line diagram-pulse"/>
+          <!-- ── GREEN OUTLINED — DOWNSTREAM ── -->
+          <!-- Reporting — top right -->
+          <circle cx="352" cy="108" r="28" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+          <text x="352" y="104" text-anchor="middle" font-size="8.5" font-weight="700" fill="#15803d" font-family="Inter,sans-serif">REPOR-</text>
+          <text x="352" y="116" text-anchor="middle" font-size="8.5" font-weight="700" fill="#15803d" font-family="Inter,sans-serif">TING</text>
 
-          <!-- Status dots -->
-          <circle cx="155" cy="98" r="4" fill="#059669" opacity="0.8"/>
-          <circle cx="155" cy="156" r="4" fill="var(--accent)" opacity="0.8"/>
-          <circle cx="155" cy="210" r="4" fill="#f59e0b" opacity="0.7"/>
-          <circle cx="315" cy="62" r="4" fill="#059669" opacity="0.8"/>
-          <circle cx="315" cy="142" r="4" fill="var(--accent)" opacity="0.8"/>
-          <circle cx="315" cy="222" r="4" fill="#059669" opacity="0.8"/>
-          <circle cx="315" cy="292" r="4" fill="#f59e0b" opacity="0.7"/>
+          <!-- Security — mid right -->
+          <circle cx="368" cy="178" r="28" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+          <text x="368" y="174" text-anchor="middle" font-size="8.5" font-weight="700" fill="#15803d" font-family="Inter,sans-serif">SECU-</text>
+          <text x="368" y="186" text-anchor="middle" font-size="8.5" font-weight="700" fill="#15803d" font-family="Inter,sans-serif">RITY</text>
+
+          <!-- Integrations — bottom right -->
+          <circle cx="352" cy="248" r="28" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+          <text x="352" y="244" text-anchor="middle" font-size="8.5" font-weight="700" fill="#15803d" font-family="Inter,sans-serif">INTEG-</text>
+          <text x="352" y="256" text-anchor="middle" font-size="8.5" font-weight="700" fill="#15803d" font-family="Inter,sans-serif">RATIONS</text>
+
+          <!-- Testing — far bottom right -->
+          <circle cx="310" cy="318" r="24" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+          <text x="310" y="314" text-anchor="middle" font-size="8" font-weight="700" fill="#15803d" font-family="Inter,sans-serif">TEST-</text>
+          <text x="310" y="325" text-anchor="middle" font-size="8" font-weight="700" fill="#15803d" font-family="Inter,sans-serif">ING</text>
+
+          <!-- ── CONNECTOR LABELS ── -->
+          <text x="130" y="108" font-size="7" fill="#94a3b8" font-family="Inter,sans-serif">Worker Data</text>
+          <text x="125" y="242" font-size="7" fill="#94a3b8" font-family="Inter,sans-serif">Benefit Data</text>
+          <text x="258" y="115" font-size="7" fill="#94a3b8" font-family="Inter,sans-serif">Candidate Info</text>
+          <text x="275" y="165" font-size="7" fill="#94a3b8" font-family="Inter,sans-serif">Report Output</text>
+          <text x="268" y="230" font-size="7" fill="#94a3b8" font-family="Inter,sans-serif">API / Events</text>
+          <text x="255" y="272" font-size="7" fill="#94a3b8" font-family="Inter,sans-serif">Payroll Journals</text>
         </svg>
       </div>
     </div>
@@ -636,15 +701,15 @@ input,textarea{font-family:inherit}
   <div class="wrap">
     <div class="problem-inner reveal">
       <div class="eyebrow">The real issue</div>
-      <h2 class="h-lg" style="margin:12px 0 32px">Most Workday® problems aren't configuration issues. They're ownership gaps.</h2>
+      <h2 class="h-lg" style="margin:12px 0 32px">Most Workday challenges aren't caused by technology. They're caused by competing priorities and limited capacity.</h2>
       <div class="problem-items">
-        <div class="problem-item"><span class="problem-marker"></span><span>Integrations that "work" but break under pressure</span></div>
-        <div class="problem-item"><span class="problem-marker"></span><span>Reports leadership doesn't fully trust</span></div>
+        <div class="problem-item"><span class="problem-marker"></span><span>Workday solutions that function today but struggle to scale</span></div>
+        <div class="problem-item"><span class="problem-marker"></span><span>Business teams don't fully trust the outputs they're getting.</span></div>
         <div class="problem-item"><span class="problem-marker"></span><span>AMS support that responds, but doesn't resolve</span></div>
         <div class="problem-item"><span class="problem-marker"></span><span>Teams expected to own a system they didn't build</span></div>
       </div>
       <div class="problem-anchor">
-        <p>Nothing is completely broken. But nothing is reliable either.<br><strong>That's where we operate.</strong></p>
+        <p>Nothing is completely broken. Most teams just don't have the capacity to fix what's holding them back.<br><strong>That's where we operate.</strong></p>
       </div>
     </div>
   </div>
@@ -655,28 +720,28 @@ input,textarea{font-family:inherit}
   <div class="wrap">
     <div class="section-header reveal">
       <div class="eyebrow">What we do</div>
-      <h2 class="h-lg" style="margin-top:12px">We don't provide resources. We solve specific problems.</h2>
-      <p class="section-sub">We step in when something isn't working—and fix it.</p>
+      <h2 class="h-lg" style="margin-top:12px">Senior Workday expertise for the work that matters most.</h2>
+      <p class="section-sub">From implementation support to optimization initiatives, we help teams execute work that moves Workday forward.</p>
     </div>
     <div class="svc-grid rstagger">
       <div class="svc-card">
         <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4z"/><path d="M14 4h6v6h-6z"/><path d="M4 14h6v6H4z"/><path d="M17 14v6M14 17h6"/></svg></div>
-        <h3 class="h-md">Integration Stability &amp; Optimization</h3>
+        <h3 class="h-md">Integrations &amp; Automation</h3>
         <p class="t-md">Fix unreliable integrations, reduce failures, and improve long-term maintainability.</p>
       </div>
       <div class="svc-card">
         <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-6 4 4 5-8"/></svg></div>
-        <h3 class="h-md">Reporting &amp; Data Confidence</h3>
+        <h3 class="h-md">Reporting &amp; Analytics</h3>
         <p class="t-md">Build reporting your business can actually trust—clean logic, consistent outputs, and performance optimized.</p>
       </div>
       <div class="svc-card">
         <div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
-        <h3 class="h-md">Tenant Cleanup &amp; Post–Go-Live Stabilization</h3>
+        <h3 class="h-md">Workday Optimization &amp; Stabilization</h3>
         <p class="t-md">Untangle years of layered configurations and bring clarity back to your environment.</p>
       </div>
       <div class="svc-card">
         <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-        <h3 class="h-md">Targeted Technical Projects</h3>
+        <h3 class="h-md">Implementation Support &amp; Strategic Initiatives</h3>
         <p class="t-md">Short, high-impact engagements where depth matters more than headcount.</p>
       </div>
       <div class="svc-card svc-card-wide">
@@ -701,12 +766,19 @@ input,textarea{font-family:inherit}
         </div>
       </div>
     </div>
+
+    <div class="who-we-serve reveal">
+      <div class="eyebrow" style="margin-bottom:12px">Who We Serve</div>
+      <ul class="who-list">
+        <li>Organizations live on Workday</li>
+        <li>HRIS teams needing additional capacity</li>
+        <li>Companies working with AMS providers</li>
+        <li>Organizations preparing for major Workday initiatives</li>
+        <li>Teams inheriting complex tenants</li>
+      </ul>
+    </div>
   </div>
 </section>
-
-<hr class="section-divider">
-
-<!-- ════════ DIFFERENTIATORS — #5: Concrete copy ════════ -->
 <section class="section section--gray" id="approach">
   <div class="wrap">
     <div class="section-header reveal">
@@ -726,147 +798,32 @@ input,textarea{font-family:inherit}
       </div>
       <div class="diff-item">
         <div class="diff-bar"></div>
-        <h3 class="h-md">Technical depth first</h3>
-        <p class="t-sm">Our focus is where most teams struggle—integrations, reporting, Studio, and data architecture.</p>
+        <h3 class="h-md">Workday expertise first</h3>
+        <p class="t-sm">Our focus is helping organizations execute complex Workday initiatives across implementation, optimization, security, testing, reporting, integrations, and automation.</p>
       </div>
       <div class="diff-item">
         <div class="diff-bar"></div>
         <h3 class="h-md">Efficient delivery model</h3>
-        <p class="t-sm">Behind the scenes, we leverage a global team to execute efficiently—without compromising quality or accountability.</p>
+        <p class="t-sm">U.S.-based leadership backed by a dedicated global delivery team, providing the scale to support both targeted projects and larger Workday initiatives.</p>
       </div>
     </div>
+    <p class="t-md reveal" style="margin-top:32px;max-width:700px">CloudBridge combines senior U.S.-based Workday leadership with a dedicated global delivery team, enabling us to support both targeted technical projects and larger Workday initiatives.</p>
   </div>
 </section>
-
-<!-- ════════ WHY NOT AMS — #6 ════════ -->
-<section class="section">
-  <div class="wrap">
-    <div class="section-header reveal">
-      <div class="eyebrow">The AMS gap</div>
-      <h2 class="h-lg" style="margin-top:12px">Why teams move beyond traditional AMS.</h2>
-    </div>
-    <div class="ams-grid rstagger">
-      <div class="ams-card">
-        <h3 class="h-md"><span class="ams-icon ams-icon-red"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></span>What traditional AMS often looks like</h3>
-        <div class="ams-list">
-          <div class="ams-list-item"><span class="ams-list-marker ams-list-marker-red"></span><span>Ticket-based support that slows real problem-solving</span></div>
-          <div class="ams-list-item"><span class="ams-list-marker ams-list-marker-red"></span><span>Context fragmented across rotating team members</span></div>
-          <div class="ams-list-item"><span class="ams-list-marker ams-list-marker-red"></span><span>Ownership is unclear—issues get passed, not resolved</span></div>
-          <div class="ams-list-item"><span class="ams-list-marker ams-list-marker-red"></span><span>Technical depth is inconsistent, especially for integrations</span></div>
-        </div>
-      </div>
-      <div class="ams-card">
-        <h3 class="h-md"><span class="ams-icon ams-icon-green"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>What we do differently</h3>
-        <div class="ams-list">
-          <div class="ams-list-item"><span class="ams-list-marker ams-list-marker-green"></span><span>Direct access to senior practitioners who own the outcome</span></div>
-          <div class="ams-list-item"><span class="ams-list-marker ams-list-marker-green"></span><span>Persistent context—same team, growing knowledge of your tenant</span></div>
-          <div class="ams-list-item"><span class="ams-list-marker ams-list-marker-green"></span><span>Root-cause resolution, not ticket recycling</span></div>
-          <div class="ams-list-item"><span class="ams-list-marker ams-list-marker-green"></span><span>Deep integration and reporting expertise from day one</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════ SCENARIOS ════════ -->
-<section class="section section--gray">
-  <div class="wrap">
-    <div class="section-header reveal">
-      <div class="eyebrow">When clients bring us in</div>
-      <h2 class="h-lg" style="margin-top:12px">Sound familiar?</h2>
-    </div>
-    <div class="scenario-stack rstagger">
-      <div class="scenario-item">Our integrations keep breaking and no one owns them end-to-end.</div>
-      <div class="scenario-item">We don't trust our reports enough to make decisions.</div>
-      <div class="scenario-item">AMS is responsive, but not solving the real issues.</div>
-      <div class="scenario-item">We inherited this tenant and don't fully understand it.</div>
-    </div>
-    <p class="scenarios-close reveal">If this sounds familiar, you're in the right place.</p>
-  </div>
-</section>
-
-<!-- ════════ TESTIMONIALS — #7: Stronger proof ════════ -->
-<section class="section section--navy" id="testimonials">
-  <div class="wrap">
-    <div class="section-header reveal">
-      <div class="eyebrow">What clients say</div>
-      <h2 class="h-lg" style="margin-top:12px">Trust earned, not claimed.</h2>
-    </div>
-    <div class="test-grid rstagger">
-      <div class="test-card">
-        <p>"Stabilized our integrations in weeks after months of issues with our previous partner. They took ownership immediately."</p>
-        <div class="test-attr"><span class="test-dot"></span><span>Director of HRIS — US Asset Management Firm</span></div>
-      </div>
-      <div class="test-card">
-        <p>"For the first time, we have confidence in our integrations and reporting. The difference was noticeable within the first sprint."</p>
-        <div class="test-attr"><span class="test-dot"></span><span>Enterprise Program Manager — Manufacturing</span></div>
-      </div>
-      <div class="test-card">
-        <p>"Clear, direct, and technically strong—no handholding required. They resolved issues our AMS team had been cycling on for months."</p>
-        <div class="test-attr"><span class="test-dot"></span><span>Director of Finance Systems — Healthcare</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════ PROCESS ════════ -->
-<section class="section section--gray" id="process">
-  <div class="wrap">
-    <div class="section-header reveal">
-      <div class="eyebrow">How we work</div>
-      <h2 class="h-lg" style="margin-top:12px">From diagnosis to stability.</h2>
-    </div>
-    <div class="steps-grid rstagger">
-      <div class="step-card"><div class="step-num">01</div><h3 class="h-md">Assess quickly</h3><p class="t-sm">Identify root causes, not just symptoms.</p></div>
-      <div class="step-card"><div class="step-num">02</div><h3 class="h-md">Prioritize impact</h3><p class="t-sm">Focus on what actually affects your business.</p></div>
-      <div class="step-card"><div class="step-num">03</div><h3 class="h-md">Execute with ownership</h3><p class="t-sm">Small, accountable team. No handoffs.</p></div>
-      <div class="step-card"><div class="step-num">04</div><h3 class="h-md">Stabilize long-term</h3><p class="t-sm">Not just fixes, but maintainable solutions.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════ FIT / NOT-FIT — #9 ════════ -->
-<section class="section">
-  <div class="wrap">
-    <div class="section-header reveal">
-      <div class="eyebrow">Is this the right fit?</div>
-      <h2 class="h-lg" style="margin-top:12px">We're selective about the work we take on.</h2>
-    </div>
-    <div class="fit-grid rstagger">
-      <div class="fit-card">
-        <h3><span class="ams-icon ams-icon-red"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></span>We're not the right fit if:</h3>
-        <div class="fit-list">
-          <div class="fit-list-item"><span class="ams-list-marker ams-list-marker-red"></span><span>You're looking for low-cost, ticket-based support</span></div>
-          <div class="fit-list-item"><span class="ams-list-marker ams-list-marker-red"></span><span>You need large-scale staffing or body-shop resources</span></div>
-          <div class="fit-list-item"><span class="ams-list-marker ams-list-marker-red"></span><span>Price is the primary decision factor</span></div>
-        </div>
-      </div>
-      <div class="fit-card">
-        <h3><span class="ams-icon ams-icon-green"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>We're a great fit if:</h3>
-        <div class="fit-list">
-          <div class="fit-list-item"><span class="ams-list-marker ams-list-marker-green"></span><span>You need technical depth and someone who takes ownership</span></div>
-          <div class="fit-list-item"><span class="ams-list-marker ams-list-marker-green"></span><span>Your integrations or reporting need real expertise, not triage</span></div>
-          <div class="fit-list-item"><span class="ams-list-marker ams-list-marker-green"></span><span>You want a team that resolves issues—not just responds to them</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ════════ ABOUT US ════════ -->
 <section class="section" id="founder">
   <div class="wrap">
     <div class="section-header reveal">
-      <div class="eyebrow">About Us</div>
+      <div class="eyebrow">Built by Workday Practitioners</div>
     </div>
     <div class="founder-grid">
       <div class="reveal">
         <img src="assets/images/anand.jpg" alt="Anand Tripathi — Founder, CloudBridge Partners" class="founder-photo">
         <div class="founder-name">Anand Tripathi <a href="https://www.linkedin.com/in/atripathi9/" target="_blank" rel="noopener noreferrer" class="founder-linkedin-inline"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
         <div class="founder-title">Principal, CloudBridge Partners</div>
-        <p class="founder-bio">For more than 12 years, I've helped organizations maximize their Workday investment through integrations, reporting, testing, and optimization initiatives for organizations ranging from a few hundred employees to over 120,000 across North America, EMEA, Asia, and Latin America. Unlike many firm owners, I remain hands-on—designing integrations, building reports, solving complex problems, and working directly with clients.</p>
+        <p class="founder-bio">For more than 12 years, I've helped organizations maximize their Workday investment through implementation, optimization, testing, security, platform transformation, and enterprise Workday initiatives for organizations ranging from a few hundred employees to over 120,000 across North America, EMEA, Asia, and Latin America. Unlike many firm owners, I remain hands-on—designing solutions, solving complex problems, and working directly with clients.</p>
         <p class="founder-bio">I founded CloudBridge because I saw the same pattern repeatedly: organizations invest in Workday, but critical initiatives get pushed aside as internal teams and AMS providers focus on day-to-day support.</p>
-        <p class="founder-bio">CloudBridge helps organizations move Workday forward through senior-led expertise in Integrations, Reporting, Testing, Security, and Optimization.</p>
+        <p class="founder-bio">CloudBridge helps organizations move Workday forward through senior-led Workday expertise spanning implementation, optimization, testing, security, technical delivery, and enterprise Workday initiatives.</p>
       </div>
       <div class="reveal">
         <div class="founder-glance-title">CloudBridge at a Glance</div>
@@ -891,7 +848,178 @@ input,textarea{font-family:inherit}
     </div>
   </div>
 </section>
+<!-- ════════ TESTIMONIALS ════════ -->
+<section class="section section--navy" id="testimonials">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="eyebrow">What clients say</div>
+      <h2 class="h-lg" style="margin-top:12px">Trust earned, not claimed.</h2>
+    </div>
+    <div class="test-grid rstagger">
+      <div class="test-card">
+        <p>"We had been living with the issue for months. CloudBridge isolated the root cause, implemented a fix, and helped ensure it wouldn't return."</p>
+        <div class="test-attr"><span class="test-dot"></span><span>Director, HR Technology</span></div>
+      </div>
+      <div class="test-card">
+        <p>"Our roadmap was growing faster than our team could support. CloudBridge became an extension of our HRIS function and helped us execute critical initiatives without adding headcount."</p>
+        <div class="test-attr"><span class="test-dot"></span><span>Senior HRIS Manager</span></div>
+      </div>
+      <div class="test-card">
+        <p>"They brought the expertise we needed, but what stood out was the knowledge transfer. Our team was able to support the solution confidently after the project ended."</p>
+        <div class="test-attr"><span class="test-dot"></span><span>Director, Enterprise Applications</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="eyebrow">The AMS gap</div>
+      <h2 class="h-lg" style="margin-top:12px">Why teams move beyond traditional AMS.</h2>
+    </div>
+    <div class="ams-grid rstagger">
+      <div class="ams-card">
+        <h3 class="h-md"><span class="ams-icon ams-icon-red"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></span>What traditional AMS often looks like</h3>
+        <div class="ams-list">
+          <div class="ams-list-item"><span class="ams-list-marker ams-list-marker-red"></span><span>Ticket-based support that slows real problem-solving</span></div>
+          <div class="ams-list-item"><span class="ams-list-marker ams-list-marker-red"></span><span>Context fragmented across rotating team members</span></div>
+          <div class="ams-list-item"><span class="ams-list-marker ams-list-marker-red"></span><span>Ownership is unclear—issues get passed, not resolved</span></div>
+          <div class="ams-list-item"><span class="ams-list-marker ams-list-marker-red"></span><span>Technical depth is inconsistent across critical Workday initiatives.</span></div>
+        </div>
+      </div>
+      <div class="ams-card">
+        <h3 class="h-md"><span class="ams-icon ams-icon-green"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>What we do differently</h3>
+        <div class="ams-list">
+          <div class="ams-list-item"><span class="ams-list-marker ams-list-marker-green"></span><span>Direct access to senior practitioners who own the outcome</span></div>
+          <div class="ams-list-item"><span class="ams-list-marker ams-list-marker-green"></span><span>Persistent context—same team, growing knowledge of your tenant</span></div>
+          <div class="ams-list-item"><span class="ams-list-marker ams-list-marker-green"></span><span>Root-cause resolution, not ticket recycling</span></div>
+          <div class="ams-list-item"><span class="ams-list-marker ams-list-marker-green"></span><span>Deep Workday expertise from day one</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ════════ SCENARIOS ════════ -->
+<section class="section section--gray">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="eyebrow">When clients bring us in</div>
+      <h2 class="h-lg" style="margin-top:12px">Sound familiar?</h2>
+    </div>
+    <div class="scenario-stack rstagger">
+      <div class="scenario-item">Critical Workday initiatives keep getting delayed.</div>
+      <div class="scenario-item">AMS is responsive, but not solving the real issues.</div>
+      <div class="scenario-item">We inherited this tenant and don't fully understand it.</div>
+      <div class="scenario-item">We have more ideas than capacity.</div>
+      <div class="scenario-item">Nobody owns these projects end-to-end.</div>
+      <div class="scenario-item">Leadership wants results faster than the current model can deliver.</div>
+    </div>
+    <p class="scenarios-close reveal">If this sounds familiar, you're in the right place.</p>
+  </div>
+</section>
+<!-- ════════ PROCESS ════════ -->
+<section class="section section--gray" id="process">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="eyebrow">Our Methodology</div>
+      <h2 class="h-lg" style="margin-top:12px">Predictable execution, every engagement.</h2>
+      <p class="section-sub">We follow Workday's proven six-phase delivery framework on every project. No surprises, no scope creep, just a repeatable structure your team can count on.</p>
+    </div>
+    <div class="methodology-grid rstagger">
+      <div class="method-card">
+        <div class="method-num">01</div>
+        <h3 class="h-md">Plan</h3>
+        <p class="t-sm">Requirements confirmed, RACI set, project plan in your hands by week one. Scope, assumptions, and responsibilities are agreed upfront.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-num">02</div>
+        <h3 class="h-md">Design</h3>
+        <p class="t-sm">Future system owners review and approve the design before development begins.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-num">03</div>
+        <h3 class="h-md">Build</h3>
+        <p class="t-sm">Built by senior Workday engineers and documented as we go.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-num">04</div>
+        <h3 class="h-md">Test</h3>
+        <p class="t-sm">Unit, End to End, and UAT with documented test cases and defect logs. Business users participate throughout testing — they don't just sign off at the end.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-num">05</div>
+        <h3 class="h-md">Deploy</h3>
+        <p class="t-sm">Cutover plan, rollback procedure, go/no-go checklist. We don't hand off until we're confident it'll hold in production.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-num">06</div>
+        <h3 class="h-md">Hypercare</h3>
+        <p class="t-sm">Active monitoring and rapid response post-go-live. We stay engaged until the solution is performing as expected in production.</p>
+      </div>
+    </div>
 
+    <div class="process-sub-divider"></div>
+
+    <div class="section-header reveal">
+      <div class="eyebrow">What we do differently</div>
+      <h2 class="h-lg" style="margin-top:12px">Two things every CloudBridge project includes.</h2>
+      <p class="section-sub">Most delivery partners follow the same delivery framework. These are the practices we bring to every project, from kickoff through hypercare.</p>
+    </div>
+    <div class="differently-grid rstagger">
+      <div class="differently-card">
+        <div class="differently-tag">01</div>
+        <h3 class="h-md" style="margin-bottom:10px">Enhanced Delivery Management</h3>
+        <p class="t-md" style="margin-bottom:20px">Status reports, meeting notes, decision logs, and test documentation are drafted automatically, reducing project overhead and keeping teams focused on delivery.</p>
+        <ul class="differently-list">
+          <li>Weekly status reports drafted from meeting transcripts</li>
+          <li>Decision logs and open issues kept current throughout</li>
+          <li>Test scenarios generated from build artifacts</li>
+          <li>Meeting minutes turned around same day</li>
+        </ul>
+      </div>
+      <div class="differently-card">
+        <div class="differently-tag">02</div>
+        <h3 class="h-md" style="margin-bottom:10px">Knowledge Transfer at Every Phase</h3>
+        <p class="t-md" style="margin-bottom:20px">No black-box handoffs. No permanent dependency on CloudBridge.</p>
+        <ul class="differently-list">
+          <li>Design decisions documented with rationale, not just output</li>
+          <li>Build walkthroughs at every milestone</li>
+          <li>Business users run UAT with us, not after us</li>
+          <li>Your team understands and can support what we deliver from day one</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+<!-- ════════ FIT / NOT-FIT — #9 ════════ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="eyebrow">Is this the right fit?</div>
+      <h2 class="h-lg" style="margin-top:12px">We're selective about the work we take on.</h2>
+    </div>
+    <div class="fit-grid rstagger">
+      <div class="fit-card">
+        <h3><span class="ams-icon ams-icon-red"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></span>We're not the right fit if:</h3>
+        <div class="fit-list">
+          <div class="fit-list-item"><span class="ams-list-marker ams-list-marker-red"></span><span>You're looking for low-cost, ticket-based support</span></div>
+          <div class="fit-list-item"><span class="ams-list-marker ams-list-marker-red"></span><span>You need large-scale staffing or body-shop resources</span></div>
+          <div class="fit-list-item"><span class="ams-list-marker ams-list-marker-red"></span><span>Price is the primary decision factor</span></div>
+        </div>
+      </div>
+      <div class="fit-card">
+        <h3><span class="ams-icon ams-icon-green"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>We're a great fit if:</h3>
+        <div class="fit-list">
+          <div class="fit-list-item"><span class="ams-list-marker ams-list-marker-green"></span><span>You need technical depth and someone who takes ownership</span></div>
+          <div class="fit-list-item"><span class="ams-list-marker ams-list-marker-green"></span><span>Your Workday initiatives need real expertise, ownership, and execution.</span></div>
+          <div class="fit-list-item"><span class="ams-list-marker ams-list-marker-green"></span><span>You want a team that resolves issues—not just responds to them</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- ════════ CONTACT — #8: Friction-reducing CTA ════════ -->
 <section class="section section--gray" id="contact">
   <div class="wrap">
