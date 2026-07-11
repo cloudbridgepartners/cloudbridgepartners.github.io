@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workday AI Readiness Assessment — CloudBridge Partners</title>
+<link rel="icon" href="assets/files/favicon.ico" type="image/x-icon">
+<meta name="description" content="Assess your Workday tenant across security, reporting, integrations, business processes, and technical readiness. Get a personalized AI readiness score and 90-day roadmap.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── CloudBridge Design Tokens (matches site exactly) ── */
+:root {
+  --navy: #0B1F3A; --accent: #2563EB; --accent-hover: #1D4ED8; --accent-light: #EBF1FF;
+  --light-gray: #F5F7FA; --text-dark: #111111; --text-sec: #555555; --white: #ffffff;
+  --gray-200: #dce0e8; --gray-300: #bfc5d0; --gray-400: #8f96a3; --gray-500: #6b7280;
+  --border: #e2e5ea; --border-light: #eef0f3;
+  --green: #059669; --green-light: #ecfdf5; --red: #dc2626; --red-light: #fef2f2;
+  --font: 'Inter', Arial, Helvetica, sans-serif; --mono: 'IBM Plex Mono', 'Courier New', monospace;
+  --max-w: 1200px; --r: 8px; --ease: cubic-bezier(0.16,1,0.3,1);
+  --sh-sm: 0 1px 3px rgba(11,31,58,0.05); --sh-md: 0 4px 20px rgba(11,31,58,0.07);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--font); background:var(--white); color:var(--text-dark); line-height:1.65; font-size:16px; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+a { text-decoration:none; color:inherit; }
+ul { list-style:none; }
+button { cursor:pointer; border:none; background:none; font-family:inherit; }
+input, textarea { font-family:inherit; }
+.wrap { max-width:var(--max-w); margin:0 auto; padding:0 2rem; }
+
+/* Typography — matches site */
+.eyebrow { font-family:var(--mono); font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); }
+.h-lg { font-size:clamp(28px,3.2vw,36px); font-weight:700; line-height:1.18; color:var(--text-dark); letter-spacing:-0.015em; }
+.t-md { font-size:16px; color:var(--text-sec); font-weight:400; line-height:1.7; }
+.section-divider { border:none; height:1px; background:var(--border-light); }
+
+/* Buttons — matches site exactly */
+.btn-primary { display:inline-flex; align-items:center; gap:6px; background:var(--accent); color:var(--white); padding:12px 24px; border-radius:var(--r); font-weight:600; font-size:15px; transition:background 0.2s,transform 0.2s var(--ease),box-shadow 0.2s; border:none; font-family:inherit; cursor:pointer; }
+.btn-primary:hover { background:var(--accent-hover); transform:translateY(-1px); box-shadow:0 6px 24px rgba(37,99,235,0.2); }
+.btn-primary-lg { padding:14px 32px; font-size:16px; }
+.btn-outline { display:inline-flex; align-items:center; gap:6px; background:transparent; color:var(--text-dark); padding:12px 24px; border-radius:var(--r); font-weight:500; font-size:15px; border:1px solid var(--border); transition:border-color 0.2s,background 0.2s; cursor:pointer; font-family:inherit; }
+.btn-outline:hover { border-color:var(--gray-300); background:var(--light-gray); }
+.btn-ghost { background:transparent; border:none; color:var(--gray-500); font-size:14px; font-weight:500; cursor:pointer; padding:8px 16px; border-radius:var(--r); transition:color 0.2s,background 0.2s; font-family:inherit; }
+.btn-ghost:hover { color:var(--text-dark); background:var(--light-gray); }
+
+/* ── NAV — exact copy from site ── */
+.site-nav { position:fixed; top:0; left:0; right:0; z-index:200; padding:14px 0; background:rgba(255,255,255,0.92); backdrop-filter:blur(20px) saturate(1.4); -webkit-backdrop-filter:blur(20px) saturate(1.4); border-bottom:1px solid var(--border-light); transition:padding 0.3s,box-shadow 0.3s; }
+.site-nav.scrolled { padding:8px 0; box-shadow:var(--sh-sm); }
+.nav-inner { display:flex; justify-content:space-between; align-items:center; }
+.nav-brand { display:flex; align-items:center; gap:8px; }
+.nav-brand img { height:56px; width:auto; }
+.nav-links { display:flex; align-items:center; gap:28px; }
+.nav-links a { font-size:14px; color:var(--text-sec); font-weight:500; transition:color 0.2s; }
+.nav-links a:hover { color:var(--text-dark); }
+.nav-links a.active { color:var(--accent); font-weight:600; }
+.nav-links .nav-cta { background:var(--accent); color:var(--white); padding:8px 18px; border-radius:6px; font-weight:600; transition:background 0.2s; }
+.nav-links .nav-cta:hover { background:var(--accent-hover); color:var(--white); }
+.nav-toggle { display:none; flex-direction:column; gap:5px; padding:4px; }
+.nav-toggle span { display:block; width:22px; height:2px; background:var(--text-dark); border-radius:2px; }
+.mobile-menu { display:none; position:fixed; inset:0; z-index:190; background:var(--white); flex-direction:column; align-items:center; justify-content:center; gap:24px; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-size:20px; color:var(--text-dark); font-weight:500; }
+.mobile-close { position:absolute; top:14px; right:20px; font-size:32px; color:var(--gray-500); }
+
+/* ── STEPS BAR ── */
+.steps-bar { background:var(--light-gray); border-bottom:1px solid var(--border-light); padding:14px 0; margin-top:84px; }
+.steps-inner { display:flex; align-items:center; gap:0; max-width:600px; margin:0 auto; padding:0 2rem; }
+.step { display:flex; align-items:center; gap:9px; font-size:13px; font-weight:600; color:var(--gray-400); white-space:nowrap; }
+.step.active { color:var(--accent); }
+.step.done { color:var(--green); }
+.step-num { width:26px; height:26px; border-radius:50%; border:2px solid currentColor; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0; font-family:var(--mono); }
+.step.done .step-num { background:var(--green); border-color:var(--green); color:#fff; }
+.step.active .step-num { background:var(--accent); border-color:var(--accent); color:#fff; }
+.step-line { flex:1; height:2px; background:var(--border); margin:0 14px; }
+.step-line.done { background:var(--green); }
+
+/* ── GATE ── */
+.gate-section { padding:72px 0 80px; }
+.gate-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; max-width:var(--max-w); margin:0 auto; padding:0 2rem; }
+.gate-left .eyebrow { margin-bottom:14px; }
+.gate-left h1 { font-size:clamp(30px,3.5vw,42px); font-weight:700; letter-spacing:-0.02em; line-height:1.12; margin-bottom:16px; color:var(--text-dark); }
+.gate-left h1 span { color:var(--accent); }
+.gate-left p { font-size:17px; color:var(--text-sec); line-height:1.75; margin-bottom:28px; }
+
+.wyr-card { background:var(--light-gray); border:1px solid var(--border-light); border-radius:var(--r); padding:20px 24px; }
+.wyr-card-label { font-family:var(--mono); font-size:0.68rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:14px; }
+.wyr-items { display:grid; grid-template-columns:1fr 1fr; gap:10px 20px; }
+.wyr-item { font-size:14px; font-weight:500; color:var(--text-dark); display:flex; align-items:center; gap:9px; }
+.wyr-item::before { content:''; width:5px; height:5px; background:var(--accent); border-radius:50%; flex-shrink:0; }
+
+/* Gate form card */
+.gate-form-card { background:var(--white); border:1px solid var(--border); border-radius:var(--r); padding:32px; box-shadow:var(--sh-md); }
+.gate-form-card h2 { font-size:20px; font-weight:700; margin-bottom:6px; color:var(--text-dark); }
+.gate-form-card > p { font-size:14px; color:var(--text-sec); margin-bottom:24px; }
+.form-group { margin-bottom:18px; }
+.form-group label { display:block; font-size:13px; font-weight:600; color:var(--text-dark); margin-bottom:6px; }
+.form-group input { width:100%; padding:11px 14px; border:1.5px solid var(--border); border-radius:var(--r); font-size:14px; color:var(--text-dark); background:var(--white); transition:border-color 0.2s,box-shadow 0.2s; outline:none; }
+.form-group input:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(37,99,235,0.1); }
+.form-group input.error { border-color:var(--red); }
+.field-error { font-size:12px; color:var(--red); margin-top:5px; display:none; }
+.field-hint { font-size:11px; color:var(--gray-500); margin-top:4px; }
+.btn-gate { width:100%; }
+.privacy-note { font-size:12px; color:var(--gray-500); text-align:center; margin-top:14px; line-height:1.6; }
+
+/* ── PROGRESS ── */
+.progress-bar-wrap { background:var(--light-gray); border-bottom:1px solid var(--border-light); padding:12px 0; }
+.progress-inner { display:flex; align-items:center; gap:16px; max-width:var(--max-w); margin:0 auto; padding:0 2rem; }
+.progress-label { font-size:13px; font-weight:500; color:var(--text-sec); white-space:nowrap; min-width:180px; font-family:var(--mono); font-size:0.75rem; }
+.progress-track { flex:1; height:6px; background:var(--border); border-radius:99px; overflow:hidden; }
+.progress-fill { height:100%; background:var(--accent); border-radius:99px; width:0%; transition:width 0.35s ease; }
+.progress-pct { font-size:13px; font-weight:700; color:var(--accent); min-width:36px; text-align:right; font-family:var(--mono); }
+
+/* ── ASSESSMENT BODY ── */
+.assess-body { max-width:860px; margin:0 auto; padding:48px 2rem 80px; }
+.respondent-badge { display:flex; align-items:center; gap:10px; background:var(--accent-light); border:1px solid rgba(37,99,235,0.2); border-radius:var(--r); padding:11px 16px; margin-bottom:36px; font-size:13px; color:var(--accent); font-weight:500; }
+.respondent-badge strong { font-weight:700; }
+.respondent-sep { color:rgba(37,99,235,0.4); margin:0 4px; }
+
+.domain-section { margin-bottom:40px; }
+.domain-header { margin-bottom:22px; padding-bottom:14px; border-bottom:2px solid var(--accent-light); }
+.domain-title { font-size:22px; font-weight:700; letter-spacing:-0.015em; color:var(--text-dark); margin-top:6px; }
+
+/* Question cards */
+.q-card { border:1.5px solid var(--border); border-radius:var(--r); padding:18px 20px; margin-bottom:8px; background:var(--white); transition:border-color 0.2s,box-shadow 0.2s; }
+.q-card:hover { border-color:var(--gray-300); box-shadow:var(--sh-sm); }
+.q-card.answered { border-color:var(--accent); background:var(--accent-light); }
+.q-header { display:flex; align-items:flex-start; gap:13px; margin-bottom:13px; }
+.q-num { font-family:var(--mono); font-size:0.68rem; font-weight:500; color:var(--gray-500); background:var(--light-gray); border-radius:4px; padding:3px 7px; white-space:nowrap; flex-shrink:0; margin-top:2px; letter-spacing:0.05em; }
+.q-card.answered .q-num { background:rgba(37,99,235,0.15); color:var(--accent); }
+.q-text { font-size:14px; font-weight:500; color:var(--text-dark); line-height:1.55; }
+.radio-group { display:flex; gap:8px; flex-wrap:wrap; padding-left:38px; }
+.radio-opt input[type=radio] { display:none; }
+.chip { padding:6px 15px; border-radius:99px; border:1.5px solid var(--border); font-size:12px; font-weight:600; color:var(--text-sec); cursor:pointer; transition:all 0.15s; user-select:none; white-space:nowrap; }
+.chip:hover { border-color:var(--accent); color:var(--accent); background:var(--accent-light); }
+.radio-opt input:checked + .chip-full { background:var(--green-light); border-color:var(--green); color:#065F46; }
+.radio-opt input:checked + .chip-part { background:#FFFBEB; border-color:#D97706; color:#92400E; }
+.radio-opt input:checked + .chip-not { background:var(--red-light); border-color:var(--red); color:#991B1B; }
+
+/* Reality check */
+.reality-block { margin-top:20px; background:var(--navy); border-radius:var(--r); padding:15px 20px; display:flex; gap:12px; align-items:flex-start; }
+.reality-prompt { font-family:var(--mono); font-size:13px; color:rgba(255,255,255,0.5); white-space:nowrap; flex-shrink:0; }
+.reality-text { font-family:var(--mono); font-size:12px; color:rgba(255,255,255,0.8); line-height:1.65; }
+
+/* Submit area */
+.submit-area { text-align:center; padding:44px 0 0; border-top:1px solid var(--border-light); margin-top:12px; }
+.submit-note { font-size:13px; color:var(--gray-500); margin-top:12px; font-family:var(--mono); font-size:0.75rem; }
+
+/* ── RESULTS ── */
+.results-wrap { display:none; max-width:860px; margin:0 auto; padding:48px 2rem 80px; }
+
+.score-hero { text-align:center; padding:48px 0 40px; border-bottom:1px solid var(--border-light); margin-bottom:36px; }
+.score-eyebrow { font-family:var(--mono); font-size:0.68rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
+.score-overall-label { font-size:13px; color:var(--gray-500); font-weight:500; margin-bottom:18px; }
+.score-ring { width:120px; height:120px; border-radius:50%; border:4px solid var(--accent); display:flex; flex-direction:column; align-items:center; justify-content:center; margin:0 auto 18px; transition:border-color 0.3s; }
+.score-num { font-size:36px; font-weight:800; letter-spacing:-1px; line-height:1; color:var(--accent); }
+.score-of { font-size:11px; color:var(--gray-400); margin-top:2px; font-family:var(--mono); }
+.score-verdict { font-size:22px; font-weight:700; letter-spacing:-0.3px; color:var(--text-dark); margin-bottom:10px; }
+.effort-badge { display:inline-block; font-size:12px; font-weight:600; padding:6px 16px; border-radius:99px; border:1.5px solid var(--accent); color:var(--accent); background:var(--accent-light); margin-top:8px; font-family:var(--mono); }
+
+/* Result cards — uses site's card style */
+.result-card { background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; margin-bottom:20px; box-shadow:var(--sh-sm); }
+.rc-hdr { padding:13px 20px; background:var(--light-gray); border-bottom:1px solid var(--border-light); display:flex; align-items:baseline; gap:8px; }
+.rc-hdr h3 { font-family:var(--mono); font-size:0.68rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); }
+.rc-hdr-sub { font-size:11px; color:var(--gray-500); font-weight:400; }
+
+/* Benchmark rows */
+.bm-row { display:flex; align-items:center; gap:16px; padding:11px 20px; border-bottom:1px solid var(--border-light); }
+.bm-row:last-child { border-bottom:none; }
+.bm-row.you { background:var(--accent-light); }
+.bm-name { font-size:13px; font-weight:500; color:var(--text-dark); min-width:200px; }
+.bm-row.you .bm-name { font-weight:700; color:var(--accent); }
+.bm-bar-wrap { flex:1; display:flex; align-items:center; gap:10px; }
+.bm-bar-outer { flex:1; height:7px; background:var(--border); border-radius:99px; overflow:hidden; }
+.bm-bar-inner { height:100%; background:var(--accent); border-radius:99px; transition:width 0.8s ease; }
+.bm-val { font-size:13px; font-weight:700; color:var(--accent); min-width:32px; text-align:right; font-family:var(--mono); }
+
+/* Domain score rows */
+.dr-row { display:grid; grid-template-columns:1fr 120px 52px; align-items:center; gap:16px; padding:11px 20px; border-bottom:1px solid var(--border-light); }
+.dr-row:last-child { border-bottom:none; }
+.dr-row:nth-child(even) { background:var(--light-gray); }
+.dr-name { font-size:13px; font-weight:500; color:var(--text-dark); }
+.dr-bar-outer { height:7px; background:var(--border); border-radius:99px; overflow:hidden; }
+.dr-bar-inner { height:100%; border-radius:99px; transition:width 0.8s ease; }
+.dr-pct { font-size:13px; font-weight:700; text-align:right; font-family:var(--mono); }
+
+/* ROI Opportunity */
+.roi-card { border:1.5px solid var(--navy); border-radius:var(--r); overflow:hidden; margin-bottom:20px; }
+.roi-hdr { background:var(--navy); padding:18px 24px; }
+.roi-eyebrow { font-family:var(--mono); font-size:0.65rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:8px; }
+.roi-domain-row { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.roi-domain-name { font-size:22px; font-weight:700; color:var(--white); letter-spacing:-0.3px; }
+.roi-pct { font-size:26px; font-weight:800; color:var(--white); background:rgba(255,255,255,0.12); padding:4px 14px; border-radius:6px; font-family:var(--mono); }
+.roi-body { background:var(--accent-light); padding:20px 24px; display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.roi-block-label { font-family:var(--mono); font-size:0.65rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:9px; }
+.roi-text { font-size:13.5px; color:var(--text-dark); line-height:1.65; }
+.roi-list { list-style:none; display:flex; flex-direction:column; gap:6px; }
+.roi-list li { font-size:13.5px; color:var(--text-dark); display:flex; align-items:flex-start; gap:9px; line-height:1.5; }
+.roi-list li::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0; margin-top:6px; }
+.qw-section { background:var(--green-light); border-top:1px solid rgba(5,150,105,0.2); padding:16px 24px; }
+.qw-label { font-family:var(--mono); font-size:0.65rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--green); margin-bottom:11px; }
+.qw-list { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:7px 20px; }
+.qw-list li { font-size:13px; color:var(--text-dark); display:flex; align-items:flex-start; gap:8px; line-height:1.45; }
+.qw-list li::before { content:'v'; color:var(--green); font-weight:800; font-size:11px; flex-shrink:0; margin-top:1px; font-family:var(--mono); }
+
+/* Exec summary */
+.exec-body { padding:20px 24px; font-size:14.5px; color:var(--text-dark); line-height:1.8; }
+
+/* Roadmap */
+.roadmap-hdr { background:var(--navy); padding:16px 24px; }
+.roadmap-hdr-title { font-size:15px; font-weight:700; color:var(--white); }
+.roadmap-hdr-sub { font-size:12px; color:rgba(255,255,255,0.55); margin-top:3px; font-family:var(--mono); }
+.roadmap-phase { padding:18px 24px; border-bottom:1px solid var(--border-light); }
+.roadmap-phase:last-child { border-bottom:none; }
+.roadmap-phase:nth-child(even) { background:var(--light-gray); }
+.phase-name { font-size:14px; font-weight:700; color:var(--accent); margin-bottom:3px; }
+.phase-sub { font-size:12px; color:var(--gray-500); margin-bottom:12px; font-family:var(--mono); font-size:0.72rem; }
+.phase-items { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:7px 20px; }
+.phase-items li { font-size:13px; color:var(--text-dark); display:flex; align-items:flex-start; gap:9px; line-height:1.5; }
+.phase-items li::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--navy); flex-shrink:0; margin-top:5px; }
+
+/* CTA section — matches site's navy section style */
+.results-cta { background:var(--navy); border-radius:var(--r); padding:32px 36px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:20px; }
+.results-cta-title { font-size:20px; font-weight:700; color:var(--white); letter-spacing:-0.3px; margin-bottom:8px; }
+.results-cta-body { font-size:14px; color:rgba(255,255,255,0.7); line-height:1.65; max-width:440px; }
+.results-cta-actions { display:flex; flex-direction:column; gap:10px; flex-shrink:0; }
+.btn-white { display:inline-flex; align-items:center; justify-content:center; gap:6px; background:var(--white); color:var(--navy); font-size:14px; font-weight:700; padding:11px 22px; border-radius:var(--r); border:none; cursor:pointer; transition:all 0.2s; font-family:inherit; white-space:nowrap; }
+.btn-white:hover { background:var(--accent-light); color:var(--accent); }
+.btn-outline-white { display:inline-flex; align-items:center; justify-content:center; gap:6px; background:transparent; color:rgba(255,255,255,0.85); font-size:13px; font-weight:600; padding:10px 22px; border-radius:var(--r); border:1.5px solid rgba(255,255,255,0.3); cursor:pointer; font-family:inherit; white-space:nowrap; transition:all 0.2s; }
+.btn-outline-white:hover { background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.6); }
+
+.success-toast { background:var(--green-light); border:1px solid rgba(5,150,105,0.3); border-radius:var(--r); padding:12px 16px; margin-bottom:24px; font-size:13px; color:var(--green); font-weight:500; text-align:center; display:none; font-family:var(--mono); font-size:0.75rem; letter-spacing:0.02em; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px) {
+  .gate-grid { grid-template-columns:1fr; gap:40px; }
+}
+@media(max-width:680px) {
+  .nav-links { display:none; }
+  .nav-toggle { display:flex; }
+  .steps-inner { gap:0; }
+  .step span { display:none; }
+  .radio-group { padding-left:0; }
+  .dr-row { grid-template-columns:1fr 52px; }
+  .dr-bar-outer { display:none; }
+  .roi-body { grid-template-columns:1fr; }
+  .qw-list, .phase-items, .wyr-items { grid-template-columns:1fr; }
+  .results-cta { flex-direction:column; align-items:flex-start; }
+  .results-cta-actions { width:100%; }
+  .btn-white, .btn-outline-white { width:100%; }
+  .bm-row { flex-wrap:wrap; }
+}
+
+/* Print styles for PDF */
+@media print {
+  .pb { page-break-before:always; }
+  .nb { page-break-inside:avoid; }
+  @page { margin:14mm 16mm 16mm 16mm; size:A4; }
+}
+@media screen and (max-width:900px) {
+  .pb { border-top:3px dashed var(--border); margin:40px 0; padding-top:40px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV (matches site exactly) ── -->
+<nav class="site-nav" id="siteNav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand"><img src="assets/logo.png" alt="CloudBridge Partners"></a>
+      <div class="nav-links">
+        <a href="/#services">Services</a>
+        <a href="/#approach">Approach</a>
+        <a href="/#founder">About Us</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/#process">How We Work</a>
+        <a href="ai-assessment.html" class="active">AI Assessment</a>
+        <a href="/#contact" class="nav-cta">Send a Message</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">&times;</button>
+  <a href="/">Home</a>
+  <a href="/#services" onclick="closeMobile()">Services</a>
+  <a href="/#approach" onclick="closeMobile()">Approach</a>
+  <a href="/#process" onclick="closeMobile()">How We Work</a>
+  <a href="/#testimonials" onclick="closeMobile()">Testimonials</a>
+  <a href="/#founder" onclick="closeMobile()">About Us</a>
+  <a href="ai-assessment.html" onclick="closeMobile()" style="color:var(--accent);font-weight:600;">AI Assessment</a>
+  <a href="/#contact" onclick="closeMobile()" class="btn-primary">Send a Message</a>
+</div>
+
+<!-- ── STEP INDICATOR ── -->
+<div class="steps-bar" id="stepsBar">
+  <div class="steps-inner">
+    <div class="step active" id="step1"><div class="step-num">1</div><span>Your Details</span></div>
+    <div class="step-line" id="stepLine1"></div>
+    <div class="step" id="step2"><div class="step-num">2</div><span>Assessment</span></div>
+    <div class="step-line" id="stepLine2"></div>
+    <div class="step" id="step3"><div class="step-num">3</div><span>Your Results</span></div>
+  </div>
+</div>
+
+<!-- ══ STEP 1: GATE ══ -->
+<div id="gateSection">
+  <div class="gate-section">
+    <div class="gate-grid">
+      <div class="gate-left">
+        <div class="eyebrow">5-Minute Executive Assessment</div>
+        <h1>How AI-Ready Is Your<br><span>Workday Tenant?</span></h1>
+        <p>Assess your Workday environment across security, reporting, integrations, business processes, and technical readiness. Get a personalized score, domain breakdown, and 90-day roadmap.</p>
+        <div class="wyr-card">
+          <div class="wyr-card-label">What You'll Receive</div>
+          <div class="wyr-items">
+            <div class="wyr-item">Overall AI Readiness Score</div>
+            <div class="wyr-item">Personalized Recommendations</div>
+            <div class="wyr-item">Domain-by-Domain Breakdown</div>
+            <div class="wyr-item">90-Day Roadmap PDF</div>
+          </div>
+        </div>
+      </div>
+      <div class="gate-form-card">
+        <h2>Start Your Assessment</h2>
+        <p>Takes under 5 minutes. Receive a personalized report immediately.</p>
+        <div class="form-group">
+          <label for="userName">Full Name</label>
+          <input type="text" id="userName" placeholder="Jane Smith" autocomplete="name">
+          <div class="field-error" id="nameError"></div>
+        </div>
+        <div class="form-group">
+          <label for="userEmail">Work Email</label>
+          <input type="email" id="userEmail" placeholder="jane@company.com" autocomplete="email">
+          <div class="field-error" id="emailError"></div>
+          <div class="field-hint">Work email required. Personal addresses are not accepted.</div>
+        </div>
+        <button class="btn-primary btn-primary-lg btn-gate" onclick="startAssessment()">Start Assessment &rarr;</button>
+        <p class="privacy-note">Your information is kept confidential and used only to deliver your results.<br>We do not share or sell your data.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ STEP 2: ASSESSMENT ══ -->
+<div id="assessSection" style="display:none;">
+  <div class="progress-bar-wrap">
+    <div class="progress-inner">
+      <div class="progress-label" id="progressLabel">0 / 50 answered</div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-pct" id="progressPct">0%</div>
+    </div>
+  </div>
+  <div class="assess-body">
+    <div class="respondent-badge">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      Completing as: <strong id="respondentName">--</strong><span class="respondent-sep">&middot;</span><span id="respondentEmail" style="color:var(--text-sec)">--</span>
+    </div>
+    
+        <div class="domain-section">
+          <div class="domain-header">
+            <div class="eyebrow">Domain 01</div>
+            <h2 class="domain-title">Security Readiness</h2>
+          </div>
+          
+          <div class="q-card" data-q="0">
+            <div class="q-header">
+              <span class="q-num">01</span>
+              <span class="q-text">Dedicated Workday security ownership is assigned for AI and automation-related changes.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q0" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q0" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q0" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="1">
+            <div class="q-header">
+              <span class="q-num">02</span>
+              <span class="q-text">Integration and report ISUs are documented, owned, and periodically reviewed.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q1" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q1" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q1" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="2">
+            <div class="q-header">
+              <span class="q-num">03</span>
+              <span class="q-text">Privileged access reviews occur on a defined cadence.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q2" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q2" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q2" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="3">
+            <div class="q-header">
+              <span class="q-num">04</span>
+              <span class="q-text">Security changes follow a documented approval and testing process.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q3" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q3" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q3" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="4">
+            <div class="q-header">
+              <span class="q-num">05</span>
+              <span class="q-text">Integration System Security Groups are standardized and reviewed for least privilege.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q4" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q4" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q4" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="5">
+            <div class="q-header">
+              <span class="q-num">06</span>
+              <span class="q-text">Sensitive data access for ISSGs is periodically reviewed.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q5" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q5" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q5" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="6">
+            <div class="q-header">
+              <span class="q-num">07</span>
+              <span class="q-text">Service accounts are inventoried with owner and purpose.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q6" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q6" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q6" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="7">
+            <div class="q-header">
+              <span class="q-num">08</span>
+              <span class="q-text">Terminated users are removed from report sharing, distribution, and schedule ownership.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q7" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q7" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q7" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="8">
+            <div class="q-header">
+              <span class="q-num">09</span>
+              <span class="q-text">Security audit findings are tracked to closure.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q8" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q8" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q8" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="9">
+            <div class="q-header">
+              <span class="q-num">10</span>
+              <span class="q-text">Teams can explain which security groups support critical AI-relevant workflows.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q9" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q9" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q9" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="reality-block">
+            <span class="reality-prompt">$&gt;</span>
+            <span class="reality-text">Agents inherit your security model. They do not improve it.</span>
+          </div>
+        </div>
+        <hr class="section-divider" style="margin:36px 0;">
+        <div class="domain-section">
+          <div class="domain-header">
+            <div class="eyebrow">Domain 02</div>
+            <h2 class="domain-title">Business Process Readiness</h2>
+          </div>
+          
+          <div class="q-card" data-q="10">
+            <div class="q-header">
+              <span class="q-num">01</span>
+              <span class="q-text">Each major business process has a named owner who can approve AI or automation-related changes.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q10" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q10" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q10" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="11">
+            <div class="q-header">
+              <span class="q-num">02</span>
+              <span class="q-text">Business Process Security Policies are documented and compliant with internal controls.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q11" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q11" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q11" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="12">
+            <div class="q-header">
+              <span class="q-num">03</span>
+              <span class="q-text">Approval chains are documented, current, and explainable.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q12" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q12" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q12" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="13">
+            <div class="q-header">
+              <span class="q-num">04</span>
+              <span class="q-text">Exception handling is documented for critical processes.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q13" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q13" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q13" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="14">
+            <div class="q-header">
+              <span class="q-num">05</span>
+              <span class="q-text">Condition rules are documented with owner and purpose.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q14" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q14" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q14" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="15">
+            <div class="q-header">
+              <span class="q-num">06</span>
+              <span class="q-text">Business process changes follow a documented governance process.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q15" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q15" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q15" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="16">
+            <div class="q-header">
+              <span class="q-num">07</span>
+              <span class="q-text">Business Process Admins can explain the why and how behind routing, approvals, and security.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q16" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q16" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q16" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="17">
+            <div class="q-header">
+              <span class="q-num">08</span>
+              <span class="q-text">Reassign Tasks and delegation procedures are documented.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q17" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q17" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q17" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="18">
+            <div class="q-header">
+              <span class="q-num">09</span>
+              <span class="q-text">Unassigned business process tasks are monitored with an escalation path.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q18" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q18" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q18" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="19">
+            <div class="q-header">
+              <span class="q-num">10</span>
+              <span class="q-text">Teams know who owns resolution when a critical process fails.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q19" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q19" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q19" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="reality-block">
+            <span class="reality-prompt">$&gt;</span>
+            <span class="reality-text">An undocumented process cannot be safely automated.</span>
+          </div>
+        </div>
+        <hr class="section-divider" style="margin:36px 0;">
+        <div class="domain-section">
+          <div class="domain-header">
+            <div class="eyebrow">Domain 03</div>
+            <h2 class="domain-title">Reporting &amp; Insights Readiness</h2>
+          </div>
+          
+          <div class="q-card" data-q="20">
+            <div class="q-header">
+              <span class="q-num">01</span>
+              <span class="q-text">Critical and SOX reports have defined report tags and business owners.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q20" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q20" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q20" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="21">
+            <div class="q-header">
+              <span class="q-num">02</span>
+              <span class="q-text">Workday data is trusted enough for AI-assisted decisions.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q21" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q21" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q21" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="22">
+            <div class="q-header">
+              <span class="q-num">03</span>
+              <span class="q-text">Duplicate and copied reports are regularly reviewed, consolidated, or removed.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q22" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q22" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q22" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="23">
+            <div class="q-header">
+              <span class="q-num">04</span>
+              <span class="q-text">Calculated fields follow naming standards and are reviewed for DNU fields.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q23" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q23" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q23" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="24">
+            <div class="q-header">
+              <span class="q-num">05</span>
+              <span class="q-text">Report security is reviewed periodically, especially for sensitive data.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q24" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q24" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q24" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="25">
+            <div class="q-header">
+              <span class="q-num">06</span>
+              <span class="q-text">Key metrics have agreed-upon definitions.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q25" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q25" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q25" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="26">
+            <div class="q-header">
+              <span class="q-num">07</span>
+              <span class="q-text">Reporting requests follow a governance, intake, and prioritization process.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q26" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q26" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q26" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="27">
+            <div class="q-header">
+              <span class="q-num">08</span>
+              <span class="q-text">Report schedules are owned by ISUs or active users, not terminated workers.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q27" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q27" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q27" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="28">
+            <div class="q-header">
+              <span class="q-num">09</span>
+              <span class="q-text">Terminated users are removed from report sharing and report schedules.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q28" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q28" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q28" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="29">
+            <div class="q-header">
+              <span class="q-num">10</span>
+              <span class="q-text">Teams can explain how key metrics are calculated.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q29" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q29" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q29" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="reality-block">
+            <span class="reality-prompt">$&gt;</span>
+            <span class="reality-text">Agents will answer questions using the same reporting foundation your users rely on today.</span>
+          </div>
+        </div>
+        <hr class="section-divider" style="margin:36px 0;">
+        <div class="domain-section">
+          <div class="domain-header">
+            <div class="eyebrow">Domain 04</div>
+            <h2 class="domain-title">Integration Readiness</h2>
+          </div>
+          
+          <div class="q-card" data-q="30">
+            <div class="q-header">
+              <span class="q-num">01</span>
+              <span class="q-text">All integrations are inventoried with owner, purpose, and criticality.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q30" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q30" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q30" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="31">
+            <div class="q-header">
+              <span class="q-num">02</span>
+              <span class="q-text">Integration technical and functional owners are identified and ISUs are assigned.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q31" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q31" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q31" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="32">
+            <div class="q-header">
+              <span class="q-num">03</span>
+              <span class="q-text">Monitoring is in place for critical integrations.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q32" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q32" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q32" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="33">
+            <div class="q-header">
+              <span class="q-num">04</span>
+              <span class="q-text">Failure notifications route to the correct technical and business owners.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q33" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q33" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q33" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="34">
+            <div class="q-header">
+              <span class="q-num">05</span>
+              <span class="q-text">Critical integrations have documented support and runbook procedures.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q34" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q34" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q34" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="35">
+            <div class="q-header">
+              <span class="q-num">06</span>
+              <span class="q-text">Vendors and contacts are clearly identified and current.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q35" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q35" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q35" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="36">
+            <div class="q-header">
+              <span class="q-num">07</span>
+              <span class="q-text">Upstream and downstream integration dependencies are understood.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q36" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q36" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q36" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="37">
+            <div class="q-header">
+              <span class="q-num">08</span>
+              <span class="q-text">Integration failures are reviewed, resolved, or documented with business impact.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q37" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q37" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q37" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="38">
+            <div class="q-header">
+              <span class="q-num">09</span>
+              <span class="q-text">PGP, SSH, and API keys are monitored for expiration and rotation.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q38" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q38" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q38" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="39">
+            <div class="q-header">
+              <span class="q-num">10</span>
+              <span class="q-text">Integration schedules and expiration dates are documented and owned by the appropriate ISUs.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q39" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q39" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q39" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="reality-block">
+            <span class="reality-prompt">$&gt;</span>
+            <span class="reality-text">MCP is not a replacement for integration governance.</span>
+          </div>
+        </div>
+        <hr class="section-divider" style="margin:36px 0;">
+        <div class="domain-section">
+          <div class="domain-header">
+            <div class="eyebrow">Domain 05</div>
+            <h2 class="domain-title">Technical Foundation</h2>
+          </div>
+          
+          <div class="q-card" data-q="40">
+            <div class="q-header">
+              <span class="q-num">01</span>
+              <span class="q-text">The team understands where Workday Orchestrate could safely support process automation.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q40" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q40" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q40" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="41">
+            <div class="q-header">
+              <span class="q-num">02</span>
+              <span class="q-text">The team understands when Workday Extend is appropriate.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q41" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q41" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q41" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="42">
+            <div class="q-header">
+              <span class="q-num">03</span>
+              <span class="q-text">The team understands Workday APIs and integration guardrails.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q42" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q42" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q42" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="43">
+            <div class="q-header">
+              <span class="q-num">04</span>
+              <span class="q-text">AI governance discussions include HR, IT, security, and business owners.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q43" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q43" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q43" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="44">
+            <div class="q-header">
+              <span class="q-num">05</span>
+              <span class="q-text">Testing standards exist for configuration, integrations, and business process changes.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q44" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q44" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q44" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="45">
+            <div class="q-header">
+              <span class="q-num">06</span>
+              <span class="q-text">Change management is documented for technical and process changes.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q45" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q45" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q45" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="46">
+            <div class="q-header">
+              <span class="q-num">07</span>
+              <span class="q-text">Technical debt is actively tracked and prioritized.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q46" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q46" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q46" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="47">
+            <div class="q-header">
+              <span class="q-num">08</span>
+              <span class="q-text">Release testing is repeatable and risk-based.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q47" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q47" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q47" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="48">
+            <div class="q-header">
+              <span class="q-num">09</span>
+              <span class="q-text">Architecture decisions are documented.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q48" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q48" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q48" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="49">
+            <div class="q-header">
+              <span class="q-num">10</span>
+              <span class="q-text">Leadership supports modernization with budget and resource priority.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="q49" value="2"><span class="chip chip-full">Fully Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q49" value="1"><span class="chip chip-part">Partially Implemented</span></label>
+              <label class="radio-opt"><input type="radio" name="q49" value="0"><span class="chip chip-not">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="reality-block">
+            <span class="reality-prompt">$&gt;</span>
+            <span class="reality-text">Most teams need more Orchestrate maturity before they need agents.</span>
+          </div>
+        </div>
+        <hr class="section-divider" style="margin:36px 0;">
+    <div class="submit-area">
+      <button class="btn-primary btn-primary-lg" onclick="submitAssessment()">View My Results &rarr;</button>
+      <div class="submit-note" id="submitNote">Answer any questions above, then submit to see your personalized results</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ STEP 3: RESULTS ══ -->
+<div class="results-wrap" id="resultsSection">
+
+  <div class="success-toast" id="successToast">Results submitted. You will receive a follow-up from the CloudBridge Partners team.</div>
+
+  <div class="score-hero">
+    <div class="score-eyebrow">Workday AI Readiness Assessment</div>
+    <div class="score-overall-label">Overall AI Readiness Score</div>
+    <div class="score-ring" id="scoreRing">
+      <span class="score-num" id="scoreNum">--</span>
+      <span class="score-of">/ 100</span>
+    </div>
+    <div class="score-verdict" id="scoreVerdict">--</div>
+    <div class="effort-badge" id="effortBadge" style="display:none;"></div>
+  </div>
+
+  <div class="result-card">
+    <div class="rc-hdr"><h3>Benchmark Comparison</h3></div>
+    <div id="benchmarkRows"></div>
+  </div>
+
+  <div class="result-card">
+    <div class="rc-hdr"><h3>Score by Domain <span class="rc-hdr-sub">sorted lowest to highest</span></h3></div>
+    <div id="domainRows"></div>
+  </div>
+
+  <div class="roi-card" id="roiSection" style="display:none;">
+    <div class="roi-hdr">
+      <div class="roi-eyebrow">Highest ROI Opportunity</div>
+      <div class="roi-domain-row">
+        <span class="roi-domain-name" id="roiDomain">--</span>
+        <span class="roi-pct" id="roiScore">--%</span>
+      </div>
+    </div>
+    <div class="roi-body">
+      <div>
+        <div class="roi-block-label">Why It Matters</div>
+        <p class="roi-text" id="roiWhy">--</p>
+      </div>
+      <div>
+        <div class="roi-block-label">Where To Start</div>
+        <ul class="roi-list" id="roiWhat"></ul>
+      </div>
+    </div>
+    <div class="qw-section">
+      <div class="qw-label">Quick Wins &mdash; complete within 2 weeks</div>
+      <ul class="qw-list" id="quickWins"></ul>
+    </div>
+  </div>
+
+  <div class="result-card" id="execSection" style="display:none;">
+    <div class="rc-hdr"><h3>Executive Summary</h3></div>
+    <div class="exec-body" id="execText"></div>
+  </div>
+
+  <div class="result-card" id="roadmapSection" style="display:none;">
+    <div class="roadmap-hdr">
+      <div class="roadmap-hdr-title">AI Readiness Roadmap</div>
+      <div class="roadmap-hdr-sub">Tailored to your highest ROI opportunity</div>
+    </div>
+    <div id="roadmapPhases"></div>
+  </div>
+
+  <div class="results-cta">
+    <div>
+      <div class="results-cta-title">Want to improve your AI Readiness Score?</div>
+      <p class="results-cta-body">CloudBridge Partners helps organizations improve reporting, integrations, security, governance, testing, and automation through focused Workday optimization engagements.</p>
+    </div>
+    <div class="results-cta-actions">
+      <button class="btn-white" onclick="downloadPDF()">&#8595; Download Executive PDF</button>
+      <button class="btn-outline-white" onclick="downloadCSV()">&#8595; Download Excel Report</button>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:8px;">
+    <button class="btn-ghost" onclick="retake()">&larr; Start Over</button>
+  </div>
+
+</div>
+
+<script>
+const TOTAL = 50;
+const DOMAINS = [["Security Readiness", 10], ["Business Process Readiness", 10], ["Reporting & Insights Readiness", 10], ["Integration Readiness", 10], ["Technical Foundation", 10]];
+const BLOCKED = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "aol.com", "icloud.com", "live.com", "msn.com", "ymail.com", "mail.com", "protonmail.com", "zoho.com", "gmx.com", "inbox.com", "rediffmail.com"];
+const FORMSPREE = "https://formspree.io/f/xvgqwoge";
+const answers = new Array(TOTAL).fill(null);
+let userName = "", userEmail = "";
+
+// -- Nav scroll effect
+window.addEventListener("scroll", function() {
+  document.getElementById("siteNav").classList.toggle("scrolled", window.scrollY > 10);
+});
+document.getElementById("navToggle").addEventListener("click", function() {
+  document.getElementById("mobileMenu").classList.add("open");
+});
+document.getElementById("mobileClose").addEventListener("click", function() {
+  document.getElementById("mobileMenu").classList.remove("open");
+});
+function closeMobile() { document.getElementById("mobileMenu").classList.remove("open"); }
+
+// -- Domain intelligence
+const DOMAIN_DATA = {
+  "Security Readiness": {
+    execSummary: "Your Workday environment has meaningful gaps in security governance. Weak ISU ownership, ungoverned ISSGs, and undocumented service accounts create direct risk when AI-assisted workflows are introduced. Agents operate within your existing security model and cannot compensate for gaps that already exist. The highest-impact first step is a full service account and ISU inventory, followed by an ISSG least-privilege review. Closing these gaps will reduce compliance exposure and establish the security foundation needed to safely expand automation.",
+    why: "AI requires strong governance and security controls. Weak access management, undocumented service accounts, and ungoverned ISSGs increase operational and compliance risk the moment automation is introduced.",
+    whereToStart: ["Audit all service accounts with owner and purpose","Review ISSGs for least-privilege violations","Confirm privileged access review cadence is active","Document the security change approval process","Validate terminated users are removed from report sharing"],
+    quickWins: ["Identify service accounts without a documented owner","Flag ISSGs not reviewed in 12+ months","Confirm security domain ownership for AI-relevant workflows","Remove one terminated user from report distribution"],
+    roadmap: {
+      p1: { name:"Phase 1: Build Governance", sub:"Establish security ownership and document the baseline", items:["Inventory all service accounts with owner and purpose","Document ISU assignments per integration and report","Identify ISSGs not reviewed in 12+ months","Establish a security change request and approval log"] },
+      p2: { name:"Phase 2: Standardize", sub:"Close access gaps and enforce least-privilege controls", items:["Conduct full ISSG least-privilege review","Remove or reassign orphaned or over-permissioned accounts","Define recurring privileged access review cadence","Document security domain ownership for AI-relevant workflows"] },
+      p3: { name:"Phase 3: Validate & Prepare for AI", sub:"Confirm readiness and brief leadership", items:["Complete security audit and track findings to closure","Validate terminated user removal from all report distribution","Finalize security governance document for AI readiness","Brief leadership on security posture ahead of AI initiative"] }
+    }
+  },
+  "Business Process Readiness": {
+    execSummary: "Your Workday environment lacks the process governance needed to safely introduce automation. Without named owners, documented approval chains, and defined escalation paths, AI-driven workflows will encode existing problems at scale. The most important first step is identifying named owners for your highest-priority processes and documenting how each one routes, approves, and handles exceptions. Governance here is the prerequisite for any reliable AI adoption.",
+    why: "AI performs best on standardized and well-governed business processes. Without documented routing logic, named owners, and clear exception handling, agents will automate the wrong behavior or fail silently.",
+    whereToStart: ["Identify named owners for all major business processes","Document approval chains and routing logic","Define exception handling per process","Map condition rules with owner and purpose","Establish escalation path for unassigned tasks"],
+    quickWins: ["List top 10 processes and identify which lack a named owner","Flag processes where exception handling is undocumented","Identify current unassigned task queues","Confirm delegation and reassignment procedures are documented"],
+    roadmap: {
+      p1: { name:"Phase 1: Build Governance", sub:"Document ownership and routing logic for critical processes", items:["List all major processes and identify ownership gaps","Document top 10 approval chains in detail","Define what happens when a process task is unassigned","Audit condition rules for accuracy and documentation"] },
+      p2: { name:"Phase 2: Standardize", sub:"Assign owners and establish governance procedures", items:["Assign named owners to all critical business processes","Document exception handling and routing logic per process","Establish a process change governance procedure","Train Business Process Admins on documentation standards"] },
+      p3: { name:"Phase 3: Validate & Prepare for AI", sub:"Test failure scenarios and confirm leadership alignment", items:["Complete delegation and reassignment documentation","Conduct tabletop review of failure scenarios","Finalize escalation matrix for process failures","Brief leadership on process governance readiness"] }
+    }
+  },
+  "Reporting & Insights Readiness": {
+    execSummary: "Your Workday reporting environment is not yet in a position to support reliable AI-generated outputs. Report duplication, missing ownership, and undefined metric definitions mean AI tools will inherit the same data trust problems your teams already experience. The priority is governance: tagging critical reports, assigning owners, removing duplicates, and aligning on what key metrics mean before they are used to drive AI-assisted decisions.",
+    why: "AI can only produce reliable answers if the underlying reports are accurate and trusted. If your teams debate whose numbers are correct, agents will inherit that ambiguity and amplify it.",
+    whereToStart: ["Review top 25 reports for duplicates and missing ownership","Remove or consolidate unused and copied reports","Assign owners and apply SOX and critical report tags","Standardize calculated field naming conventions","Align leadership on definitions for key executive metrics"],
+    quickWins: ["Identify 5 most-used reports that lack a business owner","Flag duplicate report pairs that can be consolidated immediately","Confirm all SOX reports have correct report tags applied","Remove one terminated user from active report distribution"],
+    roadmap: {
+      p1: { name:"Phase 1: Build Governance", sub:"Inventory reports and establish ownership", items:["Inventory all reports and identify duplicates and DNU fields","Tag all SOX and critical reports with appropriate report tags","Identify reports without an active owner or schedule owner","Document definitions for the top 10 executive metrics"] },
+      p2: { name:"Phase 2: Standardize", sub:"Clean the report library and enforce governance", items:["Remove or consolidate duplicate and low-usage reports","Assign ownership to all unowned reports","Review report security for sensitive data access","Implement governance intake process for new report requests"] },
+      p3: { name:"Phase 3: Validate & Prepare for AI", sub:"Confirm data trust and brief leadership", items:["Align leadership on agreed-upon metric definitions","Validate all report schedules are owned by active ISUs","Remove terminated users from report sharing and distribution","Conduct dashboard usage review and remove abandoned dashboards"] }
+    }
+  },
+  "Integration Readiness": {
+    execSummary: "Your integration landscape lacks the ownership, monitoring, and documentation needed to support AI-enabled workflows. Integrations connect Workday to every upstream and downstream system -- gaps here create compounding risk when automation is introduced. The highest-impact step is completing an integration inventory with named technical and functional owners, followed by confirming that failure notifications are routing to the right people.",
+    why: "Disconnected or poorly monitored integrations reduce the effectiveness of AI-driven workflows. Missing ownership and unresolved failures create compounding risk when automation is layered on top.",
+    whereToStart: ["Complete integration inventory with owner, purpose, and criticality","Assign technical and functional owners to each integration","Confirm failure notifications are routing to correct personnel","Document runbooks for the top 10 critical integrations","Audit PGP, SSH, and API key expiration dates"],
+    quickWins: ["Identify integrations with no documented technical owner","Confirm at least one critical integration has a failure notification active","Flag any API keys expiring within 90 days","Document vendor contact for your most critical integration"],
+    roadmap: {
+      p1: { name:"Phase 1: Build Governance", sub:"Inventory integrations and establish ownership", items:["Complete integration inventory with owner, purpose, and criticality","Identify integrations without technical or functional owners","Confirm monitoring is active for all production integrations","Document vendor contacts for all third-party integrations"] },
+      p2: { name:"Phase 2: Standardize", sub:"Close monitoring gaps and document support procedures", items:["Assign ISUs to all integrations missing ownership","Validate failure notification routing for critical integrations","Build runbooks for the top 10 most critical integrations","Audit key expiration dates for PGP, SSH, and API credentials"] },
+      p3: { name:"Phase 3: Validate & Prepare for AI", sub:"Map dependencies and confirm operational readiness", items:["Document all integration schedules with owner and cadence","Review and resolve or document recurring integration failures","Map upstream and downstream dependencies for critical integrations","Conduct integration health review with technical and business teams"] }
+    }
+  },
+  "Technical Foundation": {
+    execSummary: "Your Workday technical foundation needs strengthening before AI-driven workflows can be introduced safely. Gaps in documentation, testing standards, and platform governance mean AI initiatives will be harder to control and more likely to create technical debt. The first priority is assessing team readiness on Orchestrate and Extend, establishing a repeatable testing standard, and beginning AI governance discussions with HR, IT, and security.",
+    why: "Technical debt and weak governance slow AI adoption and increase implementation risk. AI amplifies both good and poor platform hygiene -- teams without testing standards or documented architecture will find AI initiatives harder to control and scale.",
+    whereToStart: ["Assess team readiness on Orchestrate, Extend, and Workday APIs","Establish a testing standard for configuration and integration changes","Document current architecture decisions and technical debt","Begin AI governance discussions with HR, IT, and security","Define release testing criteria and regression coverage"],
+    quickWins: ["Survey team members on Orchestrate and Extend familiarity","Identify the single biggest area of undocumented technical debt","Schedule an AI governance kickoff with HR, IT, and security stakeholders","Document one architecture decision that is currently undocumented"],
+    roadmap: {
+      p1: { name:"Phase 1: Build Governance", sub:"Assess team readiness and document the baseline", items:["Assess team knowledge of Orchestrate, Extend, and Workday APIs","Inventory known technical debt and prioritize by business impact","Document existing architecture decisions and open design gaps","Identify team members to lead AI governance discussions"] },
+      p2: { name:"Phase 2: Standardize", sub:"Establish testing standards and governance frameworks", items:["Establish testing standard for configuration and integration releases","Define release testing scope, regression coverage, and sign-off process","Draft AI governance framework including HR, IT, and security input","Create documentation templates for architecture decisions"] },
+      p3: { name:"Phase 3: Validate & Prepare for AI", sub:"Run validation exercises and brief leadership", items:["Complete change management documentation review","Run tabletop release testing using the new standard","Brief leadership on technical readiness and AI governance progress","Define success criteria for a controlled Orchestrate pilot"] }
+    }
+  }
+};
+
+// -- Validation
+function isBlockedDomain(email) {
+  var domain = (email.split("@")[1] || "").toLowerCase();
+  return BLOCKED.indexOf(domain) !== -1;
+}
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// -- Step indicator
+function setStep(n) {
+  for (var i = 1; i <= 3; i++) {
+    var el = document.getElementById("step" + i);
+    el.classList.remove("active","done");
+    if (i < n) el.classList.add("done");
+    else if (i === n) el.classList.add("active");
+  }
+  if (n > 1) document.getElementById("stepLine1").classList.add("done");
+  if (n > 2) document.getElementById("stepLine2").classList.add("done");
+}
+
+// -- Gate
+function startAssessment() {
+  var nameEl = document.getElementById("userName");
+  var emailEl = document.getElementById("userEmail");
+  var nameErr = document.getElementById("nameError");
+  var emailErr = document.getElementById("emailError");
+  var valid = true;
+
+  nameEl.classList.remove("error"); nameErr.style.display = "none";
+  emailEl.classList.remove("error"); emailErr.style.display = "none";
+
+  var name = nameEl.value.trim();
+  if (!name || name.split(" ").filter(function(w) { return w.length > 0; }).length < 2) {
+    nameEl.classList.add("error");
+    nameErr.textContent = "Please enter your first and last name.";
+    nameErr.style.display = "block";
+    valid = false;
+  }
+
+  var email = emailEl.value.trim();
+  if (!isValidEmail(email)) {
+    emailEl.classList.add("error");
+    emailErr.textContent = "Please enter a valid email address.";
+    emailErr.style.display = "block";
+    valid = false;
+  } else if (isBlockedDomain(email)) {
+    emailEl.classList.add("error");
+    emailErr.textContent = "Please use your work email. Gmail, Yahoo, Hotmail, and personal addresses are not accepted.";
+    emailErr.style.display = "block";
+    valid = false;
+  }
+
+  if (!valid) return;
+
+  userName = name;
+  userEmail = email;
+  document.getElementById("respondentName").textContent = userName;
+  document.getElementById("respondentEmail").textContent = userEmail;
+  document.getElementById("gateSection").style.display = "none";
+  document.getElementById("assessSection").style.display = "block";
+  setStep(2);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// -- Progress
+function updateProgress() {
+  var n = answers.filter(function(a) { return a !== null; }).length;
+  var pct = Math.round(n / TOTAL * 100);
+  document.getElementById("progressFill").style.width = pct + "%";
+  document.getElementById("progressPct").textContent = pct + "%";
+  document.getElementById("progressLabel").textContent =
+    n === 0 ? "0 / " + TOTAL + " answered" :
+    n === TOTAL ? "All " + TOTAL + " answered" :
+    n + " / " + TOTAL + " answered";
+  document.getElementById("submitNote").textContent =
+    n === 0 ? "Answer any questions above, then submit to see your personalized results" :
+    n === TOTAL ? "All done - ready to submit" :
+    n + " answered - submit anytime or keep going";
+}
+
+document.querySelectorAll("input[type=radio]").forEach(function(r) {
+  r.addEventListener("change", function() {
+    var qi = parseInt(this.name.replace("q", ""));
+    answers[qi] = parseInt(this.value);
+    document.querySelector("[data-q=\"" + qi + "\"]").classList.add("answered");
+    updateProgress();
+  });
+});
+
+// -- Scoring
+function getDomainScore(start, count) {
+  var slice = answers.slice(start, start + count);
+  var got = slice.reduce(function(s, v) { return s + (v !== null ? v : 0); }, 0);
+  return Math.round(got / (count * 2) * 100);
+}
+
+// -- Submit + Formspree
+function submitAssessment() {
+  var btn = document.querySelector(".submit-area .btn-primary");
+  btn.textContent = "Submitting...";
+  btn.disabled = true;
+
+  var offset = 0;
+  var rawPcts = DOMAINS.map(function(d) {
+    var p = getDomainScore(offset, d[1]);
+    offset += d[1];
+    return { name: d[0], pct: p };
+  });
+  var overall = Math.round(rawPcts.reduce(function(s, d) { return s + d.pct; }, 0) / rawPcts.length);
+  var sorted = rawPcts.slice().sort(function(a, b) { return a.pct - b.pct; });
+  var weakest = sorted[0];
+
+  var vText, effort;
+  if (overall >= 90)      { vText = "AI Ready";                       effort = "Minimal -- under 30 days"; }
+  else if (overall >= 75) { vText = "Strong Foundation";              effort = "Small -- under 30 days"; }
+  else if (overall >= 60) { vText = "Foundation Needs Strengthening"; effort = "Moderate -- 30 to 90 days"; }
+  else                    { vText = "Foundation Work Required";       effort = "Significant -- 90+ days"; }
+
+  // Formspree submission
+  fetch(FORMSPREE, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify({
+      name: userName,
+      email: userEmail,
+      overall_score: overall + " / 100",
+      rating: vText,
+      estimated_effort: effort,
+      weakest_domain: weakest.name + " (" + weakest.pct + "%)",
+      domain_scores: rawPcts.map(function(d) { return d.name + ": " + d.pct + "%"; }).join(" | "),
+      _subject: "AI Readiness Assessment - " + userName + " - Score: " + overall + "/100 - " + vText,
+      _replyto: userEmail
+    })
+  }).catch(function(e) { console.warn("Formspree error:", e); }).finally(function() {
+    btn.textContent = "View My Results";
+    btn.disabled = false;
+    renderResults(overall, vText, effort, sorted, weakest, rawPcts);
+  });
+}
+
+// -- Render results
+function renderResults(overall, vText, effort, sorted, weakest, rawPcts) {
+  document.getElementById("assessSection").style.display = "none";
+  document.getElementById("resultsSection").style.display = "block";
+  document.getElementById("successToast").style.display = "block";
+  setStep(3);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  // Score colors using site palette
+  var scoreColor = overall >= 75 ? "var(--green)" : overall >= 60 ? "#D97706" : "var(--red)";
+  var scoreColorHex = overall >= 75 ? "#059669" : overall >= 60 ? "#D97706" : "#dc2626";
+
+  var ring = document.getElementById("scoreRing");
+  ring.style.borderColor = scoreColorHex;
+  document.getElementById("scoreNum").style.color = scoreColorHex;
+  document.getElementById("scoreNum").textContent = overall;
+  document.getElementById("scoreVerdict").textContent = vText;
+
+  var eb = document.getElementById("effortBadge");
+  eb.textContent = "Estimated Effort: " + effort;
+  eb.style.borderColor = scoreColorHex;
+  eb.style.color = scoreColorHex;
+  eb.style.background = overall >= 75 ? "var(--green-light)" : overall >= 60 ? "#FFFBEB" : "var(--red-light)";
+  eb.style.display = "inline-block";
+
+  // Benchmark
+  var bmData = [
+    { label:"Your Score", val:overall, you:true },
+    { label:"Typical Workday Customer", val:54 },
+    { label:"High Performing Organizations", val:82, suffix:"+" }
+  ];
+  document.getElementById("benchmarkRows").innerHTML = bmData.map(function(b) {
+    return "<div class='bm-row" + (b.you ? " you" : "") + "'>"
+      + "<span class='bm-name'>" + b.label + "</span>"
+      + "<div class='bm-bar-wrap'>"
+      + "<div class='bm-bar-outer'><div class='bm-bar-inner' style='width:" + Math.min(b.val,100) + "%'></div></div>"
+      + "<span class='bm-val'>" + b.val + (b.suffix||"") + "</span>"
+      + "</div></div>";
+  }).join("");
+
+  // Domain rows
+  document.getElementById("domainRows").innerHTML = sorted.map(function(d) {
+    var c = d.pct >= 75 ? "#059669" : d.pct >= 60 ? "#D97706" : "#dc2626";
+    return "<div class='dr-row'>"
+      + "<span class='dr-name'>" + d.name + "</span>"
+      + "<div class='dr-bar-outer'><div class='dr-bar-inner' style='width:" + d.pct + "%;background:" + c + "'></div></div>"
+      + "<span class='dr-pct' style='color:" + c + "'>" + d.pct + "%</span></div>";
+  }).join("");
+
+  // ROI opportunity
+  var data = DOMAIN_DATA[weakest.name] || DOMAIN_DATA["Technical Foundation"];
+  document.getElementById("roiDomain").textContent = weakest.name;
+  document.getElementById("roiScore").textContent = weakest.pct + "%";
+  document.getElementById("roiWhy").textContent = data.why;
+  document.getElementById("roiWhat").innerHTML = data.whereToStart.map(function(s) { return "<li>" + s + "</li>"; }).join("");
+  document.getElementById("quickWins").innerHTML = data.quickWins.map(function(s) { return "<li>" + s + "</li>"; }).join("");
+  document.getElementById("roiSection").style.display = "block";
+
+  document.getElementById("execText").textContent = data.execSummary;
+  document.getElementById("execSection").style.display = "block";
+
+  var phases = [data.roadmap.p1, data.roadmap.p2, data.roadmap.p3];
+  document.getElementById("roadmapPhases").innerHTML = phases.map(function(ph) {
+    return "<div class='roadmap-phase'>"
+      + "<div class='phase-name'>" + ph.name + "</div>"
+      + "<div class='phase-sub'>" + ph.sub + "</div>"
+      + "<ul class='phase-items'>" + ph.items.map(function(i) { return "<li>" + i + "</li>"; }).join("") + "</ul>"
+      + "</div>";
+  }).join("");
+  document.getElementById("roadmapSection").style.display = "block";
+
+  window._reportData = { overall:overall, vText:vText, effort:effort, sorted:sorted, weakest:weakest, data:data, userName:userName, userEmail:userEmail };
+}
+
+// -- PDF (print-to-PDF via new window)
+function downloadPDF() {
+  if (!window._reportData) { alert("Please complete the assessment first."); return; }
+  var rd = window._reportData;
+  var today = new Date().toLocaleDateString("en-US", { month:"long", day:"numeric", year:"numeric" });
+  var bandDesc = rd.overall>=90 ? "Strong controls in place. Ready to validate AI use cases in controlled areas."
+    : rd.overall>=75 ? "Core foundations exist. Close highest-risk gaps before scaling automation."
+    : rd.overall>=60 ? "Important gaps exist. A focused remediation plan is recommended before AI adoption."
+    : "Foundational gaps need attention. Stabilize governance before evaluating AI initiatives.";
+
+  var domainRows = rd.sorted.map(function(d) {
+    return "<tr><td>" + d.name + "</td>"
+      + "<td><div class='bw'><div class='bf' style='width:" + d.pct + "%'></div></div></td>"
+      + "<td class='pct'>" + d.pct + "%</td></tr>";
+  }).join("");
+
+  var phases = [rd.data.roadmap.p1, rd.data.roadmap.p2, rd.data.roadmap.p3];
+  var roadmapHTML = phases.map(function(ph) {
+    return "<div class='ph'><div class='ph-h'><strong>" + ph.name + "</strong><span>" + ph.sub + "</span></div>"
+      + "<ul>" + ph.items.map(function(i) { return "<li>" + i + "</li>"; }).join("") + "</ul></div>";
+  }).join("");
+
+  var services = [
+    { name:"Reporting & Analytics", items:[{ label:"Report Governance", desc:"Audit, consolidate, and tag your report library. Assign owners and eliminate duplication." },{ label:"Report Optimization", desc:"Improve performance, calculated fields, and security on your highest-use reports." },{ label:"Executive Dashboards", desc:"Build trusted dashboards with agreed-upon metric definitions for leadership." }]},
+    { name:"Integrations", items:[{ label:"Workday Studio", desc:"Design and build Studio integrations for complex bi-directional data flows." },{ label:"APIs & Orchestrate", desc:"REST/SOAP integrations and Orchestrate automation for event-driven workflows." },{ label:"Integration Governance", desc:"Inventory, monitoring, runbooks, and ISU ownership for production integrations." }]},
+    { name:"Security & Compliance", items:[{ label:"Security Audits", desc:"Review ISSGs, service accounts, and privileged access against least-privilege standards." },{ label:"Governance Documentation", desc:"Document security domain ownership, change procedures, and audit findings." },{ label:"SOX & Compliance Readiness", desc:"Align report tags, BP security policies, and access controls with audit requirements." }]},
+    { name:"Testing & Release", items:[{ label:"Regression Testing", desc:"Build repeatable regression test libraries for HCM, Financials, and integrations." },{ label:"Release Readiness", desc:"Define testing scope, sign-off criteria, and risk-based coverage per release." },{ label:"UAT Support", desc:"Structured UAT support for implementations and major configuration changes." }]},
+    { name:"AI & Automation Readiness", items:[{ label:"AI Readiness Strategy", desc:"Translate assessment findings into a prioritized AI readiness roadmap for leadership." },{ label:"Orchestrate & Extend", desc:"Design and build Orchestrate workflows and Extend applications for your use cases." },{ label:"Implementation Support", desc:"Hands-on delivery across integrations, reporting, security, and automation." }]},
+  ];
+  var servicesHTML = services.map(function(s) {
+    return "<div class='sc'><div class='sh'>" + s.name + "</div>"
+      + s.items.map(function(i) { return "<div class='si'><strong>" + i.label + "</strong><p>" + i.desc + "</p></div>"; }).join("") + "</div>";
+  }).join("");
+
+  var doc = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>CloudBridge AI Readiness Report</title>"
+  + "<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap' rel='stylesheet'>"
+  + "<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,Arial,sans-serif;color:#111;font-size:10pt;background:#fff}"
+  + "@media print{.pb{page-break-before:always}.nb{page-break-inside:avoid}@page{margin:14mm 16mm;size:A4}}"
+  + "@media screen{body{max-width:800px;margin:0 auto;padding:20px}.pb{border-top:3px dashed #e2e5ea;margin:40px 0;padding-top:40px}}"
+  + ".hdr{background:#0B1F3A;color:#fff;padding:14px 20px 12px;margin-bottom:18px}"
+  + ".hey{font-family:'IBM Plex Mono',monospace;font-size:7pt;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:3px}"
+  + ".hti{font-size:14pt;font-weight:700}.hme{font-size:7.5pt;color:rgba(255,255,255,.5);margin-top:3px}"
+  + ".sec{background:#0B1F3A;color:#fff;font-size:7.5pt;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;margin:14px 0 0;border-radius:4px;font-family:'IBM Plex Mono',monospace}"
+  + ".sb{display:flex;align-items:center;gap:20px;background:#EBF1FF;border:1px solid rgba(37,99,235,.2);border-radius:6px;padding:14px 18px;margin:10px 0 14px}"
+  + ".sn{font-size:32pt;font-weight:800;color:#2563EB;line-height:1}.sd{font-size:9pt;color:#8f96a3;font-family:'IBM Plex Mono',monospace}"
+  + ".sbg{display:inline-block;background:#2563EB;color:#fff;font-size:9pt;font-weight:700;padding:4px 14px;border-radius:4px;margin-bottom:6px}"
+  + ".sbd{font-size:8.5pt;color:#555;line-height:1.5;max-width:380px}.sef{font-size:7.5pt;color:#2563EB;font-weight:600;margin-top:4px;font-family:'IBM Plex Mono',monospace}"
+  + ".bm{display:flex;align-items:center;gap:10px;padding:5px 10px;font-size:8.5pt}.bm:nth-child(even){background:#F5F7FA}.bm.y{background:#EBF1FF;font-weight:700}"
+  + ".bm-n{width:200px;flex-shrink:0}.bw{flex:1;height:7px;background:#dce0e8;border-radius:99px;overflow:hidden}.bf{height:100%;background:#2563EB;border-radius:99px}"
+  + ".pct{width:36px;text-align:right;font-weight:700;color:#2563EB;font-size:8.5pt;font-family:'IBM Plex Mono',monospace}"
+  + "table{width:100%;border-collapse:collapse;font-size:8.5pt}td{padding:5px 10px;border-bottom:1px solid #eef0f3;vertical-align:middle}"
+  + "tr:nth-child(even) td{background:#F5F7FA}td:first-child{width:46%}td.pct{width:40px;font-weight:700;color:#2563EB;text-align:right;font-family:'IBM Plex Mono',monospace}"
+  + ".rh{background:#0B1F3A;color:#fff;border-radius:4px;padding:10px 14px;margin:10px 0 0;display:flex;justify-content:space-between;align-items:center}"
+  + ".rn{font-size:13pt;font-weight:700}.rp{font-size:14pt;font-weight:800;background:rgba(255,255,255,.12);padding:2px 12px;border-radius:4px;font-family:'IBM Plex Mono',monospace}"
+  + ".rs{background:#0B1F3A;color:rgba(255,255,255,.5);font-size:6.5pt;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:3px 14px 6px;border-radius:0 0 4px 4px;margin-bottom:8px;font-family:'IBM Plex Mono',monospace}"
+  + ".two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0}"
+  + ".cb{background:#EBF1FF;border-radius:4px;padding:10px 12px}.cl{font-family:'IBM Plex Mono',monospace;font-size:6.5pt;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#2563EB;margin-bottom:6px}"
+  + ".cb ul{padding-left:14px}.cb li{font-size:8pt;color:#111;margin-bottom:3px;line-height:1.45}.cb p{font-size:8.5pt;color:#111;line-height:1.55}"
+  + ".qw{background:#ecfdf5;border-radius:4px;padding:10px 14px;margin:8px 0}.qw-l{font-family:'IBM Plex Mono',monospace;font-size:6.5pt;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#059669;margin-bottom:8px}"
+  + ".qw ul{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;padding:0;list-style:none}"
+  + ".qw li{font-size:8pt;color:#111;padding-left:14px;position:relative;line-height:1.4}.qw li::before{content:'v ';color:#059669;font-weight:800;position:absolute;left:0;font-family:'IBM Plex Mono',monospace}"
+  + ".ex{background:#F5F7FA;border-radius:4px;padding:12px 14px;margin:8px 0;font-size:9pt;line-height:1.75;color:#111}"
+  + ".ph{margin:8px 0}.ph-h{background:#0B1F3A;color:#fff;padding:8px 12px;border-radius:4px 4px 0 0;display:flex;flex-direction:column}"
+  + ".ph-h strong{font-size:10pt}.ph-h span{font-size:7pt;color:rgba(255,255,255,.6);margin-top:2px;font-family:'IBM Plex Mono',monospace}"
+  + ".ph ul{background:#EBF1FF;border:1px solid rgba(37,99,235,.2);border-top:none;border-radius:0 0 4px 4px;padding:8px 12px 8px 26px;display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}"
+  + ".ph li{font-size:8pt;color:#111;margin-bottom:2px;line-height:1.45}"
+  + ".sg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}"
+  + ".sc{border:1px solid #e2e5ea;border-radius:4px;overflow:hidden}.sh{background:#0B1F3A;color:#fff;font-size:8.5pt;font-weight:700;padding:6px 10px;font-family:'IBM Plex Mono',monospace;font-size:7.5pt;letter-spacing:.05em}"
+  + ".si{padding:6px 10px;border-bottom:1px solid #F5F7FA}.si:last-child{border-bottom:none}"
+  + ".si strong{font-size:7.5pt;color:#2563EB;display:block;margin-bottom:1px}.si p{font-size:7pt;color:#6b7280;line-height:1.4;margin:0}"
+  + ".cta{background:#0B1F3A;color:#fff;border-radius:6px;padding:16px 20px;text-align:center;margin:16px 0 0}"
+  + ".cta h3{font-size:11pt;margin-bottom:5px}.cta p{font-size:8.5pt;color:rgba(255,255,255,.7);margin-bottom:6px}.cta strong{font-size:8.5pt;color:#93C5FD}"
+  + ".ft{border-top:1px solid #e2e5ea;margin-top:14px;padding-top:8px;font-size:7pt;color:#8f96a3;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace}"
+  + "</style></head><body>"
+  + "<div class='hdr'><div class='hey'>CLOUDBRIDGE PARTNERS</div><div class='hti'>Workday AI Readiness Assessment</div>"
+  + "<div class='hme'>Prepared for: " + rd.userName + " &nbsp;&middot;&nbsp; " + rd.userEmail + " &nbsp;&middot;&nbsp; " + today + "</div></div>"
+  + "<div class='sec'>OVERALL AI READINESS SCORE</div>"
+  + "<div class='sb nb'><div><div class='sn'>" + rd.overall + "</div><div class='sd'>/ 100</div></div>"
+  + "<div><div class='sbg'>" + rd.vText + "</div><div class='sbd'>" + bandDesc + "</div><div class='sef'>Effort: " + rd.effort + "</div></div></div>"
+  + "<div class='sec'>BENCHMARK COMPARISON</div>"
+  + "<div class='bm y'><div class='bm-n'>Your Score</div><div class='bm-bar-wrap'><div class='bw'><div class='bf' style='width:" + Math.min(rd.overall,100) + "%'></div></div><div class='pct'>" + rd.overall + "</div></div></div>"
+  + "<div class='bm'><div class='bm-n'>Typical Workday Customer</div><div class='bm-bar-wrap'><div class='bw'><div class='bf' style='width:54%'></div></div><div class='pct'>54</div></div></div>"
+  + "<div class='bm'><div class='bm-n'>High Performing Organizations</div><div class='bm-bar-wrap'><div class='bw'><div class='bf' style='width:82%'></div></div><div class='pct'>82+</div></div></div>"
+  + "<div class='sec'>DOMAIN SCORES (lowest to highest)</div><table><tbody>" + domainRows + "</tbody></table>"
+  + "<div class='rh nb'><span class='rn'>" + rd.weakest.name + "</span><span class='rp'>" + rd.weakest.pct + "%</span></div>"
+  + "<div class='rs'>HIGHEST ROI OPPORTUNITY</div>"
+  + "<div class='two nb'><div class='cb'><div class='cl'>Why It Matters</div><p>" + rd.data.why + "</p></div>"
+  + "<div class='cb'><div class='cl'>Where To Start</div><ul>" + rd.data.whereToStart.map(function(s) { return "<li>" + s + "</li>"; }).join("") + "</ul></div></div>"
+  + "<div class='qw nb'><div class='qw-l'>Quick Wins &mdash; complete within 2 weeks</div><ul>" + rd.data.quickWins.map(function(s) { return "<li>" + s + "</li>"; }).join("") + "</ul></div>"
+  + "<div class='ft'><span>CloudBridge Partners &nbsp;|&nbsp; Workday AI Readiness Assessment &nbsp;|&nbsp; Confidential</span><span>Page 1 of 3</span></div>"
+  + "<div class='pb'></div>"
+  + "<div class='hdr'><div class='hey'>CLOUDBRIDGE PARTNERS</div><div class='hti'>Executive Summary &amp; AI Readiness Roadmap</div>"
+  + "<div class='hme'>Based on: " + rd.weakest.name + " &nbsp;&middot;&nbsp; Highest ROI Opportunity at " + rd.weakest.pct + "%</div></div>"
+  + "<div class='sec'>EXECUTIVE SUMMARY</div><div class='ex'>" + rd.data.execSummary + "</div>"
+  + "<div class='sec' style='margin-top:14px'>AI READINESS ROADMAP</div>"
+  + "<p style='font-size:8pt;color:#6b7280;margin:6px 0 8px;font-family:IBM Plex Mono,monospace'>Tailored to " + rd.weakest.name + " &mdash; your highest ROI opportunity at " + rd.weakest.pct + "%.</p>"
+  + roadmapHTML
+  + "<div class='ft'><span>CloudBridge Partners &nbsp;|&nbsp; Workday AI Readiness Assessment &nbsp;|&nbsp; Confidential</span><span>Page 2 of 3</span></div>"
+  + "<div class='pb'></div>"
+  + "<div class='hdr'><div class='hey'>CLOUDBRIDGE PARTNERS</div><div class='hti'>How CloudBridge Can Help</div><div class='hme'>cloudbridgepartners.com</div></div>"
+  + "<p style='font-size:8.5pt;color:#555;line-height:1.65;margin-bottom:12px'>The gaps identified in this assessment map directly to CloudBridge Partners' core service areas. This is a direct mapping from your findings to the capabilities we deploy to help close those gaps.</p>"
+  + "<div class='sg'>" + servicesHTML + "</div>"
+  + "<div class='cta'><h3>Ready to improve your AI Readiness Score?</h3>"
+  + "<p>CloudBridge Partners helps organizations improve reporting, integrations, security, governance, testing, and automation through focused Workday optimization engagements.</p>"
+  + "<strong>cloudbridgepartners.com</strong></div>"
+  + "<div class='ft'><span>CloudBridge Partners &nbsp;|&nbsp; Workday AI Readiness Assessment &nbsp;|&nbsp; Confidential</span><span>Page 3 of 3</span></div>"
+  + "<scr" + "ipt>window.onload=function(){window.print();}<\/scr" + "ipt>"
+  + "</body></html>";
+
+  var w = window.open("", "_blank", "width=900,height=700");
+  if (!w) { alert("Pop-up blocked. Please allow pop-ups and try again."); return; }
+  w.document.write(doc);
+  w.document.close();
+}
+
+// -- CSV/Excel
+function downloadCSV() {
+  if (!window._reportData) { alert("Please complete the assessment first."); return; }
+  var rd = window._reportData;
+  var today = new Date().toLocaleDateString("en-US", { month:"long", day:"numeric", year:"numeric" });
+  var rows = [
+    ["CloudBridge Partners -- Workday AI Readiness Assessment"],
+    ["Prepared for", rd.userName, rd.userEmail, today],
+    [""],
+    ["OVERALL SCORE", rd.overall + " / 100", rd.vText],
+    ["Estimated Effort", rd.effort],
+    [""],
+    ["DOMAIN SCORES (lowest to highest)"],
+    ["Domain", "Score"],
+  ];
+  rd.sorted.forEach(function(d) { rows.push([d.name, d.pct + "%"]); });
+  rows.push([""]);
+  rows.push(["HIGHEST ROI OPPORTUNITY"]);
+  rows.push(["Domain", rd.weakest.name]);
+  rows.push(["Score", rd.weakest.pct + "%"]);
+  rows.push([""]);
+  rows.push(["WHY IT MATTERS"]);
+  rows.push([rd.data.why]);
+  rows.push([""]);
+  rows.push(["WHERE TO START"]);
+  rd.data.whereToStart.forEach(function(s) { rows.push([s]); });
+  rows.push([""]);
+  rows.push(["QUICK WINS"]);
+  rd.data.quickWins.forEach(function(s) { rows.push([s]); });
+  rows.push([""]);
+  rows.push(["EXECUTIVE SUMMARY"]);
+  rows.push([rd.data.execSummary]);
+  rows.push([""]);
+  rows.push(["AI READINESS ROADMAP"]);
+  rows.push(["Phase", "Action"]);
+  [rd.data.roadmap.p1, rd.data.roadmap.p2, rd.data.roadmap.p3].forEach(function(ph) {
+    ph.items.forEach(function(item, i) { rows.push([i===0 ? ph.name : "", item]); });
+  });
+  rows.push([""]);
+  rows.push(["CloudBridge Partners | cloudbridgepartners.com"]);
+
+  var csv = rows.map(function(r) {
+    return r.map(function(c) { return '"' + String(c).replace(/"/g,'""') + '"'; }).join(",");
+  }).join("\n");
+
+  var blob = new Blob(["\uFEFF" + csv], { type:"text/csv;charset=utf-8;" });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url; a.download = "CloudBridge-AI-Readiness-Report.csv"; a.click();
+  URL.revokeObjectURL(url);
+}
+
+// -- Retake
+function retake() {
+  document.querySelectorAll("input[type=radio]").forEach(function(r) { r.checked = false; });
+  document.querySelectorAll(".q-card").forEach(function(c) { c.classList.remove("answered"); });
+  answers.fill(null);
+  userName = ""; userEmail = "";
+  document.getElementById("userName").value = "";
+  document.getElementById("userEmail").value = "";
+  document.getElementById("gateSection").style.display = "block";
+  document.getElementById("resultsSection").style.display = "none";
+  ["roiSection","execSection","roadmapSection"].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.style.display = "none";
+  });
+  document.getElementById("effortBadge").style.display = "none";
+  document.getElementById("successToast").style.display = "none";
+  setStep(1);
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+updateProgress();
+</script>
+</body>
+</html>
