@@ -261,6 +261,62 @@ input, textarea { font-family:inherit; }
 @media screen and (max-width:900px) {
   .pb { border-top:3px dashed var(--border); margin:40px 0; padding-top:40px; }
 }
+
+/* ── Copyright Footer ── */
+.site-copyright {
+  background: var(--navy);
+  padding: 20px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.copyright-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.copyright-text {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.7;
+}
+.copyright-text strong {
+  color: rgba(255,255,255,0.65);
+  font-weight: 500;
+}
+.copyright-legal {
+  font-family: var(--mono);
+  font-size: 0.63rem;
+  color: rgba(255,255,255,0.3);
+  max-width: 520px;
+  line-height: 1.65;
+  text-align: right;
+}
+@media(max-width:640px) {
+  .copyright-legal { text-align: left; }
+}
+
+/* Proprietary badge on results */
+.proprietary-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--light-gray);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 24px;
+  font-size: 12px;
+  color: var(--text-sec);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+}
+.proprietary-badge svg {
+  flex-shrink: 0;
+  color: var(--accent);
+}
 </style>
 </head>
 <body>
@@ -276,7 +332,7 @@ input, textarea { font-family:inherit; }
         <a href="/#founder">About Us</a>
         <a href="/#testimonials">Testimonials</a>
         <a href="/#process">How We Work</a>
-        <a href="ai-assessment.html" class="active">AI Assessment</a>
+        <a href="ai-assessment.html" class="active">AI Readiness</a>
         <a href="/#contact" class="nav-cta">Send a Message</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -291,7 +347,7 @@ input, textarea { font-family:inherit; }
   <a href="/#process" onclick="closeMobile()">How We Work</a>
   <a href="/#testimonials" onclick="closeMobile()">Testimonials</a>
   <a href="/#founder" onclick="closeMobile()">About Us</a>
-  <a href="ai-assessment.html" onclick="closeMobile()" style="color:var(--accent);font-weight:600;">AI Assessment</a>
+  <a href="ai-assessment.html" onclick="closeMobile()" style="color:var(--accent);font-weight:600;">AI Readiness</a>
   <a href="/#contact" onclick="closeMobile()" class="btn-primary">Send a Message</a>
 </div>
 
@@ -311,9 +367,9 @@ input, textarea { font-family:inherit; }
   <div class="gate-section">
     <div class="gate-grid">
       <div class="gate-left">
-        <div class="eyebrow">5-Minute Executive Assessment</div>
+        <div class="eyebrow">5-Minute Assessment</div>
         <h1>How AI-Ready Is Your<br><span>Workday Tenant?</span></h1>
-        <p>Assess your Workday environment across security, reporting, integrations, business processes, and technical readiness. Get a personalized score, domain breakdown, and 90-day roadmap.</p>
+        <p>Make your AI investment go further. Fix the foundation before it becomes an expense item. Find out what needs to happen first — before the spend starts.</p>
         <div class="wyr-card">
           <div class="wyr-card-label">What You'll Receive</div>
           <div class="wyr-items">
@@ -980,6 +1036,10 @@ input, textarea { font-family:inherit; }
 <!-- ══ STEP 3: RESULTS ══ -->
 <div class="results-wrap" id="resultsSection">
 
+  <div class="proprietary-badge">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    &copy; 2025 CloudBridge Partners &nbsp;&middot;&nbsp; Proprietary Methodology &nbsp;&middot;&nbsp; All Rights Reserved &nbsp;&middot;&nbsp; Unauthorized reproduction prohibited
+  </div>
   <div class="success-toast" id="successToast">Results submitted. You will receive a follow-up from the CloudBridge Partners team.</div>
 
   <div class="score-hero">
@@ -1439,16 +1499,16 @@ function downloadPDF() {
   + "<div class='rs'>HIGHEST ROI OPPORTUNITY</div>"
   + "<div class='two nb'><div class='cb'><div class='cl'>Why It Matters</div><p>" + rd.data.why + "</p></div>"
   + "<div class='cb'><div class='cl'>Where To Start</div><ul>" + rd.data.whereToStart.map(function(s) { return "<li>" + s + "</li>"; }).join("") + "</ul></div></div>"
-  + "<div class='qw nb'><div class='qw-l'>Quick Wins &mdash; complete within 2 weeks</div><ul>" + rd.data.quickWins.map(function(s) { return "<li>" + s + "</li>"; }).join("") + "</ul></div>"
-  + "<div class='ft'><span>CloudBridge Partners &nbsp;|&nbsp; Workday AI Readiness Assessment &nbsp;|&nbsp; Confidential</span><span>Page 1 of 3</span></div>"
+  + "<div class='qw nb'><div class='qw-l'>Quick Wins -- complete within 2 weeks</div><ul>" + rd.data.quickWins.map(function(s) { return "<li>" + s + "</li>"; }).join("") + "</ul></div>"
+  + "<div class='ft'><span>&copy; 2025 CloudBridge Partners LLC &nbsp;|&nbsp; Workday AI Readiness Assessment &nbsp;|&nbsp; Proprietary &amp; Confidential</span><span>Page 1 of 3</span></div>"
   + "<div class='pb'></div>"
   + "<div class='hdr'><div class='hey'>CLOUDBRIDGE PARTNERS</div><div class='hti'>Executive Summary &amp; AI Readiness Roadmap</div>"
   + "<div class='hme'>Based on: " + rd.weakest.name + " &nbsp;&middot;&nbsp; Highest ROI Opportunity at " + rd.weakest.pct + "%</div></div>"
   + "<div class='sec'>EXECUTIVE SUMMARY</div><div class='ex'>" + rd.data.execSummary + "</div>"
   + "<div class='sec' style='margin-top:14px'>AI READINESS ROADMAP</div>"
-  + "<p style='font-size:8pt;color:#6b7280;margin:6px 0 8px;font-family:IBM Plex Mono,monospace'>Tailored to " + rd.weakest.name + " &mdash; your highest ROI opportunity at " + rd.weakest.pct + "%.</p>"
+  + "<p style='font-size:8pt;color:#6b7280;margin:6px 0 8px;font-family:IBM Plex Mono,monospace'>Tailored to " + rd.weakest.name + " -- your highest ROI opportunity at " + rd.weakest.pct + "%.</p>"
   + roadmapHTML
-  + "<div class='ft'><span>CloudBridge Partners &nbsp;|&nbsp; Workday AI Readiness Assessment &nbsp;|&nbsp; Confidential</span><span>Page 2 of 3</span></div>"
+  + "<div class='ft'><span>&copy; 2025 CloudBridge Partners LLC &nbsp;|&nbsp; Workday AI Readiness Assessment &nbsp;|&nbsp; Proprietary &amp; Confidential</span><span>Page 2 of 3</span></div>"
   + "<div class='pb'></div>"
   + "<div class='hdr'><div class='hey'>CLOUDBRIDGE PARTNERS</div><div class='hti'>How CloudBridge Can Help</div><div class='hme'>cloudbridgepartners.com</div></div>"
   + "<p style='font-size:8.5pt;color:#555;line-height:1.65;margin-bottom:12px'>The gaps identified in this assessment map directly to CloudBridge Partners' core service areas. This is a direct mapping from your findings to the capabilities we deploy to help close those gaps.</p>"
@@ -1456,9 +1516,27 @@ function downloadPDF() {
   + "<div class='cta'><h3>Ready to improve your AI Readiness Score?</h3>"
   + "<p>CloudBridge Partners helps organizations improve reporting, integrations, security, governance, testing, and automation through focused Workday optimization engagements.</p>"
   + "<strong>cloudbridgepartners.com</strong></div>"
-  + "<div class='ft'><span>CloudBridge Partners &nbsp;|&nbsp; Workday AI Readiness Assessment &nbsp;|&nbsp; Confidential</span><span>Page 3 of 3</span></div>"
-  + "<scr" + "ipt>window.onload=function(){window.print();}<\/scr" + "ipt>"
-  + "</body></html>";
+  + "<div class='ft'><span>&copy; 2025 CloudBridge Partners LLC &nbsp;|&nbsp; Workday AI Readiness Assessment &nbsp;|&nbsp; Proprietary &amp; Confidential</span><span>Page 3 of 3</span></div>"
+  + "<div class='pb'></div>"
+  + "<div style='padding:40px 20px;max-width:800px;margin:0 auto'>"
+  + "<div style='background:#0B1F3A;color:white;padding:14px 20px 12px;margin-bottom:24px'>"
+  + "<div style='font-family:IBM Plex Mono,monospace;font-size:7pt;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:3px'>CLOUDBRIDGE PARTNERS</div>"
+  + "<div style='font-size:14pt;font-weight:700'>Proprietary Notice &amp; Terms of Use</div></div>"
+  + "<p style='font-size:9pt;color:#111;line-height:1.8;margin-bottom:16px'>"
+  + "<strong>Copyright &copy; 2025 CloudBridge Partners LLC. All Rights Reserved.</strong></p>"
+  + "<p style='font-size:8.5pt;color:#374151;line-height:1.8;margin-bottom:12px'>"
+  + "This document, including the Workday AI Readiness Assessment methodology, scoring framework, domain structure, questions, recommendations, roadmap, and all associated content, is the proprietary intellectual property of CloudBridge Partners LLC.</p>"
+  + "<p style='font-size:8.5pt;color:#374151;line-height:1.8;margin-bottom:12px'>"
+  + "Unauthorized reproduction, redistribution, resale, modification, or use of this assessment or any portion thereof, in whole or in part, without the express prior written consent of CloudBridge Partners LLC is strictly prohibited and may constitute a violation of applicable intellectual property laws.</p>"
+  + "<p style='font-size:8.5pt;color:#374151;line-height:1.8;margin-bottom:12px'>"
+  + "This report is prepared solely for the individual and organization identified herein and may not be shared with third parties for commercial purposes. Internal distribution for the purpose of organizational decision-making is permitted provided CloudBridge Partners LLC is identified as the source.</p>"
+  + "<p style='font-size:8.5pt;color:#374151;line-height:1.8;margin-bottom:24px'>"
+  + "For licensing inquiries, partnership requests, or written permission to reproduce any portion of this methodology, contact: <strong>info@cloudbridgepartners.com</strong></p>"
+  + "<div style='background:#EBF1FF;border:1px solid rgba(37,99,235,.2);border-radius:6px;padding:14px 18px'>"
+  + "<p style='font-size:8pt;color:#1D4ED8;font-weight:600;margin-bottom:4px'>CloudBridge Partners LLC</p>"
+  + "<p style='font-size:8pt;color:#374151'>cloudbridgepartners.com &nbsp;&middot;&nbsp; Chicago, IL &nbsp;&middot;&nbsp; info@cloudbridgepartners.com</p></div>"
+  + "</div>"
+  + "<scr" + "ipt>window.onload=function(){window.print();}<\/" + "scr" + "ipt>";
 
   var w = window.open("", "_blank", "width=900,height=700");
   if (!w) { alert("Pop-up blocked. Please allow pop-ups and try again."); return; }
@@ -1466,13 +1544,13 @@ function downloadPDF() {
   w.document.close();
 }
 
-// -- CSV/Excel
 function downloadCSV() {
   if (!window._reportData) { alert("Please complete the assessment first."); return; }
   var rd = window._reportData;
   var today = new Date().toLocaleDateString("en-US", { month:"long", day:"numeric", year:"numeric" });
   var rows = [
     ["CloudBridge Partners -- Workday AI Readiness Assessment"],
+    ["Copyright 2025 CloudBridge Partners LLC. All Rights Reserved. Proprietary and Confidential."],
     ["Prepared for", rd.userName, rd.userEmail, today],
     [""],
     ["OVERALL SCORE", rd.overall + " / 100", rd.vText],
@@ -1505,7 +1583,10 @@ function downloadCSV() {
     ph.items.forEach(function(item, i) { rows.push([i===0 ? ph.name : "", item]); });
   });
   rows.push([""]);
-  rows.push(["CloudBridge Partners | cloudbridgepartners.com"]);
+  rows.push(["---"]);
+  rows.push(["Copyright 2025 CloudBridge Partners LLC. All Rights Reserved."]);
+  rows.push(["Proprietary and Confidential. Unauthorized reproduction prohibited."]);
+  rows.push(["cloudbridgepartners.com"]);
 
   var csv = rows.map(function(r) {
     return r.map(function(c) { return '"' + String(c).replace(/"/g,'""') + '"'; }).join(",");
@@ -1518,7 +1599,6 @@ function downloadCSV() {
   URL.revokeObjectURL(url);
 }
 
-// -- Retake
 function retake() {
   document.querySelectorAll("input[type=radio]").forEach(function(r) { r.checked = false; });
   document.querySelectorAll(".q-card").forEach(function(c) { c.classList.remove("answered"); });
@@ -1539,7 +1619,21 @@ function retake() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-updateProgress();
-</script>
+updateProgress();</script>
+
+<!-- Copyright Footer -->
+<footer class="site-copyright">
+  <div class="wrap">
+    <div class="copyright-inner">
+      <div class="copyright-text">
+        <strong>&copy; 2025 CloudBridge Partners LLC. All Rights Reserved.</strong><br>
+        Workday AI Readiness Assessment &nbsp;&middot;&nbsp; Proprietary Methodology &nbsp;&middot;&nbsp; cloudbridgepartners.com
+      </div>
+      <div class="copyright-legal">
+        This assessment, its methodology, scoring framework, questions, and all associated content are the proprietary intellectual property of CloudBridge Partners LLC. Unauthorized reproduction, distribution, modification, or commercial use of any part of this assessment without express written permission from CloudBridge Partners LLC is strictly prohibited.
+      </div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
