@@ -130,13 +130,32 @@ input, textarea { font-family:inherit; }
 .q-num { font-family:var(--mono); font-size:0.68rem; font-weight:500; color:var(--gray-500); background:var(--light-gray); border-radius:4px; padding:3px 7px; white-space:nowrap; flex-shrink:0; margin-top:2px; letter-spacing:0.05em; }
 .q-card.answered .q-num { background:rgba(37,99,235,0.15); color:var(--accent); }
 .q-text { font-size:14px; font-weight:500; color:var(--text-dark); line-height:1.55; }
-.radio-group { display:flex; gap:8px; flex-wrap:wrap; padding-left:38px; }
-.radio-opt input[type=radio] { display:none; }
-.chip { padding:6px 15px; border-radius:99px; border:1.5px solid var(--border); font-size:12px; font-weight:600; color:var(--text-sec); cursor:pointer; transition:all 0.15s; user-select:none; white-space:nowrap; }
-.chip:hover { border-color:var(--accent); color:var(--accent); background:var(--accent-light); }
-.radio-opt input:checked + .chip-full { background:var(--green-light); border-color:var(--green); color:#065F46; }
-.radio-opt input:checked + .chip-part { background:#FFFBEB; border-color:#D97706; color:#92400E; }
-.radio-opt input:checked + .chip-not { background:var(--red-light); border-color:var(--red); color:#991B1B; }
+.radio-group { display:flex; flex-direction:column; gap:6px; padding-left:38px; }
+.radio-opt { display:flex; align-items:center; gap:10px; cursor:pointer; }
+.radio-opt input[type=radio] {
+  appearance:none; -webkit-appearance:none;
+  width:18px; height:18px; border-radius:50%;
+  border:2px solid var(--gray-300);
+  flex-shrink:0; cursor:pointer;
+  transition:border-color 0.15s, background 0.15s;
+  position:relative;
+}
+.radio-opt input[type=radio]:checked {
+  border-color:var(--accent);
+  background:var(--accent);
+  box-shadow:inset 0 0 0 3px white;
+}
+.radio-opt input[type=radio]:hover { border-color:var(--accent); }
+.radio-label {
+  font-size:13px; font-weight:500; color:var(--text-sec);
+  cursor:pointer; transition:color 0.15s;
+  user-select:none;
+}
+.radio-opt:has(input:checked) .radio-label { color:var(--accent); font-weight:600; }
+.radio-opt.opt-full:has(input:checked) .radio-label { color:var(--green); }
+.radio-opt.opt-full input[type=radio]:checked { border-color:var(--green); background:var(--green); }
+.radio-opt.opt-not:has(input:checked) .radio-label { color:var(--red); }
+.radio-opt.opt-not input[type=radio]:checked { border-color:var(--red); background:var(--red); }
 
 /* Reality check */
 .reality-block { margin-top:20px; background:var(--navy); border-radius:var(--r); padding:15px 20px; display:flex; gap:12px; align-items:flex-start; }
@@ -423,137 +442,125 @@ input, textarea { font-family:inherit; }
             <h2 class="domain-title">Security Readiness</h2>
           </div>
           
-          <div class="q-card" data-q="0">
-            <div class="q-header">
-              <span class="q-num">01</span>
-              <span class="q-text">Dedicated Workday security ownership is assigned for AI and automation-related changes.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q0" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q0" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q0" value="0"><span class="chip chip-not">Not Implemented</span></label>
-            </div>
-          </div>
           <div class="q-card" data-q="1">
             <div class="q-header">
-              <span class="q-num">02</span>
+              <span class="q-num">01</span>
               <span class="q-text">Integration and report ISUs are documented, owned, and periodically reviewed.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q1" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q1" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q1" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q1" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q1" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q1" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="2">
             <div class="q-header">
-              <span class="q-num">03</span>
+              <span class="q-num">02</span>
               <span class="q-text">Privileged access reviews occur on a defined cadence.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q2" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q2" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q2" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q2" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q2" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q2" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="3">
             <div class="q-header">
-              <span class="q-num">04</span>
+              <span class="q-num">03</span>
               <span class="q-text">Security changes follow a documented approval and testing process.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q3" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q3" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q3" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q3" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q3" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q3" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="4">
             <div class="q-header">
-              <span class="q-num">05</span>
+              <span class="q-num">04</span>
               <span class="q-text">Integration System Security Groups are standardized and reviewed for least privilege.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q4" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q4" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q4" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q4" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q4" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q4" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="5">
             <div class="q-header">
-              <span class="q-num">06</span>
+              <span class="q-num">05</span>
               <span class="q-text">Sensitive data access for ISSGs is periodically reviewed.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q5" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q5" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q5" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q5" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q5" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q5" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="6">
             <div class="q-header">
-              <span class="q-num">07</span>
-              <span class="q-text">Service accounts are inventoried with owner and purpose.</span>
+              <span class="q-num">06</span>
+              <span class="q-text">Service accounts are inventoried, with documented owners and business purposes. Password management rules and exception accounts are reviewed periodically.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q6" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q6" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q6" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q6" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q6" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q6" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="7">
             <div class="q-header">
-              <span class="q-num">08</span>
+              <span class="q-num">07</span>
               <span class="q-text">Terminated users are removed from report sharing, distribution, and schedule ownership.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q7" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q7" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q7" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q7" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q7" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q7" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="8">
             <div class="q-header">
-              <span class="q-num">09</span>
+              <span class="q-num">08</span>
               <span class="q-text">Security audit findings are tracked to closure.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q8" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q8" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q8" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q8" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q8" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q8" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="9">
             <div class="q-header">
-              <span class="q-num">10</span>
+              <span class="q-num">09</span>
               <span class="q-text">Teams can explain which security groups support critical AI-relevant workflows.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q9" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q9" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q9" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q9" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q9" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q9" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="reality-block">
-            <span class="reality-prompt">$&gt;</span>
-            <span class="reality-text">Agents inherit your security model. They do not improve it.</span>
+          <div class="q-card" data-q="0">
+            <div class="q-header">
+              <span class="q-num">10</span>
+              <span class="q-text">Dedicated Workday security ownership is assigned for AI and automation-related changes.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt opt-full"><input type="radio" name="q0" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q0" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q0" value="0"><span class="radio-label">Not Implemented</span></label>
+            </div>
           </div>
-        </div>
-        <hr class="section-divider" style="margin:36px 0;">
-        <div class="domain-section">
-          <div class="domain-header">
-            <div class="eyebrow">Domain 02</div>
-            <h2 class="domain-title">Business Process Readiness</h2>
-          </div>
-          
           <div class="q-card" data-q="10">
             <div class="q-header">
               <span class="q-num">01</span>
               <span class="q-text">Each major business process has a named owner who can approve AI or automation-related changes.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q10" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q10" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q10" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q10" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q10" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q10" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="11">
@@ -562,9 +569,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Business Process Security Policies are documented and compliant with internal controls.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q11" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q11" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q11" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q11" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q11" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q11" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="12">
@@ -573,9 +580,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Approval chains are documented, current, and explainable.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q12" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q12" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q12" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q12" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q12" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q12" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="13">
@@ -584,9 +591,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Exception handling is documented for critical processes.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q13" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q13" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q13" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q13" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q13" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q13" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="14">
@@ -595,9 +602,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Condition rules are documented with owner and purpose.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q14" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q14" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q14" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q14" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q14" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q14" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="15">
@@ -606,9 +613,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Business process changes follow a documented governance process.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q15" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q15" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q15" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q15" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q15" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q15" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="16">
@@ -617,9 +624,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Business Process Admins can explain the why and how behind routing, approvals, and security.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q16" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q16" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q16" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q16" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q16" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q16" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="17">
@@ -628,9 +635,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Reassign Tasks and delegation procedures are documented.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q17" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q17" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q17" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q17" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q17" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q17" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="18">
@@ -639,9 +646,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Unassigned business process tasks are monitored with an escalation path.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q18" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q18" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q18" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q18" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q18" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q18" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="19">
@@ -650,9 +657,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Teams know who owns resolution when a critical process fails.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q19" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q19" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q19" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q19" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q19" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q19" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="reality-block">
@@ -673,20 +680,20 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Critical and SOX reports have defined report tags and business owners.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q20" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q20" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q20" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q20" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q20" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q20" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="21">
             <div class="q-header">
               <span class="q-num">02</span>
-              <span class="q-text">Workday data is trusted enough for AI-assisted decisions.</span>
+              <span class="q-text">Data quality is sufficient to support AI-assisted reporting and decision-making.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q21" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q21" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q21" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q21" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q21" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q21" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="22">
@@ -695,9 +702,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Duplicate and copied reports are regularly reviewed, consolidated, or removed.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q22" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q22" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q22" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q22" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q22" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q22" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="23">
@@ -706,9 +713,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Calculated fields follow naming standards and are reviewed for DNU fields.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q23" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q23" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q23" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q23" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q23" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q23" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="24">
@@ -717,98 +724,86 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Report security is reviewed periodically, especially for sensitive data.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q24" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q24" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q24" value="0"><span class="chip chip-not">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="25">
-            <div class="q-header">
-              <span class="q-num">06</span>
-              <span class="q-text">Key metrics have agreed-upon definitions.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q25" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q25" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q25" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q24" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q24" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q24" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="26">
             <div class="q-header">
-              <span class="q-num">07</span>
+              <span class="q-num">06</span>
               <span class="q-text">Reporting requests follow a governance, intake, and prioritization process.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q26" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q26" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q26" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q26" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q26" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q26" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="27">
             <div class="q-header">
-              <span class="q-num">08</span>
+              <span class="q-num">07</span>
               <span class="q-text">Report schedules are owned by ISUs or active users, not terminated workers.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q27" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q27" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q27" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q27" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q27" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q27" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="28">
             <div class="q-header">
-              <span class="q-num">09</span>
+              <span class="q-num">08</span>
               <span class="q-text">Terminated users are removed from report sharing and report schedules.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q28" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q28" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q28" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q28" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q28" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q28" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="29">
             <div class="q-header">
-              <span class="q-num">10</span>
+              <span class="q-num">09</span>
               <span class="q-text">Teams can explain how key metrics are calculated.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q29" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q29" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q29" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q29" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q29" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q29" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="reality-block">
-            <span class="reality-prompt">$&gt;</span>
-            <span class="reality-text">Agents will answer questions using the same reporting foundation your users rely on today.</span>
+          <div class="q-card" data-q="25">
+            <div class="q-header">
+              <span class="q-num">10</span>
+              <span class="q-text">Key metrics have agreed-upon business definitions (for example, Headcount, Vacant Positions, and Turnover).</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt opt-full"><input type="radio" name="q25" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q25" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q25" value="0"><span class="radio-label">Not Implemented</span></label>
+            </div>
           </div>
-        </div>
-        <hr class="section-divider" style="margin:36px 0;">
-        <div class="domain-section">
-          <div class="domain-header">
-            <div class="eyebrow">Domain 04</div>
-            <h2 class="domain-title">Integration Readiness</h2>
-          </div>
-          
           <div class="q-card" data-q="30">
             <div class="q-header">
               <span class="q-num">01</span>
               <span class="q-text">All integrations are inventoried with owner, purpose, and criticality.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q30" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q30" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q30" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q30" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q30" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q30" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="31">
             <div class="q-header">
               <span class="q-num">02</span>
-              <span class="q-text">Integration technical and functional owners are identified and ISUs are assigned.</span>
+              <span class="q-text">Integration technical and functional owners are identified, and Integration System Users (ISUs) are assigned and documented.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q31" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q31" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q31" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q31" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q31" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q31" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="32">
@@ -817,9 +812,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Monitoring is in place for critical integrations.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q32" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q32" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q32" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q32" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q32" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q32" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="33">
@@ -828,9 +823,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Failure notifications route to the correct technical and business owners.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q33" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q33" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q33" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q33" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q33" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q33" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="34">
@@ -839,9 +834,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Critical integrations have documented support and runbook procedures.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q34" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q34" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q34" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q34" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q34" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q34" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="35">
@@ -850,9 +845,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Vendors and contacts are clearly identified and current.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q35" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q35" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q35" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q35" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q35" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q35" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="36">
@@ -861,9 +856,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Upstream and downstream integration dependencies are understood.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q36" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q36" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q36" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q36" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q36" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q36" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="37">
@@ -872,9 +867,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Integration failures are reviewed, resolved, or documented with business impact.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q37" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q37" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q37" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q37" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q37" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q37" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="38">
@@ -883,9 +878,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">PGP, SSH, and API keys are monitored for expiration and rotation.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q38" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q38" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q38" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q38" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q38" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q38" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="39">
@@ -894,9 +889,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Integration schedules and expiration dates are documented and owned by the appropriate ISUs.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q39" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q39" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q39" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q39" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q39" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q39" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="reality-block">
@@ -917,9 +912,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">The team understands where Workday Orchestrate could safely support process automation.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q40" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q40" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q40" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q40" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q40" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q40" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="41">
@@ -928,9 +923,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">The team understands when Workday Extend is appropriate.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q41" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q41" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q41" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q41" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q41" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q41" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="42">
@@ -939,9 +934,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">The team understands Workday APIs and integration guardrails.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q42" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q42" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q42" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q42" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q42" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q42" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="43">
@@ -950,9 +945,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">AI governance discussions include HR, IT, security, and business owners.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q43" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q43" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q43" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q43" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q43" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q43" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="44">
@@ -961,9 +956,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Testing standards exist for configuration, integrations, and business process changes.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q44" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q44" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q44" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q44" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q44" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q44" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="45">
@@ -972,9 +967,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Change management is documented for technical and process changes.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q45" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q45" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q45" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q45" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q45" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q45" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="46">
@@ -983,9 +978,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Technical debt is actively tracked and prioritized.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q46" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q46" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q46" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q46" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q46" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q46" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="47">
@@ -994,9 +989,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Release testing is repeatable and risk-based.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q47" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q47" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q47" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q47" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q47" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q47" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="48">
@@ -1005,9 +1000,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Architecture decisions are documented.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q48" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q48" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q48" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q48" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q48" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q48" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="q-card" data-q="49">
@@ -1016,9 +1011,9 @@ input, textarea { font-family:inherit; }
               <span class="q-text">Leadership supports modernization with budget and resource priority.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt"><input type="radio" name="q49" value="2"><span class="chip chip-full">Fully Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q49" value="1"><span class="chip chip-part">Partially Implemented</span></label>
-              <label class="radio-opt"><input type="radio" name="q49" value="0"><span class="chip chip-not">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q49" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q49" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q49" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="reality-block">
@@ -1107,7 +1102,7 @@ input, textarea { font-family:inherit; }
       <p class="results-cta-body">CloudBridge Partners helps organizations improve reporting, integrations, security, governance, testing, and automation through focused Workday optimization engagements.</p>
     </div>
     <div class="results-cta-actions">
-      <button class="btn-white" onclick="downloadPDF()">&#8595; Download Executive PDF</button>
+      <button class="btn-white" onclick="downloadPDF()">&#8595; Download PDF</button>
       <button class="btn-outline-white" onclick="downloadCSV()">&#8595; Download Excel Report</button>
     </div>
   </div>
