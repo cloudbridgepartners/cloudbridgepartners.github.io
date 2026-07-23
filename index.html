@@ -152,8 +152,9 @@ input,textarea{font-family:inherit}
 /* ═══════════════════════════════════════════
    CREDIBILITY STRIP — #2
    ═══════════════════════════════════════════ */
-.cred-strip{padding:28px 0;background:var(--light-gray);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light)}
-.cred-inner{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;text-align:center}
+.cred-strip{padding:24px 0;background:var(--light-gray);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light)}
+.cred-inner{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;text-align:center}
+.cred-badge{height:48px;width:auto;flex-shrink:0}
 .cred-label{font-size:14px;color:var(--text-sec);font-weight:500}
 .cred-industries{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:center}
 .cred-tag{font-size:13px;color:var(--text-dark);font-weight:600;background:var(--white);border:1px solid var(--border);border-radius:20px;padding:4px 14px}
@@ -693,6 +694,7 @@ input,textarea{font-family:inherit}
         </a>
       </div>
       <div class="hero-diagram hero-fade" aria-hidden="true">
+        <img src="assets/images/workday-partner.png" alt="Workday Partner" style="height:64px;width:auto;margin:0 auto 24px;display:block">
         <!-- Workday ecosystem diagram styled after Workday's own module map -->
         <svg viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
           <defs>
@@ -792,7 +794,8 @@ input,textarea{font-family:inherit}
 <div class="cred-strip">
   <div class="wrap">
     <div class="cred-inner">
-      <span class="cred-label">Supporting complex Workday® environments in:</span>
+      <img src="assets/images/workday-partner.png" alt="Workday Partner" class="cred-badge">
+      <span class="cred-label">Supporting complex Workday environments in:</span>
       <div class="cred-industries">
         <span class="cred-tag">Healthcare</span>
         <span class="cred-tag">Manufacturing</span>
@@ -933,6 +936,10 @@ input,textarea{font-family:inherit}
         <p class="founder-bio">For more than 12 years, I've helped organizations maximize their Workday investment through implementation, optimization, testing, security, platform transformation, and enterprise Workday initiatives for organizations ranging from a few hundred employees to over 120,000 across North America, EMEA, Asia, and Latin America. Unlike many firm owners, I remain hands-on—designing solutions, solving complex problems, and working directly with clients.</p>
         <p class="founder-bio">I founded CloudBridge because I saw the same pattern repeatedly: organizations invest in Workday, but critical initiatives get pushed aside as internal teams and AMS providers focus on day-to-day support.</p>
         <p class="founder-bio">CloudBridge helps organizations move Workday forward through senior-led Workday expertise spanning implementation, optimization, testing, security, technical delivery, and enterprise Workday initiatives.</p>
+        <div style="display:flex;align-items:center;gap:12px;margin-top:18px">
+          <img src="assets/images/workday-partner.png" alt="Workday Partner" style="height:56px;width:auto">
+          <span style="font-size:15px;font-weight:600;color:var(--text-dark)">Workday&reg; Partner</span>
+        </div>
       </div>
       <div class="reveal">
         <div class="founder-glance-title">CloudBridge at a Glance</div>
@@ -1209,7 +1216,7 @@ input,textarea{font-family:inherit}
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; 2026 CloudBridge Partners. All Rights Reserved.</div>
-      <div class="footer-legal">CloudBridge Partners is an independent consulting firm and is not affiliated with, endorsed by, or sponsored by Workday®, Inc. Workday&reg; is a registered trademark of Workday®, Inc.</div>
+      <div class="footer-legal">CloudBridge Partners is a Workday&reg; partner. Workday is a registered trademark of Workday, Inc.</div>
     </div>
   </div>
 </footer>
