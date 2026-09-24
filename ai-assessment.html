@@ -425,7 +425,7 @@ input, textarea { font-family:inherit; }
 <div id="assessSection" style="display:none;">
   <div class="progress-bar-wrap">
     <div class="progress-inner">
-      <div class="progress-label" id="progressLabel">0 / 50 answered</div>
+      <div class="progress-label" id="progressLabel">0 / 35 answered</div>
       <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
       <div class="progress-pct" id="progressPct">0%</div>
     </div>
@@ -442,10 +442,21 @@ input, textarea { font-family:inherit; }
             <h2 class="domain-title">Security Readiness</h2>
           </div>
           
-          <div class="q-card" data-q="1">
+          <div class="q-card" data-q="0">
             <div class="q-header">
               <span class="q-num">01</span>
-              <span class="q-text">Integration and report ISUs are documented, owned, and periodically reviewed.</span>
+              <span class="q-text">Privileged access reviews occur on a defined cadence.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt opt-full"><input type="radio" name="q0" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q0" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q0" value="0"><span class="radio-label">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="1">
+            <div class="q-header">
+              <span class="q-num">02</span>
+              <span class="q-text">Security changes follow a documented approval and testing process.</span>
             </div>
             <div class="radio-group">
               <label class="radio-opt opt-full"><input type="radio" name="q1" value="2"><span class="radio-label">Fully Implemented</span></label>
@@ -455,8 +466,8 @@ input, textarea { font-family:inherit; }
           </div>
           <div class="q-card" data-q="2">
             <div class="q-header">
-              <span class="q-num">02</span>
-              <span class="q-text">Privileged access reviews occur on a defined cadence.</span>
+              <span class="q-num">03</span>
+              <span class="q-text">Integration System Security Groups are documented and periodically reviewed for least-privilege access, including access to sensitive data.</span>
             </div>
             <div class="radio-group">
               <label class="radio-opt opt-full"><input type="radio" name="q2" value="2"><span class="radio-label">Fully Implemented</span></label>
@@ -466,8 +477,8 @@ input, textarea { font-family:inherit; }
           </div>
           <div class="q-card" data-q="3">
             <div class="q-header">
-              <span class="q-num">03</span>
-              <span class="q-text">Security changes follow a documented approval and testing process.</span>
+              <span class="q-num">04</span>
+              <span class="q-text">Service accounts are inventoried with documented owners, business purposes, and credential management standards, and are reviewed periodically.</span>
             </div>
             <div class="radio-group">
               <label class="radio-opt opt-full"><input type="radio" name="q3" value="2"><span class="radio-label">Fully Implemented</span></label>
@@ -477,8 +488,8 @@ input, textarea { font-family:inherit; }
           </div>
           <div class="q-card" data-q="4">
             <div class="q-header">
-              <span class="q-num">04</span>
-              <span class="q-text">Integration System Security Groups are standardized and reviewed for least privilege.</span>
+              <span class="q-num">05</span>
+              <span class="q-text">Security audit findings are tracked through remediation and closure.</span>
             </div>
             <div class="radio-group">
               <label class="radio-opt opt-full"><input type="radio" name="q4" value="2"><span class="radio-label">Fully Implemented</span></label>
@@ -488,8 +499,8 @@ input, textarea { font-family:inherit; }
           </div>
           <div class="q-card" data-q="5">
             <div class="q-header">
-              <span class="q-num">05</span>
-              <span class="q-text">Sensitive data access for ISSGs is periodically reviewed.</span>
+              <span class="q-num">06</span>
+              <span class="q-text">Security groups supporting critical AI and automation workflows are documented and understood.</span>
             </div>
             <div class="radio-group">
               <label class="radio-opt opt-full"><input type="radio" name="q5" value="2"><span class="radio-label">Fully Implemented</span></label>
@@ -499,57 +510,13 @@ input, textarea { font-family:inherit; }
           </div>
           <div class="q-card" data-q="6">
             <div class="q-header">
-              <span class="q-num">06</span>
-              <span class="q-text">Service accounts are inventoried, with documented owners and business purposes. Password management rules and exception accounts are reviewed periodically.</span>
+              <span class="q-num">07</span>
+              <span class="q-text">Workday security ownership is defined for AI and automation-related changes.</span>
             </div>
             <div class="radio-group">
               <label class="radio-opt opt-full"><input type="radio" name="q6" value="2"><span class="radio-label">Fully Implemented</span></label>
               <label class="radio-opt opt-part"><input type="radio" name="q6" value="1"><span class="radio-label">Partially Implemented</span></label>
               <label class="radio-opt opt-not"><input type="radio" name="q6" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="7">
-            <div class="q-header">
-              <span class="q-num">07</span>
-              <span class="q-text">Terminated users are removed from report sharing, distribution, and schedule ownership.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q7" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q7" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q7" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="8">
-            <div class="q-header">
-              <span class="q-num">08</span>
-              <span class="q-text">Security audit findings are tracked to closure.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q8" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q8" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q8" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="9">
-            <div class="q-header">
-              <span class="q-num">09</span>
-              <span class="q-text">Teams can explain which security groups support critical AI-relevant workflows.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q9" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q9" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q9" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="0">
-            <div class="q-header">
-              <span class="q-num">10</span>
-              <span class="q-text">Dedicated Workday security ownership is assigned for AI and automation-related changes.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q0" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q0" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q0" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="reality-block">
@@ -564,10 +531,43 @@ input, textarea { font-family:inherit; }
             <h2 class="domain-title">Business Process Readiness</h2>
           </div>
           
-          <div class="q-card" data-q="10">
+          <div class="q-card" data-q="7">
             <div class="q-header">
               <span class="q-num">01</span>
               <span class="q-text">Each major business process has a named owner who can approve AI or automation-related changes.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt opt-full"><input type="radio" name="q7" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q7" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q7" value="0"><span class="radio-label">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="8">
+            <div class="q-header">
+              <span class="q-num">02</span>
+              <span class="q-text">Business Process Security Policies are documented and compliant with internal controls.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt opt-full"><input type="radio" name="q8" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q8" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q8" value="0"><span class="radio-label">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="9">
+            <div class="q-header">
+              <span class="q-num">03</span>
+              <span class="q-text">Approval chains and condition rules are documented with owner and purpose, and kept current.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt opt-full"><input type="radio" name="q9" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q9" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q9" value="0"><span class="radio-label">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="10">
+            <div class="q-header">
+              <span class="q-num">04</span>
+              <span class="q-text">Business Process Admins understand the reasoning behind routing, approvals, and condition rules.</span>
             </div>
             <div class="radio-group">
               <label class="radio-opt opt-full"><input type="radio" name="q10" value="2"><span class="radio-label">Fully Implemented</span></label>
@@ -577,8 +577,8 @@ input, textarea { font-family:inherit; }
           </div>
           <div class="q-card" data-q="11">
             <div class="q-header">
-              <span class="q-num">02</span>
-              <span class="q-text">Business Process Security Policies are documented and compliant with internal controls.</span>
+              <span class="q-num">05</span>
+              <span class="q-text">Critical processes have documented exception handling and a named owner for resolution when they fail.</span>
             </div>
             <div class="radio-group">
               <label class="radio-opt opt-full"><input type="radio" name="q11" value="2"><span class="radio-label">Fully Implemented</span></label>
@@ -588,8 +588,8 @@ input, textarea { font-family:inherit; }
           </div>
           <div class="q-card" data-q="12">
             <div class="q-header">
-              <span class="q-num">03</span>
-              <span class="q-text">Approval chains are documented, current, and explainable.</span>
+              <span class="q-num">06</span>
+              <span class="q-text">Reassign Tasks and delegation procedures are documented.</span>
             </div>
             <div class="radio-group">
               <label class="radio-opt opt-full"><input type="radio" name="q12" value="2"><span class="radio-label">Fully Implemented</span></label>
@@ -599,79 +599,13 @@ input, textarea { font-family:inherit; }
           </div>
           <div class="q-card" data-q="13">
             <div class="q-header">
-              <span class="q-num">04</span>
-              <span class="q-text">Exception handling is documented for critical processes.</span>
+              <span class="q-num">07</span>
+              <span class="q-text">Unassigned business process tasks are monitored with an escalation path.</span>
             </div>
             <div class="radio-group">
               <label class="radio-opt opt-full"><input type="radio" name="q13" value="2"><span class="radio-label">Fully Implemented</span></label>
               <label class="radio-opt opt-part"><input type="radio" name="q13" value="1"><span class="radio-label">Partially Implemented</span></label>
               <label class="radio-opt opt-not"><input type="radio" name="q13" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="14">
-            <div class="q-header">
-              <span class="q-num">05</span>
-              <span class="q-text">Condition rules are documented with owner and purpose.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q14" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q14" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q14" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="15">
-            <div class="q-header">
-              <span class="q-num">06</span>
-              <span class="q-text">Business process changes follow a documented governance process.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q15" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q15" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q15" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="16">
-            <div class="q-header">
-              <span class="q-num">07</span>
-              <span class="q-text">Business Process Admins can explain the why and how behind routing, approvals, and security.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q16" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q16" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q16" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="17">
-            <div class="q-header">
-              <span class="q-num">08</span>
-              <span class="q-text">Reassign Tasks and delegation procedures are documented.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q17" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q17" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q17" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="18">
-            <div class="q-header">
-              <span class="q-num">09</span>
-              <span class="q-text">Unassigned business process tasks are monitored with an escalation path.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q18" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q18" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q18" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="19">
-            <div class="q-header">
-              <span class="q-num">10</span>
-              <span class="q-text">Teams know who owns resolution when a critical process fails.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q19" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q19" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q19" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="reality-block">
@@ -686,114 +620,81 @@ input, textarea { font-family:inherit; }
             <h2 class="domain-title">Reporting &amp; Insights Readiness</h2>
           </div>
           
-          <div class="q-card" data-q="20">
+          <div class="q-card" data-q="14">
             <div class="q-header">
               <span class="q-num">01</span>
               <span class="q-text">Critical and SOX reports have defined report tags and business owners.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q20" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q20" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q20" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q14" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q14" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q14" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="q-card" data-q="21">
+          <div class="q-card" data-q="15">
             <div class="q-header">
               <span class="q-num">02</span>
               <span class="q-text">Data quality is sufficient to support AI-assisted reporting and decision-making.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q21" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q21" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q21" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q15" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q15" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q15" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="q-card" data-q="22">
+          <div class="q-card" data-q="16">
             <div class="q-header">
               <span class="q-num">03</span>
-              <span class="q-text">Duplicate and copied reports are regularly reviewed, consolidated, or removed.</span>
+              <span class="q-text">Duplicate reports and unused calculated fields are regularly reviewed and consolidated or removed, and calculated fields follow naming standards.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q22" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q22" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q22" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q16" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q16" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q16" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="q-card" data-q="23">
+          <div class="q-card" data-q="17">
             <div class="q-header">
               <span class="q-num">04</span>
-              <span class="q-text">Calculated fields follow naming standards and are reviewed for DNU fields.</span>
+              <span class="q-text">Report and RaaS security is reviewed periodically, especially for sensitive data.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q23" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q23" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q23" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q17" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q17" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q17" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="q-card" data-q="24">
+          <div class="q-card" data-q="18">
             <div class="q-header">
               <span class="q-num">05</span>
-              <span class="q-text">Report security is reviewed periodically, especially for sensitive data.</span>
+              <span class="q-text">Report schedules and sharing are owned by ISUs or active users, with terminated workers removed.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q24" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q24" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q24" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q18" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q18" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q18" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="q-card" data-q="26">
+          <div class="q-card" data-q="19">
             <div class="q-header">
               <span class="q-num">06</span>
-              <span class="q-text">Reporting requests follow a governance, intake, and prioritization process.</span>
+              <span class="q-text">Key metrics have agreed-upon business definitions, and teams understand how those metrics are calculated in Workday.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q26" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q26" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q26" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q19" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q19" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q19" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="q-card" data-q="27">
+          <div class="q-card" data-q="20">
             <div class="q-header">
               <span class="q-num">07</span>
-              <span class="q-text">Report schedules are owned by ISUs or active users, not terminated workers.</span>
+              <span class="q-text">Dashboards and Discovery Boards are governed, current, and use trusted data sources and metrics.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q27" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q27" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q27" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="28">
-            <div class="q-header">
-              <span class="q-num">08</span>
-              <span class="q-text">Terminated users are removed from report sharing and report schedules.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q28" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q28" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q28" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="29">
-            <div class="q-header">
-              <span class="q-num">09</span>
-              <span class="q-text">Teams can explain how key metrics are calculated.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q29" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q29" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q29" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="25">
-            <div class="q-header">
-              <span class="q-num">10</span>
-              <span class="q-text">Key metrics have agreed-upon business definitions (for example, Headcount, Vacant Positions, and Turnover).</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q25" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q25" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q25" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q20" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q20" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q20" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="reality-block">
@@ -808,114 +709,81 @@ input, textarea { font-family:inherit; }
             <h2 class="domain-title">Integration Readiness</h2>
           </div>
           
-          <div class="q-card" data-q="30">
+          <div class="q-card" data-q="21">
             <div class="q-header">
               <span class="q-num">01</span>
-              <span class="q-text">All integrations are inventoried with owner, purpose, and criticality.</span>
+              <span class="q-text">All integrations and RaaS endpoints are inventoried with purpose, criticality, technical and functional owners, and assigned ISUs.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q30" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q30" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q30" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q21" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q21" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q21" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="q-card" data-q="31">
+          <div class="q-card" data-q="22">
             <div class="q-header">
               <span class="q-num">02</span>
-              <span class="q-text">Integration technical and functional owners are identified, and Integration System Users (ISUs) are assigned and documented.</span>
+              <span class="q-text">Critical integrations are monitored, with failure notifications routed to the right technical and business owners.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q31" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q31" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q31" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q22" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q22" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q22" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="q-card" data-q="32">
+          <div class="q-card" data-q="23">
             <div class="q-header">
               <span class="q-num">03</span>
-              <span class="q-text">Monitoring is in place for critical integrations.</span>
+              <span class="q-text">Critical integrations have documented runbooks, including current vendor contacts.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q32" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q32" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q32" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q23" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q23" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q23" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="q-card" data-q="33">
+          <div class="q-card" data-q="24">
             <div class="q-header">
               <span class="q-num">04</span>
-              <span class="q-text">Failure notifications route to the correct technical and business owners.</span>
+              <span class="q-text">Upstream and downstream integration dependencies are documented.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q33" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q33" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q33" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q24" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q24" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q24" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="q-card" data-q="34">
+          <div class="q-card" data-q="25">
             <div class="q-header">
               <span class="q-num">05</span>
-              <span class="q-text">Critical integrations have documented support and runbook procedures.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q34" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q34" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q34" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="35">
-            <div class="q-header">
-              <span class="q-num">06</span>
-              <span class="q-text">Vendors and contacts are clearly identified and current.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q35" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q35" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q35" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="36">
-            <div class="q-header">
-              <span class="q-num">07</span>
-              <span class="q-text">Upstream and downstream integration dependencies are understood.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q36" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q36" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q36" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="37">
-            <div class="q-header">
-              <span class="q-num">08</span>
               <span class="q-text">Integration failures are reviewed, resolved, or documented with business impact.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q37" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q37" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q37" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q25" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q25" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q25" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="q-card" data-q="38">
+          <div class="q-card" data-q="26">
             <div class="q-header">
-              <span class="q-num">09</span>
+              <span class="q-num">06</span>
               <span class="q-text">PGP, SSH, and API keys are monitored for expiration and rotation.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q38" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q38" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q38" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q26" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q26" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q26" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="q-card" data-q="39">
+          <div class="q-card" data-q="27">
             <div class="q-header">
-              <span class="q-num">10</span>
-              <span class="q-text">Integration schedules and expiration dates are documented and owned by the appropriate ISUs.</span>
+              <span class="q-num">07</span>
+              <span class="q-text">Integration schedules run under ISUs instead of individual users, with end dates documented.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q39" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q39" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q39" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q27" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q27" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q27" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="reality-block">
@@ -930,114 +798,81 @@ input, textarea { font-family:inherit; }
             <h2 class="domain-title">Technical Foundation</h2>
           </div>
           
-          <div class="q-card" data-q="40">
+          <div class="q-card" data-q="28">
             <div class="q-header">
               <span class="q-num">01</span>
               <span class="q-text">The team understands where Workday Orchestrate could safely support process automation.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q40" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q40" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q40" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q28" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q28" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q28" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="q-card" data-q="41">
+          <div class="q-card" data-q="29">
             <div class="q-header">
               <span class="q-num">02</span>
-              <span class="q-text">The team understands when Workday Extend is appropriate.</span>
+              <span class="q-text">The team understands when Workday Extend or direct API integration is appropriate, and the guardrails for each.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q41" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q41" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q41" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q29" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q29" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q29" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="q-card" data-q="42">
+          <div class="q-card" data-q="30">
             <div class="q-header">
               <span class="q-num">03</span>
-              <span class="q-text">The team understands Workday APIs and integration guardrails.</span>
+              <span class="q-text">AI governance discussions include HR, Finance, IT, security, and business owners.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q42" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q42" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q42" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q30" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q30" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q30" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="q-card" data-q="43">
+          <div class="q-card" data-q="31">
             <div class="q-header">
               <span class="q-num">04</span>
-              <span class="q-text">AI governance discussions include HR, IT, security, and business owners.</span>
+              <span class="q-text">Testing standards cover configuration, integration, and business process changes, including repeatable, risk-based testing for Workday releases.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q43" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q43" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q43" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q31" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q31" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q31" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="q-card" data-q="44">
+          <div class="q-card" data-q="32">
             <div class="q-header">
               <span class="q-num">05</span>
-              <span class="q-text">Testing standards exist for configuration, integrations, and business process changes.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q44" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q44" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q44" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="45">
-            <div class="q-header">
-              <span class="q-num">06</span>
               <span class="q-text">Change management is documented for technical and process changes.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q45" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q45" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q45" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q32" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q32" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q32" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
-          <div class="q-card" data-q="46">
+          <div class="q-card" data-q="33">
+            <div class="q-header">
+              <span class="q-num">06</span>
+              <span class="q-text">Architecture decisions are documented, and technical debt is tracked and prioritized.</span>
+            </div>
+            <div class="radio-group">
+              <label class="radio-opt opt-full"><input type="radio" name="q33" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q33" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q33" value="0"><span class="radio-label">Not Implemented</span></label>
+            </div>
+          </div>
+          <div class="q-card" data-q="34">
             <div class="q-header">
               <span class="q-num">07</span>
-              <span class="q-text">Technical debt is actively tracked and prioritized.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q46" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q46" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q46" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="47">
-            <div class="q-header">
-              <span class="q-num">08</span>
-              <span class="q-text">Release testing is repeatable and risk-based.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q47" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q47" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q47" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="48">
-            <div class="q-header">
-              <span class="q-num">09</span>
-              <span class="q-text">Architecture decisions are documented.</span>
-            </div>
-            <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q48" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q48" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q48" value="0"><span class="radio-label">Not Implemented</span></label>
-            </div>
-          </div>
-          <div class="q-card" data-q="49">
-            <div class="q-header">
-              <span class="q-num">10</span>
               <span class="q-text">Leadership supports modernization with budget and resource priority.</span>
             </div>
             <div class="radio-group">
-              <label class="radio-opt opt-full"><input type="radio" name="q49" value="2"><span class="radio-label">Fully Implemented</span></label>
-              <label class="radio-opt opt-part"><input type="radio" name="q49" value="1"><span class="radio-label">Partially Implemented</span></label>
-              <label class="radio-opt opt-not"><input type="radio" name="q49" value="0"><span class="radio-label">Not Implemented</span></label>
+              <label class="radio-opt opt-full"><input type="radio" name="q34" value="2"><span class="radio-label">Fully Implemented</span></label>
+              <label class="radio-opt opt-part"><input type="radio" name="q34" value="1"><span class="radio-label">Partially Implemented</span></label>
+              <label class="radio-opt opt-not"><input type="radio" name="q34" value="0"><span class="radio-label">Not Implemented</span></label>
             </div>
           </div>
           <div class="reality-block">
@@ -1138,8 +973,8 @@ input, textarea { font-family:inherit; }
 </div>
 
 <script>
-const TOTAL = 50;
-const DOMAINS = [["Security Readiness", 10], ["Business Process Readiness", 10], ["Reporting & Insights Readiness", 10], ["Integration Readiness", 10], ["Technical Foundation", 10]];
+const TOTAL = 35;
+const DOMAINS = [["Security Readiness", 7], ["Business Process Readiness", 7], ["Reporting & Insights Readiness", 7], ["Integration Readiness", 7], ["Technical Foundation", 7]];
 const BLOCKED = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "aol.com", "icloud.com", "live.com", "msn.com", "ymail.com", "mail.com", "protonmail.com", "zoho.com", "gmx.com", "inbox.com", "rediffmail.com"];
 const FORMSPREE = "https://formspree.io/f/xvgqwoge";
 const answers = new Array(TOTAL).fill(null);
@@ -1162,12 +997,12 @@ const DOMAIN_DATA = {
   "Security Readiness": {
     execSummary: "Your Workday environment has meaningful gaps in security governance. Weak ISU ownership, ungoverned ISSGs, and undocumented service accounts create direct risk when AI-assisted workflows are introduced. Agents operate within your existing security model and cannot compensate for gaps that already exist. The highest-impact first step is a full service account and ISU inventory, followed by an ISSG least-privilege review. Closing these gaps will reduce compliance exposure and establish the security foundation needed to safely expand automation.",
     why: "AI requires strong governance and security controls. Weak access management, undocumented service accounts, and ungoverned ISSGs increase operational and compliance risk the moment automation is introduced.",
-    whereToStart: ["Audit all service accounts with owner and purpose","Review ISSGs for least-privilege violations","Confirm privileged access review cadence is active","Document the security change approval process","Validate terminated users are removed from report sharing"],
-    quickWins: ["Identify service accounts without a documented owner","Flag ISSGs not reviewed in 12+ months","Confirm security domain ownership for AI-relevant workflows","Remove one terminated user from report distribution"],
+    whereToStart: ["Audit all service accounts with owner and purpose","Review ISSGs for least-privilege violations","Confirm privileged access review cadence is active","Document the security change approval process","Track open security audit findings to closure"],
+    quickWins: ["Identify service accounts without a documented owner","Flag ISSGs not reviewed in 12+ months","Confirm security domain ownership for AI-relevant workflows","List credential management exceptions for service accounts"],
     roadmap: {
-      p1: { name:"Phase 1: Build Governance", sub:"Establish security ownership and document the baseline", items:["Inventory all service accounts with owner and purpose","Document ISU assignments per integration and report","Identify ISSGs not reviewed in 12+ months","Establish a security change request and approval log"] },
+      p1: { name:"Phase 1: Build Governance", sub:"Establish security ownership and document the baseline", items:["Inventory all service accounts with owner and purpose","Document credential management standards for service accounts","Identify ISSGs not reviewed in 12+ months","Establish a security change request and approval log"] },
       p2: { name:"Phase 2: Standardize", sub:"Close access gaps and enforce least-privilege controls", items:["Conduct full ISSG least-privilege review","Remove or reassign orphaned or over-permissioned accounts","Define recurring privileged access review cadence","Document security domain ownership for AI-relevant workflows"] },
-      p3: { name:"Phase 3: Validate & Prepare for AI", sub:"Confirm readiness and brief leadership", items:["Complete security audit and track findings to closure","Validate terminated user removal from all report distribution","Finalize security governance document for AI readiness","Brief leadership on security posture ahead of AI initiative"] }
+      p3: { name:"Phase 3: Validate & Prepare for AI", sub:"Confirm readiness and brief leadership", items:["Complete security audit and track findings to closure","Document security groups supporting AI and automation workflows","Finalize security governance document for AI readiness","Brief leadership on security posture ahead of AI initiative"] }
     }
   },
   "Business Process Readiness": {
@@ -1188,7 +1023,7 @@ const DOMAIN_DATA = {
     quickWins: ["Identify 5 most-used reports that lack a business owner","Flag duplicate report pairs that can be consolidated immediately","Confirm all SOX reports have correct report tags applied","Remove one terminated user from active report distribution"],
     roadmap: {
       p1: { name:"Phase 1: Build Governance", sub:"Inventory reports and establish ownership", items:["Inventory all reports and identify duplicates and DNU fields","Tag all SOX and critical reports with appropriate report tags","Identify reports without an active owner or schedule owner","Document definitions for the top 10 executive metrics"] },
-      p2: { name:"Phase 2: Standardize", sub:"Clean the report library and enforce governance", items:["Remove or consolidate duplicate and low-usage reports","Assign ownership to all unowned reports","Review report security for sensitive data access","Implement governance intake process for new report requests"] },
+      p2: { name:"Phase 2: Standardize", sub:"Clean the report library and enforce governance", items:["Remove or consolidate duplicate and low-usage reports","Assign ownership to all unowned reports","Review report security for sensitive data access","Review RaaS report security for sensitive data exposure"] },
       p3: { name:"Phase 3: Validate & Prepare for AI", sub:"Confirm data trust and brief leadership", items:["Align leadership on agreed-upon metric definitions","Validate all report schedules are owned by active ISUs","Remove terminated users from report sharing and distribution","Conduct dashboard usage review and remove abandoned dashboards"] }
     }
   },
@@ -1198,19 +1033,19 @@ const DOMAIN_DATA = {
     whereToStart: ["Complete integration inventory with owner, purpose, and criticality","Assign technical and functional owners to each integration","Confirm failure notifications are routing to correct personnel","Document runbooks for the top 10 critical integrations","Audit PGP, SSH, and API key expiration dates"],
     quickWins: ["Identify integrations with no documented technical owner","Confirm at least one critical integration has a failure notification active","Flag any API keys expiring within 90 days","Document vendor contact for your most critical integration"],
     roadmap: {
-      p1: { name:"Phase 1: Build Governance", sub:"Inventory integrations and establish ownership", items:["Complete integration inventory with owner, purpose, and criticality","Identify integrations without technical or functional owners","Confirm monitoring is active for all production integrations","Document vendor contacts for all third-party integrations"] },
+      p1: { name:"Phase 1: Build Governance", sub:"Inventory integrations and establish ownership", items:["Complete integration and RaaS inventory with owner, purpose, and criticality","Identify integrations without technical or functional owners","Confirm monitoring is active for all production integrations","Document vendor contacts for all third-party integrations"] },
       p2: { name:"Phase 2: Standardize", sub:"Close monitoring gaps and document support procedures", items:["Assign ISUs to all integrations missing ownership","Validate failure notification routing for critical integrations","Build runbooks for the top 10 most critical integrations","Audit key expiration dates for PGP, SSH, and API credentials"] },
       p3: { name:"Phase 3: Validate & Prepare for AI", sub:"Map dependencies and confirm operational readiness", items:["Document all integration schedules with owner and cadence","Review and resolve or document recurring integration failures","Map upstream and downstream dependencies for critical integrations","Conduct integration health review with technical and business teams"] }
     }
   },
   "Technical Foundation": {
-    execSummary: "Your Workday technical foundation needs strengthening before AI-driven workflows can be introduced safely. Gaps in documentation, testing standards, and platform governance mean AI initiatives will be harder to control and more likely to create technical debt. The first priority is assessing team readiness on Orchestrate and Extend, establishing a repeatable testing standard, and beginning AI governance discussions with HR, IT, and security.",
+    execSummary: "Your Workday technical foundation needs strengthening before AI-driven workflows can be introduced safely. Gaps in documentation, testing standards, and platform governance mean AI initiatives will be harder to control and more likely to create technical debt. The first priority is assessing team readiness on Orchestrate and Extend, establishing a repeatable testing standard, and beginning AI governance discussions with HR, Finance, IT, and security.",
     why: "Technical debt and weak governance slow AI adoption and increase implementation risk. AI amplifies both good and poor platform hygiene -- teams without testing standards or documented architecture will find AI initiatives harder to control and scale.",
-    whereToStart: ["Assess team readiness on Orchestrate, Extend, and Workday APIs","Establish a testing standard for configuration and integration changes","Document current architecture decisions and technical debt","Begin AI governance discussions with HR, IT, and security","Define release testing criteria and regression coverage"],
-    quickWins: ["Survey team members on Orchestrate and Extend familiarity","Identify the single biggest area of undocumented technical debt","Schedule an AI governance kickoff with HR, IT, and security stakeholders","Document one architecture decision that is currently undocumented"],
+    whereToStart: ["Assess team readiness on Orchestrate, Extend, and Workday APIs","Establish a testing standard for configuration and integration changes","Document current architecture decisions and technical debt","Begin AI governance discussions with HR, Finance, IT, and security","Define release testing criteria and regression coverage"],
+    quickWins: ["Survey team members on Orchestrate and Extend familiarity","Identify the single biggest area of undocumented technical debt","Schedule an AI governance kickoff with HR, Finance, IT, and security stakeholders","Document one architecture decision that is currently undocumented"],
     roadmap: {
       p1: { name:"Phase 1: Build Governance", sub:"Assess team readiness and document the baseline", items:["Assess team knowledge of Orchestrate, Extend, and Workday APIs","Inventory known technical debt and prioritize by business impact","Document existing architecture decisions and open design gaps","Identify team members to lead AI governance discussions"] },
-      p2: { name:"Phase 2: Standardize", sub:"Establish testing standards and governance frameworks", items:["Establish testing standard for configuration and integration releases","Define release testing scope, regression coverage, and sign-off process","Draft AI governance framework including HR, IT, and security input","Create documentation templates for architecture decisions"] },
+      p2: { name:"Phase 2: Standardize", sub:"Establish testing standards and governance frameworks", items:["Establish testing standard for configuration and integration releases","Define release testing scope, regression coverage, and sign-off process","Draft AI governance framework including HR, Finance, IT, and security input","Create documentation templates for architecture decisions"] },
       p3: { name:"Phase 3: Validate & Prepare for AI", sub:"Run validation exercises and brief leadership", items:["Complete change management documentation review","Run tabletop release testing using the new standard","Brief leadership on technical readiness and AI governance progress","Define success criteria for a controlled Orchestrate pilot"] }
     }
   }
